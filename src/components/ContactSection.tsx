@@ -13,14 +13,14 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    title: "Telefone",
-    value: "+55 (11) 9999-9999",
+    title: "Telefone/WhatsApp",
+    value: "(31) 98265-5571",
     description: "Seg - Sex, 8h às 18h"
   },
   {
     icon: MapPin,
     title: "Endereço",
-    value: "São Paulo, SP",
+    value: "Belo Horizonte, MG",
     description: "Brasil"
   }
 ];

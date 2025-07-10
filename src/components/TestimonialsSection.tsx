@@ -4,24 +4,24 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     name: "Carlos Silva",
-    role: "CEO, TechCorp",
+    role: "CEO, Grupo VarejoMax",
     content: "A CODEXY transformou completamente nossa presença digital. O aplicativo que desenvolveram aumentou nossas vendas em 300% no primeiro trimestre.",
     rating: 5,
-    company: "TechCorp"
+    company: "Grupo VarejoMax"
   },
   {
     name: "Marina Santos",
-    role: "Diretora de TI, InnovateLab",
+    role: "Diretora de TI, AgroTech Brasil",
     content: "Profissionalismo excepcional e entrega dentro do prazo. A solução de automação implementada reduziu nossos custos operacionais significativamente.",
     rating: 5,
-    company: "InnovateLab"
+    company: "AgroTech Brasil"
   },
   {
     name: "Roberto Oliveira",
-    role: "Fundador, StartupXYZ",
+    role: "Fundador, SaúdeFácil",
     content: "Desde o primeiro contato até a entrega final, a CODEXY demonstrou expertise técnica e compreensão do nosso negócio. Recomendo fortemente!",
     rating: 5,
-    company: "StartupXYZ"
+    company: "SaúdeFácil"
   }
 ];
 
@@ -83,11 +83,11 @@ const TestimonialsSection = () => {
             <p className="text-tech-gray">Empresas que confiam na CODEXY</p>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">TechCorp</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">InnovateLab</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">StartupXYZ</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">DigitalFlow</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">CloudTech</div>
+            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">Grupo VarejoMax</div>
+            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">AgroTech Brasil</div>
+            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">SaúdeFácil</div>
+            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">Construtora Ideal</div>
+            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">EducaPro</div>
           </div>
         </div>
       </div>

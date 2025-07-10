@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Cpu, Zap, Sparkles, Play } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import logo from '/logo.png';
 
 const HeroSection = () => {
   return (
@@ -44,9 +45,8 @@ const HeroSection = () => {
                 <span className="text-tech-gray">Inovação em Tecnologia</span>
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="gradient-text">CODE</span>
-                <span className="text-primary">XY</span>
+              <h1 className="text-6xl lg:text-7xl font-bold leading-tight flex items-center gap-2">
+                <img src={logo} alt="Logo Codexy" className="h-16 lg:h-20 w-auto" />
               </h1>
               
               <p className="text-xl lg:text-2xl text-tech-gray font-light max-w-lg">
@@ -71,11 +71,11 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="slide-up grid grid-cols-3 gap-8 pt-8" style={{ animationDelay: '0.4s' }}>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">150+</div>
+                <div className="text-3xl font-bold text-primary">30+</div>
                 <div className="text-sm text-tech-gray">Projetos</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent">98%</div>
+                <div className="text-3xl font-bold text-accent">99%</div>
                 <div className="text-sm text-tech-gray">Satisfação</div>
               </div>
               <div className="text-center">

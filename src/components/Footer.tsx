@@ -1,4 +1,5 @@
 import { Code, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from "lucide-react";
+import logo from '/logo.png';
 
 const footerSections = [
   {
@@ -53,10 +54,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-primary-glow flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold">CODEXY</h3>
+              <img src={logo} alt="Logo Codexy" className="h-10 w-auto" />
             </div>
             
             <p className="text-white/80 leading-relaxed max-w-md">
@@ -72,11 +70,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent" />
-                <span className="text-white/80">+55 (11) 9999-9999</span>
+                <span className="text-white/80">(31) 98265-5571</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-accent" />
-                <span className="text-white/80">São Paulo, SP - Brasil</span>
+                <span className="text-white/80">Belo Horizonte, MG - Brasil</span>
               </div>
             </div>
             
@@ -125,13 +123,13 @@ const Footer = () => {
             </div>
             
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
+              <a href="/politica-privacidade" className="text-white/60 hover:text-accent transition-colors">
                 Política de Privacidade
               </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
+              <a href="/termos-uso" className="text-white/60 hover:text-accent transition-colors">
                 Termos de Uso
               </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
+              <a href="/cookies" className="text-white/60 hover:text-accent transition-colors">
                 Cookies
               </a>
             </div>

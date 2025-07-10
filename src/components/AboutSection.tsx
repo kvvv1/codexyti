@@ -3,10 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const stats = [
-  { icon: Users, number: "50+", label: "Especialistas" },
-  { icon: Award, number: "150+", label: "Projetos Entregues" },
-  { icon: Clock, number: "5+", label: "Anos de Experiência" },
-  { icon: Target, number: "98%", label: "Taxa de Sucesso" }
+  { icon: Users, number: "10+", label: "Especialistas" },
+  { icon: Award, number: "30+", label: "Projetos Entregues" },
+  { icon: Clock, number: "3+", label: "Anos de Experiência" },
+  { icon: Target, number: "99%", label: "Taxa de Sucesso" }
 ];
 
 const AboutSection = () => {

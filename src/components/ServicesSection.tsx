@@ -5,38 +5,61 @@ const services = [
   {
     icon: Code,
     title: "Desenvolvimento Web",
-    description: "Aplicações web modernas e responsivas utilizando as tecnologias mais avançadas do mercado.",
-    features: ["React & Next.js", "Node.js & API Rest", "Performance Otimizada"]
+    description: "Sites institucionais, one page, landing pages, lojas virtuais, blogs, portais e portfólios digitais.",
+    features: [
+      "Sites Institucionais, One Page, Landing Pages",
+      "Lojas Virtuais (e-commerce)",
+      "Blogs, Portais, Portfólios Digitais"
+    ]
   },
   {
     icon: Smartphone,
     title: "Apps Mobile",
-    description: "Aplicativos nativos e híbridos para iOS e Android com experiência excepcional.",
-    features: ["React Native", "Flutter", "UI/UX Intuitivo"]
-  },
-  {
-    icon: Globe,
-    title: "Soluções Cloud",
-    description: "Infraestrutura escalável na nuvem para suportar o crescimento do seu negócio.",
-    features: ["AWS & Azure", "DevOps", "Escalabilidade"]
-  },
-  {
-    icon: Database,
-    title: "Big Data & IA",
-    description: "Análise de dados inteligente e machine learning para insights estratégicos.",
-    features: ["Data Analytics", "Machine Learning", "Automação"]
-  },
-  {
-    icon: Shield,
-    title: "Cibersegurança",
-    description: "Proteção completa para seus sistemas e dados com as melhores práticas de segurança.",
-    features: ["Pentesting", "Compliance", "Monitoramento 24/7"]
+    description: "Aplicativos nativos e híbridos para iOS e Android, desenvolvidos sob medida para sua necessidade.",
+    features: [
+      "iOS & Android",
+      "Experiência Intuitiva",
+      "Desenvolvimento sob medida"
+    ]
   },
   {
     icon: Zap,
-    title: "Automação",
-    description: "Processos automatizados que aumentam eficiência e reduzem custos operacionais.",
-    features: ["RPA", "Workflows", "Integração de Sistemas"]
+    title: "Automação e Chatbots",
+    description: "Automatize processos e atenda clientes em múltiplos canais como WhatsApp, Instagram, e-mail e CRM.",
+    features: [
+      "WhatsApp, Instagram, E-mail",
+      "CRM e links inteligentes",
+      "Chatbots personalizados"
+    ]
+  },
+  {
+    icon: Database,
+    title: "Sistemas e Plataformas Personalizadas",
+    description: "Soluções sob medida como sistemas de agendamento, diário de obra, CRM, estoque, OS e plataformas para nichos específicos.",
+    features: [
+      "Sistemas de Agendamento, Diário de Obra, CRM, Estoque, OS",
+      "Soluções por nicho: EAD, Projetos Internos, Reservas"
+    ]
+  },
+  {
+    icon: Globe,
+    title: "Marketing Digital e Design",
+    description: "Impulsione sua marca com identidade visual, social media, tráfego pago e branding.",
+    features: [
+      "Identidade visual",
+      "Social media",
+      "Tráfego pago, branding"
+    ]
+  },
+  {
+    icon: Shield,
+    title: "Consultoria e Suporte",
+    description: "Apoio completo com diagnóstico, mentoria, suporte técnico, hospedagem e treinamentos.",
+    features: [
+      "Diagnóstico, mentoria",
+      "Suporte técnico, hospedagem",
+      "Treinamentos"
+    ]
   }
 ];
 
