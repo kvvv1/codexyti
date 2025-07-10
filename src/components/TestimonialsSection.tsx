@@ -3,25 +3,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Carlos Silva",
-    role: "CEO, Grupo VarejoMax",
+    name: "Cristhian Oliveira",
+    role: "Fundador, Coruja Cortes",
     content: "A CODEXY transformou completamente nossa presença digital. O aplicativo que desenvolveram aumentou nossas vendas em 300% no primeiro trimestre.",
     rating: 5,
-    company: "Grupo VarejoMax"
+    company: "Coruja Cortes"
   },
   {
-    name: "Marina Santos",
-    role: "Diretora de TI, AgroTech Brasil",
+    name: "Gabriela Nassif",
+    role: "Fundadora, Clinica Gabriela Nassif",
     content: "Profissionalismo excepcional e entrega dentro do prazo. A solução de automação implementada reduziu nossos custos operacionais significativamente.",
     rating: 5,
-    company: "AgroTech Brasil"
+    company: "Clinica Grabiela Nassif"
   },
   {
-    name: "Roberto Oliveira",
-    role: "Fundador, SaúdeFácil",
+    name: "Tiago Hauque",
+    role: "Fundador, Seu Expresso",
     content: "Desde o primeiro contato até a entrega final, a CODEXY demonstrou expertise técnica e compreensão do nosso negócio. Recomendo fortemente!",
     rating: 5,
-    company: "SaúdeFácil"
+    company: "Seu Expresso"
   }
 ];
 
@@ -75,20 +75,6 @@ const TestimonialsSection = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-16 slide-up" style={{ animationDelay: '0.4s' }}>
-          <div className="text-center mb-8">
-            <p className="text-tech-gray">Empresas que confiam na CODEXY</p>
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">Grupo VarejoMax</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">AgroTech Brasil</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">SaúdeFácil</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">Construtora Ideal</div>
-            <div className="px-6 py-3 bg-tech-gray-light rounded-lg font-bold text-tech-gray">EducaPro</div>
-          </div>
         </div>
       </div>
     </section>
