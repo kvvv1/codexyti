@@ -31,11 +31,11 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 slide-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Vamos conversar sobre seu <span className="gradient-text">projeto</span>
+            Vamos começar seu <span className="gradient-text">projeto</span>
           </h2>
           <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
-            Pronto para transformar sua ideia em realidade? Entre em contato 
-            conosco e descubra como podemos ajudar sua empresa a crescer.
+            Processo simples e transparente. Em apenas 3 passos, sua ideia 
+            se transforma em uma solução digital de sucesso.
           </p>
         </div>
 
@@ -87,100 +87,93 @@ const ContactSection = () => {
             </Card>
           </div>
 
-          {/* Contact Form */}
+          {/* Processo de Contato */}
           <div className="lg:col-span-3 slide-up" style={{ animationDelay: '0.2s' }}>
             <Card className="tech-card border-0">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6">Envie sua Mensagem</h3>
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6">Como Funciona Nosso Processo</h3>
                 
-                <form className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
-                        Nome *
-                      </label>
-                      <Input 
-                        placeholder="Seu nome completo"
-                        className="tech-card border-tech-gray-light"
-                      />
+                <div className="space-y-8">
+                  {/* Passo 1 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-bold text-sm">1</span>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
-                        Email *
-                      </label>
-                      <Input 
-                        type="email"
-                        placeholder="seu@email.com"
-                        className="tech-card border-tech-gray-light"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
-                        Empresa
-                      </label>
-                      <Input 
-                        placeholder="Nome da empresa"
-                        className="tech-card border-tech-gray-light"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
-                        Telefone
-                      </label>
-                      <Input 
-                        placeholder="(11) 99999-9999"
-                        className="tech-card border-tech-gray-light"
-                      />
+                      <h4 className="font-semibold text-primary mb-2">Envie uma Mensagem</h4>
+                      <p className="text-sm sm:text-base text-tech-gray mb-4">
+                        Clique no botão abaixo e envie uma mensagem inicial pelo WhatsApp. 
+                        Inclua informações básicas sobre seu projeto.
+                      </p>
+                      <div className="bg-accent/10 p-4 rounded-lg">
+                        <p className="text-sm text-accent font-medium mb-2">📝 Sua mensagem deve incluir:</p>
+                        <ul className="text-xs sm:text-sm text-tech-gray space-y-1">
+                          <li>• Nome da empresa/projeto</li>
+                          <li>• Tipo de solução desejada (site, app, sistema)</li>
+                          <li>• Breve descrição do objetivo</li>
+                          <li>• Prazo estimado (se houver)</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-primary mb-2">
-                      Tipo de Projeto
-                    </label>
-                    <select className="w-full px-3 py-2 tech-card border border-tech-gray-light rounded-md text-tech-gray focus:ring-2 focus:ring-accent focus:border-transparent">
-                      <option>Desenvolvimento Web</option>
-                      <option>Aplicativo Mobile</option>
-                      <option>Soluções Cloud</option>
-                      <option>Big Data & IA</option>
-                      <option>Cibersegurança</option>
-                      <option>Automação</option>
-                      <option>Consultoria</option>
-                    </select>
+                  {/* Passo 2 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-bold text-sm">2</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-primary mb-2">Análise e Proposta</h4>
+                      <p className="text-sm sm:text-base text-tech-gray mb-4">
+                        Nossa equipe analisará sua necessidade e preparará uma proposta 
+                        personalizada com cronograma e investimento.
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-primary mb-2">
-                      Mensagem *
-                    </label>
-                    <Textarea 
-                      placeholder="Descreva seu projeto e como podemos ajudá-lo..."
-                      rows={6}
-                      className="tech-card border-tech-gray-light"
-                    />
+                  {/* Passo 3 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white font-bold text-sm">3</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-primary mb-2">Início das Conversas</h4>
+                      <p className="text-sm sm:text-base text-tech-gray mb-4">
+                        Após aprovação, iniciamos o desenvolvimento com acompanhamento 
+                        constante e entregas em etapas.
+                      </p>
+                    </div>
                   </div>
 
-                  <Button 
-                    size="lg" 
-                    className="w-full px-6 sm:px-8 py-4 sm:py-6 tech-glow group"
-                    onClick={() => {
-                      const phoneNumber = "5531982655571";
-                      const message = "Olá! Gostaria de enviar uma mensagem através do formulário do site. Podem me atender?";
-                      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                      window.open(whatsappUrl, '_blank');
-                    }}
-                  >
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Enviar Mensagem
-                  </Button>
-                  
-                  <p className="text-xs text-tech-gray/70 text-center">
-                    Ao enviar este formulário, você concorda com nossa política de privacidade.
-                  </p>
-                </form>
+                  {/* Botão de Ação */}
+                  <div className="pt-4">
+                    <Button 
+                      size="lg" 
+                      className="w-full px-6 sm:px-8 py-4 sm:py-6 tech-glow group text-base sm:text-lg font-semibold"
+                      onClick={() => {
+                        const phoneNumber = "5531982655571";
+                        const message = `Olá! Gostaria de conversar sobre um projeto.
+
+📋 Informações do Projeto:
+• Empresa/Projeto: [Seu nome aqui]
+• Tipo de Solução: [Site/App/Sistema]
+• Objetivo: [Breve descrição]
+• Prazo: [Se houver]
+
+Podem me ajudar?`;
+                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappUrl, '_blank');
+                      }}
+                    >
+                      <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                      Enviar Mensagem no WhatsApp
+                    </Button>
+                    
+                    <p className="text-xs text-tech-gray/70 text-center mt-4">
+                      Resposta garantida em até 2 horas durante horário comercial
+                    </p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
