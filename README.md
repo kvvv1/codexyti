@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# CODEXY - Site Institucional
 
-## Project info
+## Sobre o Projeto
 
-**URL**: https://lovable.dev/projects/2560ba19-5616-44bb-8f39-b6fa65902678
+Site institucional da **CODEXY**, empresa de tecnologia especializada em desenvolvimento web, aplicativos mobile, automação e soluções digitais personalizadas.
 
-## How can I edit this code?
+**URL**: https://codexy.com.br
 
-There are several ways of editing your application.
+## Tecnologias Utilizadas
 
-**Use Lovable**
+Este projeto foi desenvolvido com:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2560ba19-5616-44bb-8f39-b6fa65902678) and start prompting.
+- **Vite** - Build tool e dev server
+- **TypeScript** - Linguagem de programação
+- **React** - Biblioteca JavaScript para interfaces
+- **shadcn/ui** - Componentes de UI
+- **Tailwind CSS** - Framework CSS utilitário
+- **Lucide React** - Ícones
 
-Changes made via Lovable will be committed automatically to this repo.
+## Como Executar o Projeto
 
-**Use your preferred IDE**
+### Pré-requisitos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Instalação e Execução
 
-Follow these steps:
+```bash
+# 1. Clone o repositório
+git clone <URL_DO_REPOSITORIO>
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 2. Navegue até o diretório do projeto
+cd codexyti-1
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 3. Instale as dependências
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Execute o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+O projeto estará disponível em `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Estrutura do Projeto
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/          # Componentes React
+│   ├── ui/             # Componentes de UI (shadcn/ui)
+│   ├── HeroSection.tsx # Seção principal
+│   ├── AboutSection.tsx # Sobre a empresa
+│   ├── ServicesSection.tsx # Serviços oferecidos
+│   ├── ProjectsSection.tsx # Portfólio de projetos
+│   ├── ContactSection.tsx # Formulário de contato
+│   └── Footer.tsx      # Rodapé
+├── pages/              # Páginas da aplicação
+├── assets/             # Imagens e recursos
+└── lib/                # Utilitários
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Funcionalidades
 
-## What technologies are used for this project?
+- **Design Responsivo** - Adaptável a todos os dispositivos
+- **Animações Suaves** - Transições e efeitos visuais
+- **Integração WhatsApp** - Botões de contato direto
+- **Portfólio Interativo** - Visualização dos projetos
+- **Formulário de Contato** - Comunicação direta com a empresa
 
-This project is built with:
+## Serviços Destacados
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Desenvolvimento Web
+- Aplicativos Mobile
+- Automação e Chatbots
+- Sistemas Personalizados
+- Marketing Digital
 
-## How can I deploy this project?
+## Contato
 
-Simply open [Lovable](https://lovable.dev/projects/2560ba19-5616-44bb-8f39-b6fa65902678) and click on Share -> Publish.
+- **WhatsApp**: (31) 98265-5571
+- **Email**: contato@codexy.com.br
+- **Localização**: Belo Horizonte, MG
 
-## Can I connect a custom domain to my Lovable project?
+## Deploy
 
-Yes, you can!
+Para fazer o deploy do projeto:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+# Build para produção
+npm run build
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Preview da build
+npm run preview
+```
+
+## Licença
+
+Este projeto é propriedade da CODEXY.

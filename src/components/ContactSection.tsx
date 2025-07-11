@@ -27,19 +27,19 @@ const contactInfo = [
 
 const ContactSection = () => {
   return (
-    <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <section className="py-16 sm:py-24 bg-secondary/50">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 slide-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             Vamos conversar sobre seu <span className="gradient-text">projeto</span>
           </h2>
-          <p className="text-xl text-tech-gray max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
             Pronto para transformar sua ideia em realidade? Entre em contato 
             conosco e descubra como podemos ajudar sua empresa a crescer.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-8 slide-up">
             <div>
@@ -94,7 +94,7 @@ const ContactSection = () => {
                 <h3 className="text-2xl font-bold text-primary mb-6">Envie sua Mensagem</h3>
                 
                 <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-primary mb-2">
                         Nome *
@@ -116,7 +116,7 @@ const ContactSection = () => {
                     </div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-primary mb-2">
                         Empresa
@@ -163,8 +163,17 @@ const ContactSection = () => {
                     />
                   </div>
 
-                  <Button size="lg" className="w-full px-8 py-6 tech-glow group">
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                  <Button 
+                    size="lg" 
+                    className="w-full px-6 sm:px-8 py-4 sm:py-6 tech-glow group"
+                    onClick={() => {
+                      const phoneNumber = "5531982655571";
+                      const message = "Olá! Gostaria de enviar uma mensagem através do formulário do site. Podem me atender?";
+                      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                  >
+                    <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                     Enviar Mensagem
                   </Button>
                   

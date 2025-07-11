@@ -48,8 +48,8 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white">
       {/* Main Footer */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-5 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-6">
@@ -95,14 +95,14 @@ const Footer = () => {
 
           {/* Footer Links */}
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-semibold mb-6 text-lg">{section.title}</h4>
-              <ul className="space-y-3">
+            <div key={section.title} className="hidden sm:block">
+              <h4 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">{section.title}</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {section.links.map((link) => (
                   <li key={link}>
                     <a 
                       href="#" 
-                      className="text-white/70 hover:text-accent transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      className="text-white/70 hover:text-accent transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base"
                     >
                       {link}
                     </a>
@@ -115,25 +115,25 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-white/60 text-sm">
-              © 2024 CODEXY. Todos os direitos reservados.
-            </div>
-            
-            <div className="flex gap-6 text-sm">
-              <a href="/politica-privacidade" className="text-white/60 hover:text-accent transition-colors">
-                Política de Privacidade
-              </a>
-              <a href="/termos-uso" className="text-white/60 hover:text-accent transition-colors">
-                Termos de Uso
-              </a>
-              <a href="/cookies" className="text-white/60 hover:text-accent transition-colors">
-                Cookies
-              </a>
-            </div>
+              <div className="border-t border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="text-white/60 text-xs sm:text-sm text-center sm:text-left">
+            © 2024 CODEXY. Todos os direitos reservados.
           </div>
+          
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
+            <a href="/politica-privacidade" className="text-white/60 hover:text-accent transition-colors">
+              Política de Privacidade
+            </a>
+            <a href="/termos-uso" className="text-white/60 hover:text-accent transition-colors">
+              Termos de Uso
+            </a>
+            <a href="/cookies" className="text-white/60 hover:text-accent transition-colors">
+              Cookies
+            </a>
+          </div>
+        </div>
         </div>
       </div>
     </footer>

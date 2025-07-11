@@ -65,34 +65,34 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <section className="py-16 sm:py-24 bg-secondary/50">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 slide-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             Nossas <span className="gradient-text">Soluções</span>
           </h2>
-          <p className="text-xl text-tech-gray max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
             Oferecemos um conjunto completo de serviços tecnológicos para transformar 
             sua visão em realidade digital.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <Card 
               key={service.title}
               className="group tech-card border-0 hover:tech-glow transition-all duration-500 slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-tech-gray leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-tech-gray leading-relaxed mb-6">
                     {service.description}
                   </p>
                 </div>
@@ -100,8 +100,8 @@ const ServicesSection = () => {
                 <div className="space-y-2">
                   {service.features.map((feature) => (
                     <div key={feature} className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent" />
-                      <span className="text-sm text-tech-gray font-medium">{feature}</span>
+                      <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-tech-gray font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>

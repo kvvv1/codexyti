@@ -118,6 +118,19 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Melhorias de responsividade */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Ajustes para telas muito pequenas */
+  @media (max-width: 480px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 }
 
 @layer components {

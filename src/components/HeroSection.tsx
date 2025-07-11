@@ -18,10 +18,10 @@ const HeroSection = () => {
 
       {/* Floating Elements */}
       <div className="absolute inset-0 z-10">
-        <div className="floating-animation absolute top-20 left-10 w-16 h-16 bg-accent/20 rounded-full blur-xl" />
-        <div className="floating-animation absolute top-40 right-20 w-20 h-20 bg-primary/20 rounded-full blur-xl" style={{ animationDelay: '2s' }} />
-        <div className="floating-animation absolute bottom-40 left-20 w-12 h-12 bg-accent/30 rounded-full blur-lg" style={{ animationDelay: '4s' }} />
-        <div className="floating-animation absolute top-60 right-40 w-24 h-24 bg-primary/15 rounded-full blur-2xl" style={{ animationDelay: '1s' }} />
+        <div className="floating-animation absolute top-20 left-10 w-8 h-8 md:w-16 md:h-16 bg-accent/20 rounded-full blur-xl" />
+        <div className="floating-animation absolute top-40 right-20 w-10 h-10 md:w-20 md:h-20 bg-primary/20 rounded-full blur-xl" style={{ animationDelay: '2s' }} />
+        <div className="floating-animation absolute bottom-40 left-20 w-6 h-6 md:w-12 md:h-12 bg-accent/30 rounded-full blur-lg" style={{ animationDelay: '4s' }} />
+        <div className="floating-animation absolute top-60 right-40 w-12 h-12 md:w-24 md:h-24 bg-primary/15 rounded-full blur-2xl" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Tech Grid Pattern */}
@@ -34,8 +34,8 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-20 container mx-auto px-6 h-screen flex items-center">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 h-screen flex items-center">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Left Content */}
           <div className="space-y-8">
@@ -45,11 +45,11 @@ const HeroSection = () => {
                 <span className="text-tech-gray">Inovação em Tecnologia</span>
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight flex items-center gap-2">
-                <img src={logo} alt="Logo Codexy" className="h-16 lg:h-20 w-auto" />
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight flex items-center gap-2">
+                <img src={logo} alt="Logo Codexy" className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto" />
               </h1>
               
-              <p className="text-xl lg:text-2xl text-tech-gray font-light max-w-lg">
+              <p className="text-lg sm:text-xl lg:text-2xl text-tech-gray font-light max-w-lg">
                 Transformamos ideias em 
                 <span className="text-accent font-semibold"> soluções digitais</span> que 
                 impulsionam o futuro da sua empresa.
@@ -57,30 +57,49 @@ const HeroSection = () => {
             </div>
 
             <div className="slide-up flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.2s' }}>
-              <Button size="lg" className="group px-8 py-6 text-lg font-semibold tech-glow">
+              <Button 
+                size="lg" 
+                className="group px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-glow"
+                onClick={() => {
+                  const phoneNumber = "5531982655571";
+                  const message = "Olá! Gostaria de conversar sobre um projeto. Podem me ajudar?";
+                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
+              >
                 Começar Projeto
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               
-              <Button variant="outline" size="lg" className="px-8 py-6 text-lg font-semibold tech-card border-primary/20 hover:border-accent">
-                <Play className="mr-2 h-5 w-5" />
-                Ver Portfolio
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-card border-primary/20 hover:border-accent"
+                onClick={() => {
+                  const projectsSection = document.querySelector('[data-section="projects"]');
+                  if (projectsSection) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Ver Site Coruja Cortes
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="slide-up grid grid-cols-3 gap-8 pt-8" style={{ animationDelay: '0.4s' }}>
+            <div className="slide-up grid grid-cols-3 gap-4 sm:gap-8 pt-8" style={{ animationDelay: '0.4s' }}>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">30+</div>
-                <div className="text-sm text-tech-gray">Projetos</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary">30+</div>
+                <div className="text-xs sm:text-sm text-tech-gray">Projetos</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent">99%</div>
-                <div className="text-sm text-tech-gray">Satisfação</div>
+                <div className="text-2xl sm:text-3xl font-bold text-accent">99%</div>
+                <div className="text-xs sm:text-sm text-tech-gray">Satisfação</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-tech-gray">Suporte</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary">24/7</div>
+                <div className="text-xs sm:text-sm text-tech-gray">Suporte</div>
               </div>
             </div>
           </div>

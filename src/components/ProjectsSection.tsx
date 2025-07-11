@@ -84,19 +84,19 @@ const ProjectsSection = () => {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+    <section className="py-16 sm:py-24 bg-secondary/50" data-section="projects">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 slide-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             Nossos <span className="gradient-text">Projetos</span>
           </h2>
-          <p className="text-xl text-tech-gray max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
             Conheça alguns dos projetos que desenvolvemos e como transformamos 
             ideias em soluções digitais de sucesso.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
           {visibleProjects.map((project, index) => {
             const realIndex = showAll ? index : index;
             return (
@@ -115,11 +115,11 @@ const ProjectsSection = () => {
                       {project.category}
                     </span>
                   </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-tech-gray mb-4 leading-relaxed">
+                    <p className="text-sm sm:text-base text-tech-gray mb-4 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex gap-3">
@@ -149,7 +149,7 @@ const ProjectsSection = () => {
         </div>
 
         <div className="text-center slide-up" style={{ animationDelay: '0.4s' }}>
-          <Button size="lg" variant="outline" className="px-8 py-6 tech-card border-primary/20 hover:border-accent" onClick={() => setShowAll((v) => !v)}>
+          <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 sm:py-6 tech-card border-primary/20 hover:border-accent" onClick={() => setShowAll((v) => !v)}>
             {showAll ? 'Ver Menos' : 'Ver Todos os Projetos'}
           </Button>
         </div>
