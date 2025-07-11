@@ -61,10 +61,10 @@ const HeroSection = () => {
                 size="lg" 
                 className="group px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-glow"
                 onClick={() => {
-                  const phoneNumber = "5531982655571";
-                  const message = "Olá! Gostaria de conversar sobre um projeto. Podem me ajudar?";
-                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                  window.open(whatsappUrl, '_blank');
+                  const contactSection = document.querySelector('[data-section="contact"]');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
               >
                 Começar Projeto
