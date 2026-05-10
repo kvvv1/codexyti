@@ -1,158 +1,319 @@
-import { ExternalLink } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Bot,
+  BriefcaseBusiness,
+  Building2,
+  CalendarDays,
+  CakeSlice,
+  Coffee,
+  ExternalLink,
+  HeartPulse,
+  Monitor,
+  Scissors,
+  Sparkles,
+  Watch
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 import { useState } from "react";
 
-const projects = [
+type Project = {
+  title: string;
+  coverTitle: string;
+  description: string;
+  url: string;
+  category: string;
+  eyebrow: string;
+  cta: string;
+  benefit: string;
+  Icon: LucideIcon;
+  coverClass: string;
+  accentClass: string;
+};
+
+const projects: Project[] = [
   {
     title: "Dra. Gabriela Nassif - Otorrinolaringologia Pediátrica",
-    description: "Site institucional da Dra. Gabriela Nassif, especializada em otorrinolaringologia pediátrica.",
+    coverTitle: "Dra. Gabriela",
+    description: "Site institucional para autoridade médica, apresentação de serviços e captação de pacientes.",
     url: "https://dragabrielanassif.netlify.app/",
     category: "Site Institucional",
-    image: "/dragabrielanassif-netlify-app-1024x768desktop-01e620.jpg"
+    eyebrow: "Saúde",
+    cta: "Presença Digital",
+    benefit: "Autoridade, confiança e agenda em uma experiência clara",
+    Icon: HeartPulse,
+    coverClass: "from-rose-950 via-slate-950 to-cyan-950",
+    accentClass: "bg-rose-500 text-white"
   },
   {
     title: "Coruja Cortes - Barbearia e Escola de Barbeiros",
-    description: "Barbearia e escola de barbeiros com unidades em Sabará e Pompéu-MG, oferecendo serviços de corte e formação profissional.",
+    coverTitle: "Coruja Cortes",
+    description: "Landing page para barbearia e escola, com unidades, serviços e foco em conversão.",
     url: "https://coruja-cortes.netlify.app/",
     category: "Serviço Local",
-    image: "/coruja-cortes.png"
+    eyebrow: "Barbearia",
+    cta: "Agenda e Cursos",
+    benefit: "Serviços, unidades e formação profissional no mesmo fluxo",
+    Icon: Scissors,
+    coverClass: "from-zinc-950 via-slate-900 to-amber-950",
+    accentClass: "bg-amber-500 text-slate-950"
   },
   {
-    title: "Cê qui sabe - Restaurante Tradicional Mineiro",
-    description: "Restaurante em Sabará que serve pratos típicos da culinária mineira em um ambiente acolhedor.",
-    url: "https://cequisabe.netlify.app/",
-    category: "Restaurante",
-    image: "/cequisabe-netlify-app-1024x768desktop-74e796.jpg"
+    title: "Imperial Flow Gold - Sabor Imperial Meat Market",
+    coverTitle: "Imperial Flow",
+    description: "Sistema administrativo e loja premium para açougue com pedidos, estoque, vendas e financeiro.",
+    url: "https://imperial-meat.netlify.app/",
+    category: "Sistema de Gestão",
+    eyebrow: "Açougue",
+    cta: "Gestão Premium",
+    benefit: "Pedidos, estoque e financeiro com visual de marca forte",
+    Icon: BriefcaseBusiness,
+    coverClass: "from-amber-950 via-stone-950 to-yellow-900",
+    accentClass: "bg-yellow-500 text-slate-950"
   },
   {
     title: "Seu Expresso - Aluguel de Máquinas de Café para Eventos",
-    description: "Serviço de locação de máquinas de café expresso para eventos, oferecendo praticidade e qualidade.",
+    coverTitle: "Seu Expresso",
+    description: "Site para locação de máquinas de café expresso em eventos, com oferta direta e WhatsApp.",
     url: "https://seuexpresso.netlify.app/",
     category: "Serviço para Eventos",
-    image: "/seuexpresso-netlify-app-1024x768desktop-43fce6.jpg"
+    eyebrow: "Eventos",
+    cta: "Café em Eventos",
+    benefit: "Oferta rápida para orçamentos e contratação pelo WhatsApp",
+    Icon: Coffee,
+    coverClass: "from-neutral-950 via-orange-950 to-stone-900",
+    accentClass: "bg-orange-500 text-white"
   },
   {
     title: "Bruno Luz - Relojoeiro Artesanal",
-    description: "Relojoeiro em Belo Horizonte especializado na restauração e manutenção de relógios artesanais.",
+    coverTitle: "Luz Relojoeiro",
+    description: "Site institucional para relojoeiro artesanal, com foco em restauração, manutenção e contato.",
     url: "https://luzrelojoeiro.netlify.app/",
     category: "Serviço Local",
-    image: "/luzrelojoeiro-netlify-app-1024x768desktop-695f4d.jpg"
+    eyebrow: "Relojoaria",
+    cta: "Ateliê Artesanal",
+    benefit: "Serviço especializado apresentado com sofisticação e clareza",
+    Icon: Watch,
+    coverClass: "from-slate-950 via-blue-950 to-stone-900",
+    accentClass: "bg-blue-400 text-slate-950"
   },
   {
     title: "ObraFácil - Sua obra organizada, seu cliente satisfeito",
-    description: "Plataforma que auxilia na organização de obras, proporcionando satisfação ao cliente final.",
+    coverTitle: "ObraFácil",
+    description: "Plataforma para organização de obras, acompanhamento de etapas e comunicação com clientes.",
     url: "https://obra-facil.netlify.app/",
     category: "Plataforma",
-    image: "/obra-facil-netlify-app-1024x768desktop-6135f2.jpg"
+    eyebrow: "Construção",
+    cta: "Diário de Obra",
+    benefit: "Checklist, ocorrências e progresso por etapa em uma visão simples",
+    Icon: Building2,
+    coverClass: "from-emerald-950 via-slate-950 to-lime-950",
+    accentClass: "bg-emerald-500 text-white"
   },
   {
     title: "Doces do Bairro - Confeitaria Artesanal",
-    description: "Confeitaria localizada no bairro Sagrada Família, em Belo Horizonte, especializada em doces artesanais.",
+    coverTitle: "Doces do Bairro",
+    description: "Catálogo digital para confeitaria artesanal com produtos, posicionamento local e contato direto.",
     url: "https://docesdebairro.netlify.app/",
     category: "Confeitaria",
-    image: "/docesdebairro-netlify-app-1024x768desktop-0a0bfe.jpg"
+    eyebrow: "Gastronomia",
+    cta: "Catálogo Online",
+    benefit: "Produtos organizados para despertar desejo e gerar pedidos",
+    Icon: CakeSlice,
+    coverClass: "from-pink-950 via-slate-950 to-fuchsia-950",
+    accentClass: "bg-pink-500 text-white"
   },
   {
     title: "Bella Estética Digital - Consultoria Digital para Clínicas de Estética",
-    description: "Consultoria especializada em marketing digital para clínicas de estética, ajudando a expandir a presença online.",
+    coverTitle: "Bella Estética",
+    description: "Landing page para consultoria digital voltada a clínicas de estética e geração de leads.",
     url: "https://markt-bellaestetica.netlify.app/",
     category: "Consultoria",
-    image: "/markt-bellaestetica-netlify-app-1024x768desktop-31d1c9.jpg"
+    eyebrow: "Estética",
+    cta: "Marketing e Leads",
+    benefit: "Oferta consultiva para clínicas que precisam vender melhor",
+    Icon: Sparkles,
+    coverClass: "from-violet-950 via-slate-950 to-cyan-950",
+    accentClass: "bg-violet-500 text-white"
   },
   {
     title: "AtendeBot - Chatbot WhatsApp",
-    description: "Solução de chatbot para WhatsApp, facilitando o atendimento automatizado de empresas.",
+    coverTitle: "AtendeBot",
+    description: "Solução de chatbot para WhatsApp, facilitando atendimento automatizado e respostas rápidas.",
     url: "https://atendebot.netlify.app/",
     category: "Tecnologia",
-    image: "/atendebot-netlify-app-1024x768desktop-e8309f.jpg"
+    eyebrow: "Automação",
+    cta: "Chatbot WhatsApp",
+    benefit: "Atendimento automatizado para capturar e qualificar conversas",
+    Icon: Bot,
+    coverClass: "from-cyan-950 via-slate-950 to-blue-950",
+    accentClass: "bg-cyan-400 text-slate-950"
   },
   {
     title: "Consultório Vida Leve - Psicologia e Saúde Mental",
-    description: "Clínica em São Paulo dedicada à psicologia e saúde mental, oferecendo atendimento terapêutico personalizado.",
+    coverTitle: "Vida Leve",
+    description: "Site para clínica de psicologia e saúde mental, com apresentação acolhedora e agendamento.",
     url: "https://clinicasuamente.netlify.app/",
     category: "Clínica",
-    image: "/clinicasuamente-netlify-app-1024x768desktop-68f94e.jpg"
+    eyebrow: "Psicologia",
+    cta: "Agendamento",
+    benefit: "Experiência acolhedora para transformar interesse em contato",
+    Icon: CalendarDays,
+    coverClass: "from-teal-950 via-slate-950 to-sky-950",
+    accentClass: "bg-teal-400 text-slate-950"
   }
 ];
 
-const ProjectsSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [showAll, setShowAll] = useState(false);
-
-  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+const ProjectCover = ({ project }: { project: Project }) => {
+  const Icon = project.Icon;
 
   return (
-    <section className="py-16 sm:py-24 bg-secondary/50" data-section="projects">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16 slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Nossos <span className="gradient-text">Projetos</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
-            Conheça alguns dos projetos que desenvolvemos e como transformamos 
-            ideias em soluções digitais de sucesso.
-          </p>
+    <div className={`relative flex h-[360px] flex-col overflow-hidden rounded-lg bg-gradient-to-br ${project.coverClass} p-4 text-white shadow-2xl shadow-black/30 ring-1 ring-white/10`}>
+      <div className="absolute inset-0 opacity-[0.08]" style={{
+        backgroundImage:
+          "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)",
+        backgroundSize: "18px 18px"
+      }} />
+      <div className="absolute -right-12 top-16 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
+      <div className="absolute -bottom-16 left-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+
+      <div className="relative z-10 flex items-start justify-between gap-3">
+        <div className={`inline-flex max-w-[150px] items-center rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-normal ${project.accentClass}`}>
+          <span className="truncate">{project.eyebrow}</span>
+        </div>
+        <div className="rounded-full bg-red-500 px-3 py-1 text-xs font-extrabold uppercase text-white shadow-lg shadow-red-950/30">
+          Site
+        </div>
+      </div>
+
+      <div className="relative z-10 mt-4">
+        <p className="text-xs font-extrabold uppercase tracking-normal text-white/65">
+          {project.category}
+        </p>
+        <h3 className="mt-2 min-h-[64px] text-3xl font-black uppercase leading-[0.92] tracking-normal text-white">
+          {project.coverTitle}
+        </h3>
+        <p className="mt-3 line-clamp-2 text-sm font-semibold leading-tight text-white/80">
+          {project.benefit}
+        </p>
+      </div>
+
+      <div className="relative z-10 mt-auto pb-8">
+        <div className="mx-auto flex h-[134px] w-[82%] items-center justify-center rounded-2xl border border-white/25 bg-white/25 p-4 shadow-inner shadow-white/10 backdrop-blur-md">
+          <div className="relative h-full w-full rounded-xl bg-slate-950/80 p-3 shadow-xl shadow-black/30">
+            <div className="mb-3 flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-red-400" />
+              <span className="h-2 w-2 rounded-full bg-yellow-300" />
+              <span className="h-2 w-2 rounded-full bg-emerald-300" />
+            </div>
+            <div className="grid h-[76px] grid-cols-[1fr_1.15fr] gap-3">
+              <div className={`flex items-center justify-center rounded-lg ${project.accentClass}`}>
+                <Icon className="h-10 w-10" />
+              </div>
+              <div className="space-y-2 pt-1">
+                <div className="h-3 rounded-full bg-white/70" />
+                <div className="h-2 rounded-full bg-white/35" />
+                <div className="h-2 w-2/3 rounded-full bg-white/25" />
+                <div className={`mt-3 h-5 w-20 rounded-full ${project.accentClass}`} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`absolute inset-x-4 bottom-3 z-10 flex h-9 items-center justify-center rounded-full px-4 text-center text-xs font-black uppercase tracking-normal ${project.accentClass}`}>
+        <span className="truncate">{project.cta}</span>
+      </div>
+    </div>
+  );
+};
+
+const ProjectsSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-secondary/50 via-background to-secondary/50 py-16 sm:py-24" data-section="projects">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+      <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_20%_0%,rgba(37,99,235,0.08),transparent_34%),radial-gradient(circle_at_80%_35%,rgba(20,184,166,0.07),transparent_28%)]" />
+      <div className="container relative mx-auto px-4 sm:px-6">
+        <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="slide-up">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent ring-1 ring-accent/20">
+                <Monitor className="h-6 w-6" />
+              </div>
+              <div>
+                <div className="flex items-center gap-3">
+                  <h2 className="text-3xl font-black tracking-normal text-primary sm:text-4xl md:text-5xl">
+                    Portfolio
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Button
+            variant="ghost"
+            className="w-fit text-primary hover:bg-accent/10 hover:text-accent"
+            onClick={() => setOpenIndex(0)}
+          >
+            Ver primeiro projeto
+            <ExternalLink className="ml-2 h-4 w-4" />
+          </Button>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
-          {visibleProjects.map((project, index) => {
-            const realIndex = showAll ? index : index;
-            return (
-              <Dialog key={project.title} open={openIndex === realIndex} onOpenChange={(open) => setOpenIndex(open ? realIndex : null)}>
-                <Card 
-                  className="group tech-card border-0 overflow-hidden hover:tech-glow transition-all duration-500 slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full absolute top-4 left-4 z-10">
-                      {project.category}
-                    </span>
-                  </div>
-                  <CardContent className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-tech-gray mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="flex gap-3">
-                      <DialogTrigger asChild>
-                        <Button variant="outline" size="sm" className="flex-1">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Ver Projeto
-                        </Button>
-                      </DialogTrigger>
+        <Carousel opts={{ align: "start", loop: true }} className="mx-auto max-w-[1700px]">
+          <CarouselContent className="-ml-5">
+            {projects.map((project, index) => (
+              <CarouselItem key={project.title} className="pl-5 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4">
+                <Dialog open={openIndex === index} onOpenChange={(open) => setOpenIndex(open ? index : null)}>
+                  <DialogTrigger asChild>
+                    <button className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                      <ProjectCover project={project} />
+                      <div className="mt-4 min-h-[58px]">
+                        <p className="line-clamp-2 text-lg font-bold leading-tight text-primary transition-colors group-hover:text-accent">
+                          {project.title}
+                        </p>
+                        <p className="mt-1 text-sm font-medium text-tech-gray">{project.category}</p>
+                      </div>
+                    </button>
+                  </DialogTrigger>
+
+                  <DialogContent className="max-w-7xl overflow-hidden rounded-xl border-white/10 bg-white p-0 shadow-2xl shadow-blue-950/50">
+                    <div className="flex flex-col gap-4 border-b border-slate-200 bg-slate-950 px-6 py-4 text-white sm:flex-row sm:items-center sm:justify-between">
+                      <div className="pr-24">
+                        <h3 className="text-xl font-bold leading-tight">{project.title}</h3>
+                        <p className="mt-1 text-sm text-slate-300">{project.description}</p>
+                      </div>
+                      <Button asChild size="sm" className="w-fit shrink-0">
+                        <a href={project.url} target="_blank" rel="noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Abrir Projeto
+                        </a>
+                      </Button>
                     </div>
-                  </CardContent>
-                </Card>
-                <DialogContent className="max-w-7xl p-0 overflow-hidden rounded-xl shadow-2xl shadow-accent/30">
-                  <div className="w-full h-[85vh]">
                     <iframe
                       src={project.url}
                       title={project.title}
-                      className="w-full h-full border-0 rounded-xl"
-                      style={{ background: 'transparent' }}
+                      className="h-[78vh] w-full border-0 bg-white"
                       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                     />
-                  </div>
-                </DialogContent>
-              </Dialog>
-            );
-          })}
-        </div>
-
-        <div className="text-center slide-up" style={{ animationDelay: '0.4s' }}>
-          <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 sm:py-6 tech-card border-primary/20 hover:border-accent" onClick={() => setShowAll((v) => !v)}>
-            {showAll ? 'Ver Menos' : 'Ver Todos os Projetos'}
-          </Button>
-        </div>
+                  </DialogContent>
+                </Dialog>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="-left-3 h-11 w-11 border-primary/10 bg-white text-primary shadow-lg shadow-black/5 hover:bg-primary hover:text-white md:-left-14" />
+          <CarouselNext className="-right-3 h-11 w-11 border-primary/10 bg-white text-primary shadow-lg shadow-black/5 hover:bg-primary hover:text-white md:-right-14" />
+        </Carousel>
       </div>
     </section>
   );
