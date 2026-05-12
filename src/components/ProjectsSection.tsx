@@ -49,8 +49,8 @@ const projects: Project[] = [
     cta: "Presença Digital",
     benefit: "Autoridade, confiança e agenda em uma experiência clara",
     Icon: HeartPulse,
-    coverClass: "from-rose-950 via-slate-950 to-cyan-950",
-    accentClass: "bg-rose-500 text-white"
+    coverClass: "from-primary via-slate-950 to-blue-950",
+    accentClass: "bg-accent text-white"
   },
   {
     title: "Coruja Cortes - Barbearia e Escola de Barbeiros",
@@ -62,8 +62,8 @@ const projects: Project[] = [
     cta: "Agenda e Cursos",
     benefit: "Serviços, unidades e formação profissional no mesmo fluxo",
     Icon: Scissors,
-    coverClass: "from-zinc-950 via-slate-900 to-amber-950",
-    accentClass: "bg-amber-500 text-slate-950"
+    coverClass: "from-slate-950 via-blue-950 to-primary",
+    accentClass: "bg-blue-500 text-white"
   },
   {
     title: "Imperial Flow Gold - Sabor Imperial Meat Market",
@@ -75,8 +75,8 @@ const projects: Project[] = [
     cta: "Gestão Premium",
     benefit: "Pedidos, estoque e financeiro com visual de marca forte",
     Icon: BriefcaseBusiness,
-    coverClass: "from-amber-950 via-stone-950 to-yellow-900",
-    accentClass: "bg-yellow-500 text-slate-950"
+    coverClass: "from-blue-950 via-slate-950 to-cyan-950",
+    accentClass: "bg-cyan-400 text-slate-950"
   },
   {
     title: "Seu Expresso - Aluguel de Máquinas de Café para Eventos",
@@ -88,8 +88,8 @@ const projects: Project[] = [
     cta: "Café em Eventos",
     benefit: "Oferta rápida para orçamentos e contratação pelo WhatsApp",
     Icon: Coffee,
-    coverClass: "from-neutral-950 via-orange-950 to-stone-900",
-    accentClass: "bg-orange-500 text-white"
+    coverClass: "from-primary via-blue-950 to-sky-950",
+    accentClass: "bg-sky-400 text-slate-950"
   },
   {
     title: "Bruno Luz - Relojoeiro Artesanal",
@@ -101,7 +101,7 @@ const projects: Project[] = [
     cta: "Ateliê Artesanal",
     benefit: "Serviço especializado apresentado com sofisticação e clareza",
     Icon: Watch,
-    coverClass: "from-slate-950 via-blue-950 to-stone-900",
+    coverClass: "from-slate-950 via-primary to-blue-900",
     accentClass: "bg-blue-400 text-slate-950"
   },
   {
@@ -114,8 +114,8 @@ const projects: Project[] = [
     cta: "Diário de Obra",
     benefit: "Checklist, ocorrências e progresso por etapa em uma visão simples",
     Icon: Building2,
-    coverClass: "from-emerald-950 via-slate-950 to-lime-950",
-    accentClass: "bg-emerald-500 text-white"
+    coverClass: "from-blue-950 via-slate-950 to-indigo-950",
+    accentClass: "bg-indigo-400 text-slate-950"
   },
   {
     title: "Doces do Bairro - Confeitaria Artesanal",
@@ -127,8 +127,8 @@ const projects: Project[] = [
     cta: "Catálogo Online",
     benefit: "Produtos organizados para despertar desejo e gerar pedidos",
     Icon: CakeSlice,
-    coverClass: "from-pink-950 via-slate-950 to-fuchsia-950",
-    accentClass: "bg-pink-500 text-white"
+    coverClass: "from-primary via-slate-950 to-sky-950",
+    accentClass: "bg-sky-500 text-white"
   },
   {
     title: "Bella Estética Digital - Consultoria Digital para Clínicas de Estética",
@@ -140,8 +140,8 @@ const projects: Project[] = [
     cta: "Marketing e Leads",
     benefit: "Oferta consultiva para clínicas que precisam vender melhor",
     Icon: Sparkles,
-    coverClass: "from-violet-950 via-slate-950 to-cyan-950",
-    accentClass: "bg-violet-500 text-white"
+    coverClass: "from-indigo-950 via-slate-950 to-blue-950",
+    accentClass: "bg-blue-500 text-white"
   },
   {
     title: "AtendeBot - Chatbot WhatsApp",
@@ -175,20 +175,20 @@ const ProjectCover = ({ project }: { project: Project }) => {
   const Icon = project.Icon;
 
   return (
-    <div className={`relative flex h-[360px] flex-col overflow-hidden rounded-lg bg-gradient-to-br ${project.coverClass} p-4 text-white shadow-2xl shadow-black/30 ring-1 ring-white/10`}>
+    <div className={`relative flex h-[360px] flex-col overflow-hidden rounded-lg bg-gradient-to-br ${project.coverClass} p-4 text-white shadow-2xl shadow-blue-950/30 ring-1 ring-blue-200/15`}>
       <div className="absolute inset-0 opacity-[0.08]" style={{
         backgroundImage:
           "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)",
         backgroundSize: "18px 18px"
       }} />
-      <div className="absolute -right-12 top-16 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-      <div className="absolute -bottom-16 left-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute -right-12 top-16 h-40 w-40 rounded-full bg-accent/20 blur-2xl" />
+      <div className="absolute -bottom-16 left-10 h-44 w-44 rounded-full bg-sky-300/15 blur-3xl" />
 
       <div className="relative z-10 flex items-start justify-between gap-3">
         <div className={`inline-flex max-w-[150px] items-center rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-normal ${project.accentClass}`}>
           <span className="truncate">{project.eyebrow}</span>
         </div>
-        <div className="rounded-full bg-red-500 px-3 py-1 text-xs font-extrabold uppercase text-white shadow-lg shadow-red-950/30">
+        <div className="rounded-full bg-white/15 px-3 py-1 text-xs font-extrabold uppercase text-white shadow-lg shadow-blue-950/30 ring-1 ring-white/20 backdrop-blur">
           Site
         </div>
       </div>
@@ -206,8 +206,8 @@ const ProjectCover = ({ project }: { project: Project }) => {
       </div>
 
       <div className="relative z-10 mt-auto pb-8">
-        <div className="mx-auto flex h-[134px] w-[82%] items-center justify-center rounded-2xl border border-white/25 bg-white/25 p-4 shadow-inner shadow-white/10 backdrop-blur-md">
-          <div className="relative h-full w-full rounded-xl bg-slate-950/80 p-3 shadow-xl shadow-black/30">
+        <div className="mx-auto flex h-[134px] w-[82%] items-center justify-center rounded-2xl border border-blue-200/25 bg-blue-100/20 p-4 shadow-inner shadow-white/10 backdrop-blur-md">
+          <div className="relative h-full w-full rounded-xl bg-primary/85 p-3 shadow-xl shadow-blue-950/30">
             <div className="mb-3 flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-red-400" />
               <span className="h-2 w-2 rounded-full bg-yellow-300" />

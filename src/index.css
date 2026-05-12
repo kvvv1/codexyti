@@ -167,6 +167,24 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .team-grid-motion {
+    background-image:
+      linear-gradient(rgba(0, 85, 255, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 85, 255, 0.16) 1px, transparent 1px);
+    background-size: 56px 56px;
+    animation: teamGridMove 18s linear infinite;
+  }
+
+  .team-orbit-line {
+    animation: teamOrbitPulse 6s ease-in-out infinite;
+  }
+
+  .team-card-enter {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: teamCardEnter 0.7s ease-out forwards;
+  }
 }
 
 @layer utilities {
@@ -210,5 +228,36 @@ All colors MUST be HSL.
   
   .animate-rotate-slow {
     animation: rotate-slow 20s linear infinite;
+  }
+
+  @keyframes teamGridMove {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+    100% {
+      background-position: 56px 56px, 56px 56px;
+    }
+  }
+
+  @keyframes teamOrbitPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateX(-50%) scale(0.96);
+    }
+    50% {
+      opacity: 0.75;
+      transform: translateX(-50%) scale(1.04);
+    }
+  }
+
+  @keyframes teamCardEnter {
+    0% {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
