@@ -22,6 +22,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
