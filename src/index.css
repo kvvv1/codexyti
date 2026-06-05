@@ -224,7 +224,7 @@ All colors MUST be HSL.
     inset: 0;
     z-index: 0;
     background-image:
-      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background) / 0.82) 4%, transparent 15%),
+      linear-gradient(180deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.6) 18%, transparent 28%),
       linear-gradient(hsl(var(--accent) / 0.055) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--accent) / 0.045) 1px, transparent 1px),
       radial-gradient(circle at 50% 18%, hsl(var(--accent-glow) / 0.14), transparent 34%);
