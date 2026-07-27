@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefone/WhatsApp",
-    value: "(31) 98265-5571",
+    value: "(31) 99166-6106",
     description: "Seg - Sex, 8h às 18h"
   },
   {
@@ -151,7 +151,7 @@ const ContactSection = () => {
                       size="lg" 
                       className="w-full px-6 sm:px-8 py-4 sm:py-6 tech-glow group text-base sm:text-lg font-semibold"
                       onClick={() => {
-                        const phoneNumber = "5531982655571";
+                        const phoneNumber = "5531991666106";
                         const message = `Olá! Gostaria de conversar sobre um projeto.
 
 📋 Informações do Projeto:

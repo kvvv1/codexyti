@@ -21,11 +21,11 @@ const InformacoesNavbar = ({ onWhatsAppClick }: InformacoesNavbarProps) => (
       <div className="container mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-4">
           <a
-            href="tel:+5531982655571"
+            href="tel:+5531991666106"
             className="flex items-center gap-1.5 hover:text-accent transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
-            (31) 98265-5571
+            (31) 99166-6106
           </a>
           <a
             href={`https://wa.me/${WHATSAPP_PHONE}`}

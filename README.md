@@ -77,7 +77,7 @@ src/
 
 ## Contato
 
-- **WhatsApp**: (31) 98265-5571
+- **WhatsApp**: (31) 99166-6106
 - **Email**: contato@codexy.com.br
 - **Localização**: Belo Horizonte, MG
 
