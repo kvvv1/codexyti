@@ -24,6 +24,8 @@ export interface LandingPageData {
   niche: string;
   stateLabel: string;
   stateUf: string;
+  /** e.g. "na Bahia", "no Rio de Janeiro" — grammatically correct locative, precomputed. */
+  stateIn: string;
   eyebrow: string;
   headline: string;
   subheadline: string;
@@ -42,22 +44,101 @@ export interface LandingPageData {
   };
 }
 
-export const landingPages: LandingPageData[] = [
+interface StateInfo {
+  label: string;
+  uf: string;
+  slug: string;
+  /** Locative preposition ("em"/"no"/"na") — Portuguese state names don't all take the same one. */
+  preposition: string;
+  /** e.g. "na Bahia", "no Rio de Janeiro", "em Minas Gerais" — precomputed so templates don't repeat this. */
+  in: string;
+}
+
+const DIACRITICS_PATTERN = new RegExp(String.fromCharCode(0x5b, 0x5c, 0x75, 0x30, 0x33, 0x30, 0x30, 0x2d, 0x5c, 0x75, 0x30, 0x33, 0x36, 0x66, 0x5d), "g");
+
+function slugify(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(DIACRITICS_PATTERN, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// All 27 Brazilian states (26 + DF). Adding a state here automatically
+// generates a page for every niche below — no per-page work required.
+// `preposition` follows standard Brazilian Portuguese usage per state
+// ("na Bahia", "no Rio de Janeiro", "em Minas Gerais" — not all "em").
+const BRAZILIAN_STATES: StateInfo[] = (
+  [
+    { label: "Acre", uf: "AC", preposition: "no" },
+    { label: "Alagoas", uf: "AL", preposition: "em" },
+    { label: "Amapá", uf: "AP", preposition: "no" },
+    { label: "Amazonas", uf: "AM", preposition: "no" },
+    { label: "Bahia", uf: "BA", preposition: "na" },
+    { label: "Ceará", uf: "CE", preposition: "no" },
+    { label: "Distrito Federal", uf: "DF", preposition: "no" },
+    { label: "Espírito Santo", uf: "ES", preposition: "no" },
+    { label: "Goiás", uf: "GO", preposition: "em" },
+    { label: "Maranhão", uf: "MA", preposition: "no" },
+    { label: "Mato Grosso", uf: "MT", preposition: "no" },
+    { label: "Mato Grosso do Sul", uf: "MS", preposition: "no" },
+    { label: "Minas Gerais", uf: "MG", preposition: "em" },
+    { label: "Pará", uf: "PA", preposition: "no" },
+    { label: "Paraíba", uf: "PB", preposition: "na" },
+    { label: "Paraná", uf: "PR", preposition: "no" },
+    { label: "Pernambuco", uf: "PE", preposition: "em" },
+    { label: "Piauí", uf: "PI", preposition: "no" },
+    { label: "Rio de Janeiro", uf: "RJ", preposition: "no" },
+    { label: "Rio Grande do Norte", uf: "RN", preposition: "no" },
+    { label: "Rio Grande do Sul", uf: "RS", preposition: "no" },
+    { label: "Rondônia", uf: "RO", preposition: "em" },
+    { label: "Roraima", uf: "RR", preposition: "em" },
+    { label: "Santa Catarina", uf: "SC", preposition: "em" },
+    { label: "São Paulo", uf: "SP", preposition: "em" },
+    { label: "Sergipe", uf: "SE", preposition: "em" },
+    { label: "Tocantins", uf: "TO", preposition: "no" },
+  ] as const
+).map((state) => ({
+  ...state,
+  slug: slugify(state.label),
+  in: `${state.preposition} ${state.label}`,
+}));
+
+// One template per niche. Pain points / benefits / FAQ / hero image / partner
+// stay identical across all 27 states on purpose (see CLAUDE.md "Landing
+// pages" section) — only headline/intro/WhatsApp message/SEO copy is
+// regionalized with the state name. This is what keeps adding a new niche
+// (one template = 27 pages) or a new state (one entry = +N pages) cheap.
+interface NicheTemplate {
+  nicheSlug: string;
+  niche: string;
+  eyebrow: string;
+  heroImage: string;
+  heroImageAlt: string;
+  ogImage: string;
+  subheadline: string;
+  painPoints: FeatureItem[];
+  benefits: FeatureItem[];
+  faq: FaqItem[];
+  partner?: PartnerRecommendation;
+  headline: (state: StateInfo) => string;
+  introParagraph: (state: StateInfo) => string;
+  whatsappMessage: (state: StateInfo) => string;
+  seoTitle: (state: StateInfo) => string;
+  seoDescription: (state: StateInfo) => string;
+}
+
+const NICHE_TEMPLATES: NicheTemplate[] = [
   {
-    slug: "chatbot-para-padarias-minas-gerais",
-    service: "chatbot",
+    nicheSlug: "padarias",
     niche: "Padarias",
-    stateLabel: "Minas Gerais",
-    stateUf: "MG",
     eyebrow: "Chatbot para Padarias",
-    headline: "Chatbot para Padarias em Minas Gerais",
+    heroImage: "/images/landing/padarias-hero.webp",
+    heroImageAlt: "Atendente organizando encomendas em uma padaria com apoio de atendimento digital",
+    ogImage: "/images/og/padarias-og.jpg",
     subheadline:
       "Atenda pedidos e encomendas de bolo pelo WhatsApp 24h por dia, sem perder venda fora do horário de expediente.",
-    heroImage: "/images/landing/padarias-hero.webp",
-    heroImageAlt:
-      "Atendente organizando encomendas em uma padaria com apoio de atendimento digital",
-    introParagraph:
-      "A CODEXY é especializada em automação e chatbots para o comércio local e implanta o chatbot para padaria em Minas Gerais direto no WhatsApp que sua padaria já usa hoje. A solução responde cardápio, horário e formas de pagamento na hora, organiza encomendas de bolo e festa automaticamente e funciona 24 horas por dia, todos os dias da semana, sem depender de mão de obra extra na equipe.",
     painPoints: [
       {
         title: "Pedidos perdidos fora do horário",
@@ -134,30 +215,24 @@ export const landingPages: LandingPageData[] = [
           "Não. A CODEXY cuida de toda a configuração e entrega o chatbot pronto para uso.",
       },
     ],
-    whatsappMessage:
-      "Olá! Vi a página sobre chatbot para padaria em Minas Gerais e quero saber mais sobre como implantar na minha padaria.",
-    seo: {
-      title: "Chatbot para Padarias em Minas Gerais | CODEXY",
-      description:
-        "Automatize o atendimento e as encomendas da sua padaria em Minas Gerais com um chatbot no WhatsApp disponível 24h. Fale com a CODEXY.",
-      ogImage: "/images/og/padarias-og.jpg",
-    },
+    headline: (state) => `Chatbot para Padarias ${state.in}`,
+    introParagraph: (state) =>
+      `A CODEXY é especializada em automação e chatbots para o comércio local e implanta o chatbot para padaria ${state.in} direto no WhatsApp que sua padaria já usa hoje. A solução responde cardápio, horário e formas de pagamento na hora, organiza encomendas de bolo e festa automaticamente e funciona 24 horas por dia, todos os dias da semana, sem depender de mão de obra extra na equipe.`,
+    whatsappMessage: (state) =>
+      `Olá! Vi a página sobre chatbot para padaria ${state.in} e quero saber mais sobre como implantar na minha padaria.`,
+    seoTitle: (state) => `Chatbot para Padarias ${state.in} | CODEXY`,
+    seoDescription: (state) =>
+      `Automatize o atendimento e as encomendas da sua padaria ${state.in} com um chatbot no WhatsApp disponível 24h. Fale com a CODEXY.`,
   },
   {
-    slug: "chatbot-para-clinicas-de-estetica-minas-gerais",
-    service: "chatbot",
+    nicheSlug: "clinicas-de-estetica",
     niche: "Clínicas de Estética",
-    stateLabel: "Minas Gerais",
-    stateUf: "MG",
     eyebrow: "Chatbot para Clínicas de Estética",
-    headline: "Chatbot para Clínicas de Estética em Minas Gerais",
+    heroImage: "/images/landing/clinicas-estetica-hero.webp",
+    heroImageAlt: "Profissional de clínica de estética confirmando agendamentos em um tablet",
+    ogImage: "/images/og/clinicas-estetica-og.jpg",
     subheadline:
       "Agende consultas e procedimentos automaticamente pelo WhatsApp e reduza o no-show da sua clínica.",
-    heroImage: "/images/landing/clinicas-estetica-hero.webp",
-    heroImageAlt:
-      "Profissional de clínica de estética confirmando agendamentos em um tablet",
-    introParagraph:
-      "A CODEXY implanta chatbot para clínica de estética em Minas Gerais integrado ao WhatsApp da clínica, automatizando o agendamento de consultas e procedimentos, o envio de lembretes e a qualificação de leads vindos de Instagram e Google Ads. O resultado é menos no-show, recepção mais livre para atender quem já está na clínica e resposta imediata para quem pesquisa procedimentos e valores.",
     painPoints: [
       {
         title: "Agenda lotada de perguntas repetitivas",
@@ -188,13 +263,11 @@ export const landingPages: LandingPageData[] = [
       },
       {
         title: "Lembrete e confirmação automática",
-        description:
-          "Mensagens automáticas antes da consulta reduzem drasticamente o no-show.",
+        description: "Mensagens automáticas antes da consulta reduzem drasticamente o no-show.",
       },
       {
         title: "Resposta instantânea sobre procedimentos e valores",
-        description:
-          "Dúvidas comuns são respondidas na hora, qualquer hora do dia.",
+        description: "Dúvidas comuns são respondidas na hora, qualquer hora do dia.",
       },
       {
         title: "Qualificação automática de leads de tráfego pago",
@@ -230,8 +303,7 @@ export const landingPages: LandingPageData[] = [
       },
       {
         question: "É seguro em relação à LGPD?",
-        answer:
-          "Sim, os dados coletados seguem boas práticas de proteção de dados de pacientes.",
+        answer: "Sim, os dados coletados seguem boas práticas de proteção de dados de pacientes.",
       },
       {
         question: "Posso usar em campanhas de Instagram e Google Ads?",
@@ -244,30 +316,24 @@ export const landingPages: LandingPageData[] = [
           "A CODEXY cuida de toda a configuração inicial junto com a clínica, sem exigir conhecimento técnico da equipe.",
       },
     ],
-    whatsappMessage:
-      "Olá! Vi a página sobre chatbot para clínica de estética em Minas Gerais e quero saber mais sobre como implantar na minha clínica.",
-    seo: {
-      title: "Chatbot para Clínicas de Estética em Minas Gerais | CODEXY",
-      description:
-        "Reduza o no-show e automatize o agendamento da sua clínica de estética em Minas Gerais com um chatbot no WhatsApp. Fale com a CODEXY.",
-      ogImage: "/images/og/clinicas-estetica-og.jpg",
-    },
+    headline: (state) => `Chatbot para Clínicas de Estética ${state.in}`,
+    introParagraph: (state) =>
+      `A CODEXY implanta chatbot para clínica de estética ${state.in} integrado ao WhatsApp da clínica, automatizando o agendamento de consultas e procedimentos, o envio de lembretes e a qualificação de leads vindos de Instagram e Google Ads. O resultado é menos no-show, recepção mais livre para atender quem já está na clínica e resposta imediata para quem pesquisa procedimentos e valores.`,
+    whatsappMessage: (state) =>
+      `Olá! Vi a página sobre chatbot para clínica de estética ${state.in} e quero saber mais sobre como implantar na minha clínica.`,
+    seoTitle: (state) => `Chatbot para Clínicas de Estética ${state.in} | CODEXY`,
+    seoDescription: (state) =>
+      `Reduza o no-show e automatize o agendamento da sua clínica de estética ${state.in} com um chatbot no WhatsApp. Fale com a CODEXY.`,
   },
   {
-    slug: "chatbot-para-construtoras-sao-paulo",
-    service: "chatbot",
+    nicheSlug: "construtoras",
     niche: "Construtoras",
-    stateLabel: "São Paulo",
-    stateUf: "SP",
     eyebrow: "Chatbot para Construtoras",
-    headline: "Chatbot para Construtoras em São Paulo",
+    heroImage: "/images/landing/construtoras-hero.webp",
+    heroImageAlt: "Consultor imobiliário qualificando leads ao lado da maquete de um empreendimento",
+    ogImage: "/images/og/construtoras-og.jpg",
     subheadline:
       "Qualifique automaticamente os leads de imóveis pelo WhatsApp antes de repassar para o corretor.",
-    heroImage: "/images/landing/construtoras-hero.webp",
-    heroImageAlt:
-      "Consultor imobiliário qualificando leads ao lado da maquete de um empreendimento",
-    introParagraph:
-      "A CODEXY desenvolve chatbot para construtora em São Paulo capaz de atender o alto volume de leads gerado por portais imobiliários e campanhas de Google e Meta Ads. O chatbot qualifica orçamento, tipo de imóvel e prazo de compra antes de repassar o contato ao corretor, envia plantas e valores automaticamente e garante resposta 24 horas por dia para cada lançamento da construtora.",
     painPoints: [
       {
         title: "Alto volume de leads sem triagem",
@@ -298,8 +364,7 @@ export const landingPages: LandingPageData[] = [
       },
       {
         title: "Resposta 24/7",
-        description:
-          "Lead vindo de anúncio ou portal recebe retorno imediato, a qualquer hora do dia.",
+        description: "Lead vindo de anúncio ou portal recebe retorno imediato, a qualquer hora do dia.",
       },
       {
         title: "Envio automático de material do empreendimento",
@@ -320,8 +385,7 @@ export const landingPages: LandingPageData[] = [
     faq: [
       {
         question: "O chatbot substitui o corretor?",
-        answer:
-          "Não. Ele filtra e prepara o lead, e o corretor entra para fechar a visita e a negociação.",
+        answer: "Não. Ele filtra e prepara o lead, e o corretor entra para fechar a visita e a negociação.",
       },
       {
         question: "Ele envia planta e valores automaticamente?",
@@ -344,16 +408,47 @@ export const landingPages: LandingPageData[] = [
           "A CODEXY configura o chatbot em conjunto com a equipe comercial da construtora, sem necessidade de conhecimento técnico.",
       },
     ],
-    whatsappMessage:
-      "Olá! Vi a página sobre chatbot para construtora em São Paulo e quero saber mais sobre como implantar na minha construtora.",
-    seo: {
-      title: "Chatbot para Construtoras em São Paulo | CODEXY",
-      description:
-        "Qualifique automaticamente os leads de imóveis da sua construtora em São Paulo com um chatbot no WhatsApp. Fale com a CODEXY.",
-      ogImage: "/images/og/construtoras-og.jpg",
-    },
+    headline: (state) => `Chatbot para Construtoras ${state.in}`,
+    introParagraph: (state) =>
+      `A CODEXY desenvolve chatbot para construtora ${state.in} capaz de atender o alto volume de leads gerado por portais imobiliários e campanhas de Google e Meta Ads. O chatbot qualifica orçamento, tipo de imóvel e prazo de compra antes de repassar o contato ao corretor, envia plantas e valores automaticamente e garante resposta 24 horas por dia para cada lançamento da construtora.`,
+    whatsappMessage: (state) =>
+      `Olá! Vi a página sobre chatbot para construtora ${state.in} e quero saber mais sobre como implantar na minha construtora.`,
+    seoTitle: (state) => `Chatbot para Construtoras ${state.in} | CODEXY`,
+    seoDescription: (state) =>
+      `Qualifique automaticamente os leads de imóveis da sua construtora ${state.in} com um chatbot no WhatsApp. Fale com a CODEXY.`,
   },
 ];
+
+function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
+  return {
+    slug: `chatbot-para-${template.nicheSlug}-${state.slug}`,
+    service: "chatbot",
+    niche: template.niche,
+    stateLabel: state.label,
+    stateIn: state.in,
+    stateUf: state.uf,
+    eyebrow: template.eyebrow,
+    headline: template.headline(state),
+    subheadline: template.subheadline,
+    heroImage: template.heroImage,
+    heroImageAlt: template.heroImageAlt,
+    introParagraph: template.introParagraph(state),
+    painPoints: template.painPoints,
+    benefits: template.benefits,
+    faq: template.faq,
+    partner: template.partner,
+    whatsappMessage: template.whatsappMessage(state),
+    seo: {
+      title: template.seoTitle(state),
+      description: template.seoDescription(state),
+      ogImage: template.ogImage,
+    },
+  };
+}
+
+export const landingPages: LandingPageData[] = NICHE_TEMPLATES.flatMap((template) =>
+  BRAZILIAN_STATES.map((state) => buildLandingPage(template, state))
+);
 
 export function getLandingPageBySlug(slug?: string): LandingPageData | undefined {
   return landingPages.find((page) => page.slug === slug);

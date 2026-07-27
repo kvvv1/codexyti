@@ -252,11 +252,11 @@ const InformacoesLandingPage = () => {
       <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-primary">
-            Pronto para automatizar o atendimento de {page.niche.toLowerCase()} em {page.stateLabel}?
+            Pronto para automatizar o atendimento de {page.niche.toLowerCase()} {page.stateIn}?
           </h2>
           <p className="text-tech-gray mb-8 max-w-2xl mx-auto">
             Fale agora com a CODEXY e veja como implantar um chatbot no WhatsApp
-            para {page.niche.toLowerCase()} em {page.stateLabel}.
+            para {page.niche.toLowerCase()} {page.stateIn}.
           </p>
           <Button
             size="lg"
