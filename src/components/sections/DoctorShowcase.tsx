@@ -35,7 +35,8 @@ function BrowserMockup() {
           <a
             href="https://doctorchatbot.com.br"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
+            aria-label="Abrir o site oficial da DoctorChatBot"
             className="p-1 rounded text-white/20 hover:text-white/60 transition-colors"
           >
             <ExternalLink size={11} />
@@ -78,6 +79,12 @@ export function DoctorShowcase() {
           <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
             Plataforma SaaS com agenda inteligente para médicos e clínicas. O chatbot automatiza agendamentos, confirmações e a comunicação com pacientes — sem intervenção manual.
           </p>
+          <a
+            href="/parceiros/doctorchatbot"
+            className="mt-4 inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-glow"
+          >
+            Empresa parceira da CODEXY
+          </a>
 
           <ul className="mt-8 space-y-3">
             {features.map((f) => (
@@ -101,10 +108,10 @@ export function DoctorShowcase() {
           <a
             href="https://doctorchatbot.com.br"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
             className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-primary font-semibold text-white text-sm shadow-[0_0_24px_hsl(var(--accent)/0.35)] hover:shadow-[0_0_40px_hsl(var(--accent)/0.55)] transition-all"
           >
-            <ExternalLink size={14} /> Ver produto ao vivo
+            <ExternalLink size={14} /> Conhecer a DoctorChatBot
           </a>
         </motion.div>
 

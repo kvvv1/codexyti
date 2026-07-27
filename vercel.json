@@ -3,6 +3,14 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/informacoes/:slug",
+      "destination": "/informacoes/:slug/index.html"
+    },
+    {
+      "source": "/parceiros/:slug",
+      "destination": "/parceiros/:slug/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

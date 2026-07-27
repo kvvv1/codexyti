@@ -44,6 +44,10 @@ const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" }
 ];
 
+const footerLinkHrefs: Record<string, string> = {
+  Parcerias: "/parceiros/doctorchatbot",
+};
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
@@ -101,7 +105,7 @@ const Footer = () => {
                 {section.links.map((link) => (
                   <li key={link}>
                     <a 
-                      href="#" 
+                      href={footerLinkHrefs[link] ?? "#"}
                       className="text-white/70 hover:text-accent transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base"
                     >
                       {link}
