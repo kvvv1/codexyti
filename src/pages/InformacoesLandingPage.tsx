@@ -43,6 +43,25 @@ const InformacoesLandingPage = () => {
   const pageUrl = `${SITE_URL}/informacoes/${page.slug}/`;
   const ogImageUrl = new URL(page.seo.ogImage ?? "/logo.png", SITE_URL).toString();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: page.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: page.eyebrow, item: pageUrl },
+    ],
+  };
+
   return (
     <>
       <Helmet>
@@ -56,6 +75,7 @@ const InformacoesLandingPage = () => {
         <meta property="og:title" content={page.seo.title} />
         <meta property="og:description" content={page.seo.description} />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -69,6 +89,9 @@ const InformacoesLandingPage = () => {
         <meta name="twitter:image:alt" content={page.heroImageAlt} />
 
         <link rel="canonical" href={pageUrl} />
+
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <InformacoesNavbar onWhatsAppClick={() => openWhatsApp(page.whatsappMessage)} />
