@@ -47,6 +47,8 @@ function BrowserMockup() {
           <img
             src="/codexy.jpg"
             alt="Codexy Agents"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-left-top"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = "none";

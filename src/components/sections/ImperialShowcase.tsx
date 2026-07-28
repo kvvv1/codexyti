@@ -23,7 +23,7 @@ function PhoneMockup() {
       <div className="relative rounded-[40px] bg-[#141414] p-2.5 shadow-[0_30px_60px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(255,255,255,0.08)]">
         <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-5 w-[70px] rounded-full bg-[#0a0a0a] z-10" />
         <div className="relative rounded-[30px] overflow-hidden bg-[#0d0d0d] aspect-[9/19.5]">
-          <img src="/imperial.jpg" alt="Imperial mobile" className="w-full h-full object-cover object-top" />
+          <img src="/imperial.jpg" alt="Imperial mobile" loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
           <div className="absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
         </div>
         <div className="absolute -right-[3px] top-20 h-8 w-1 rounded-full bg-white/10" />
@@ -54,7 +54,7 @@ function BrowserMockup() {
           </div>
         </div>
         <div className="aspect-[16/10] overflow-hidden">
-          <img src="/imperial-web.jpg" alt="Imperial admin web" className="w-full h-full object-cover object-left-top" />
+          <img src="/imperial-web.jpg" alt="Imperial admin web" loading="lazy" decoding="async" className="w-full h-full object-cover object-left-top" />
         </div>
       </div>
     </motion.div>

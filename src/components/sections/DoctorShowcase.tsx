@@ -47,6 +47,8 @@ function BrowserMockup() {
           <img
             src="/doctorchatbot.jpg"
             alt="DoctorChatBot"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-left-top"
           />
         </div>
