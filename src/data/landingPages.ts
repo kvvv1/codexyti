@@ -105,6 +105,39 @@ const BRAZILIAN_STATES: StateInfo[] = (
   in: `${state.preposition} ${state.label}`,
 }));
 
+// Fase 3 (cidade): maiores cidades do Brasil por população (fonte: estimativa
+// IBGE), entrando em lotes de ~50 páginas por vez (3 nichos × N cidades), não
+// tudo de uma vez. Slug sempre leva o UF (`sao-paulo-sp`) mesmo quando não
+// colide com o slug do estado (ex: "São Paulo" cidade vs "São Paulo" estado
+// colidiriam em "sao-paulo" sem o sufixo) — mantém o padrão único e prova
+// contra colisão futura.
+// Lote 1 (17 cidades = 51 páginas):
+const BRAZILIAN_CITIES: StateInfo[] = (
+  [
+    { label: "São Paulo", uf: "SP", preposition: "em" },
+    { label: "Rio de Janeiro", uf: "RJ", preposition: "no" },
+    { label: "Brasília", uf: "DF", preposition: "em" },
+    { label: "Salvador", uf: "BA", preposition: "em" },
+    { label: "Fortaleza", uf: "CE", preposition: "em" },
+    { label: "Belo Horizonte", uf: "MG", preposition: "em" },
+    { label: "Manaus", uf: "AM", preposition: "em" },
+    { label: "Curitiba", uf: "PR", preposition: "em" },
+    { label: "Recife", uf: "PE", preposition: "em" },
+    { label: "Goiânia", uf: "GO", preposition: "em" },
+    { label: "Porto Alegre", uf: "RS", preposition: "em" },
+    { label: "Belém", uf: "PA", preposition: "em" },
+    { label: "Guarulhos", uf: "SP", preposition: "em" },
+    { label: "Campinas", uf: "SP", preposition: "em" },
+    { label: "São Luís", uf: "MA", preposition: "em" },
+    { label: "São Gonçalo", uf: "RJ", preposition: "em" },
+    { label: "Maceió", uf: "AL", preposition: "em" },
+  ] as const
+).map((city) => ({
+  ...city,
+  slug: `${slugify(city.label)}-${city.uf.toLowerCase()}`,
+  in: `${city.preposition} ${city.label}`,
+}));
+
 // One template per niche. Pain points / benefits / FAQ / hero image / partner
 // stay identical across all 27 states on purpose (see CLAUDE.md "Landing
 // pages" section) — only headline/intro/WhatsApp message/SEO copy is
@@ -446,9 +479,10 @@ function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPag
   };
 }
 
-export const landingPages: LandingPageData[] = NICHE_TEMPLATES.flatMap((template) =>
-  BRAZILIAN_STATES.map((state) => buildLandingPage(template, state))
-);
+export const landingPages: LandingPageData[] = NICHE_TEMPLATES.flatMap((template) => [
+  ...BRAZILIAN_STATES.map((state) => buildLandingPage(template, state)),
+  ...BRAZILIAN_CITIES.map((city) => buildLandingPage(template, city)),
+]);
 
 export function getLandingPageBySlug(slug?: string): LandingPageData | undefined {
   return landingPages.find((page) => page.slug === slug);
