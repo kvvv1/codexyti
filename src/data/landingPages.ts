@@ -22,6 +22,9 @@ export interface LandingPageData {
   slug: string;
   service: string;
   niche: string;
+  nicheSlug: string;
+  /** slug of the location alone (state or city), used to group "same place, other niche" links */
+  locationSlug: string;
   stateLabel: string;
   stateUf: string;
   /** e.g. "na Bahia", "no Rio de Janeiro" — grammatically correct locative, precomputed. */
@@ -457,6 +460,8 @@ function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPag
     slug: `chatbot-para-${template.nicheSlug}-${state.slug}`,
     service: "chatbot",
     niche: template.niche,
+    nicheSlug: template.nicheSlug,
+    locationSlug: state.slug,
     stateLabel: state.label,
     stateIn: state.in,
     stateUf: state.uf,
@@ -486,4 +491,21 @@ export const landingPages: LandingPageData[] = NICHE_TEMPLATES.flatMap((template
 
 export function getLandingPageBySlug(slug?: string): LandingPageData | undefined {
   return landingPages.find((page) => page.slug === slug);
+}
+
+// Internal linking entre as 132 páginas: sem isso, cada página é uma ilha só
+// alcançável pela home, e o PageRank interno não circula entre nicho/local.
+export function getRelatedPages(page: LandingPageData): {
+  otherNichesSameLocation: LandingPageData[];
+  otherLocationsSameNiche: LandingPageData[];
+} {
+  const otherNichesSameLocation = landingPages.filter(
+    (p) => p.locationSlug === page.locationSlug && p.nicheSlug !== page.nicheSlug
+  );
+
+  const otherLocationsSameNiche = landingPages
+    .filter((p) => p.nicheSlug === page.nicheSlug && p.locationSlug !== page.locationSlug)
+    .slice(0, 8);
+
+  return { otherNichesSameLocation, otherLocationsSameNiche };
 }

@@ -20,7 +20,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import InformacoesNavbar from "@/components/landing/InformacoesNavbar";
-import { getLandingPageBySlug } from "@/data/landingPages";
+import { getLandingPageBySlug, getRelatedPages } from "@/data/landingPages";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
@@ -40,6 +40,7 @@ const InformacoesLandingPage = () => {
     );
   }
 
+  const { otherNichesSameLocation, otherLocationsSameNiche } = getRelatedPages(page);
   const pageUrl = `${SITE_URL}/informacoes/${page.slug}/`;
   const ogImageUrl = new URL(page.seo.ogImage ?? "/logo.png", SITE_URL).toString();
 
@@ -291,6 +292,50 @@ const InformacoesLandingPage = () => {
           </Button>
         </div>
       </section>
+
+      {(otherNichesSameLocation.length > 0 || otherLocationsSameNiche.length > 0) && (
+        <section className="py-16 bg-secondary/50">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+            {otherNichesSameLocation.length > 0 && (
+              <div className="mb-10">
+                <h2 className="mb-4 text-lg font-semibold text-primary">
+                  Outros serviços {page.stateIn}
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {otherNichesSameLocation.map((related) => (
+                    <a
+                      key={related.slug}
+                      href={`/informacoes/${related.slug}/`}
+                      className="rounded-full border border-primary/20 bg-background px-4 py-2 text-sm text-primary transition-colors hover:bg-primary hover:text-white"
+                    >
+                      {related.niche}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {otherLocationsSameNiche.length > 0 && (
+              <div>
+                <h2 className="mb-4 text-lg font-semibold text-primary">
+                  {page.niche} em outras localidades
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {otherLocationsSameNiche.map((related) => (
+                    <a
+                      key={related.slug}
+                      href={`/informacoes/${related.slug}/`}
+                      className="rounded-full border border-primary/20 bg-background px-4 py-2 text-sm text-primary transition-colors hover:bg-primary hover:text-white"
+                    >
+                      {related.stateLabel}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <Footer />
 
