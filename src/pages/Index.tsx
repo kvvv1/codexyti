@@ -27,7 +27,10 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <div className="h-56 bg-gradient-to-b from-background to-[hsl(var(--primary))]" />
-      <div className="portfolio-showcase relative isolate overflow-hidden bg-[hsl(var(--primary))] pt-0 text-white [background-image:radial-gradient(circle_at_18%_28%,hsl(var(--accent)/0.16),transparent_34%),radial-gradient(circle_at_82%_38%,hsl(var(--primary-glow)/0.22),transparent_36%),linear-gradient(180deg,hsl(var(--primary))_0%,hsl(var(--primary)/0.96)_8%,hsl(var(--tech-blue-light))_52%,hsl(var(--primary))_100%)]">
+      <div
+        data-section="projects"
+        className="portfolio-showcase relative isolate overflow-hidden bg-[hsl(var(--primary))] pt-0 text-white [background-image:radial-gradient(circle_at_18%_28%,hsl(var(--accent)/0.16),transparent_34%),radial-gradient(circle_at_82%_38%,hsl(var(--primary-glow)/0.22),transparent_36%),linear-gradient(180deg,hsl(var(--primary))_0%,hsl(var(--primary)/0.96)_8%,hsl(var(--tech-blue-light))_52%,hsl(var(--primary))_100%)]"
+      >
         <Suspense fallback={null}>
           <CodexyShowcase />
           <MobileShowcase />
