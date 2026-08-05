@@ -1,7 +1,13 @@
 import LegalPageLayout from "@/components/LegalPageLayout";
 
 const TermosUso = () => (
-  <LegalPageLayout title="Termos de Uso">
+  <LegalPageLayout
+    title="Termos de Uso"
+    seoTitle="Termos de Uso | CODEXY"
+    description="Consulte as condições aplicáveis ao acesso e uso do site, dos conteúdos e dos serviços digitais oferecidos pela CODEXY."
+    path="/termos-uso/"
+    keywords="termos de uso, condições de uso, serviços digitais, CODEXY"
+  >
     <p className="mb-4 text-tech-gray">Estes Termos de Uso regulam o acesso e uso do site e dos serviços da Codexy. Ao utilizar nossos serviços, você concorda com estes termos e com a legislação vigente.</p>
     <h2 className="text-2xl font-semibold mt-8 mb-2 text-primary">1. Aceitação dos Termos</h2>
     <p className="mb-4 text-tech-gray">Ao acessar ou usar o site, o usuário concorda em cumprir estes Termos de Uso e todas as leis e regulamentos aplicáveis.</p>

@@ -1,7 +1,13 @@
 import LegalPageLayout from "@/components/LegalPageLayout";
 
 const Cookies = () => (
-  <LegalPageLayout title="Política de Cookies">
+  <LegalPageLayout
+    title="Política de Cookies"
+    seoTitle="Política de Cookies | CODEXY"
+    description="Entenda quais cookies a CODEXY utiliza, suas finalidades e como gerenciar as preferências de armazenamento no navegador."
+    path="/cookies/"
+    keywords="política de cookies, cookies, privacidade digital, CODEXY"
+  >
     <p className="mb-4 text-tech-gray">Esta Política de Cookies explica o que são cookies, como a Codexy os utiliza, quais tipos usamos, como você pode gerenciar suas preferências e outras informações importantes.</p>
     <h2 className="text-2xl font-semibold mt-8 mb-2 text-primary">1. O que são Cookies?</h2>
     <p className="mb-4 text-tech-gray">Cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita um site. Eles permitem o funcionamento adequado do site, lembram preferências e coletam informações para análise e personalização.</p>

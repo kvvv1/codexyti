@@ -1,12 +1,24 @@
 # CODEXY — site institucional
 
-Vite + React 18 + TypeScript + react-router-dom v6 + Tailwind + shadcn/ui. SPA pura, sem SSR de verdade — SEO das landing pages é resolvido com prerender no build (ver abaixo).
+Vite + React 18 + TypeScript + react-router-dom v6 + Tailwind + shadcn/ui. Todas as rotas públicas são pré-renderizadas como HTML estático durante o build e hidratadas pelo React no navegador.
 
 ## Landing pages programáticas (`/informacoes/:slug`)
 
 Sistema de páginas de nicho × estado pra tráfego pago/SEO, inspirado em sites que geram uma página por serviço+localização (ex: `empresa.com/informacoes/servico-em-cidade/`).
 
 **Arquitetura (`src/data/landingPages.ts`)**: cada nicho é um `NicheTemplate` (copy, pain points, benefits, FAQ, imagens — tudo fixo); a lista `BRAZILIAN_STATES` tem os 27 estados. `landingPages` é gerado automaticamente como `niches × states`. Isso é proposital: **não editar manualmente entradas de `landingPages`** — editar os templates ou a lista de estados.
+
+### Regras obrigatórias da máquina de páginas
+
+Toda página pública nova, institucional ou programática, deve seguir estas regras. Elas fazem parte da arquitetura e não são opcionais:
+
+- A URL deve entrar em `prerenderRoutes` e gerar um arquivo `dist/<rota>/index.html` com o conteúdo completo dentro de `#root`; não entregar apenas o shell vazio da SPA.
+- Cada página deve ter exatamente um `<title>` e uma `<meta name="description">`, ambos descritivos e exclusivos em todo o site.
+- Cada página indexável deve ter canonical exclusivo e metadados Open Graph/Twitter próprios já presentes no HTML estático.
+- Cidade e estado com o mesmo nome devem ser diferenciados nos metadados pela UF da cidade, usando `seoIn` (ex.: `São Paulo, SP`).
+- A página 404 deve ser estática, responder como 404 na hospedagem, conter `noindex, nofollow` e não possuir canonical.
+- O React deve hidratar o HTML existente com `hydrateRoot`; não substituir o conteúdo pré-renderizado.
+- Sempre executar `npm run build` após alterar ou criar páginas. O build deve falhar se faltar HTML, title, description, canonical, OG/Twitter ou se title, description ou canonical forem duplicados.
 
 - **Adicionar novo estado**: não deveria ser necessário, os 27 já estão cobertos. Só mexer se abrir pra outro país.
 - **Adicionar novo nicho** (ex: "chatbot para academias"): criar um `NicheTemplate` novo em `NICHE_TEMPLATES`. Isso sozinho já gera as 27 páginas (uma por estado). É o único trabalho manual — pain points/benefits/FAQ são escritos uma vez só, não por estado.
@@ -17,7 +29,7 @@ Sistema de páginas de nicho × estado pra tráfego pago/SEO, inspirado em sites
 **Pipeline de build** (100% data-driven — adicionar nicho/estado não exige tocar em nada abaixo):
 1. `vite build` → build client normal (`dist/`).
 2. `vite build --ssr src/entry-server.tsx --outDir dist-ssr` → bundle SSR só pra prerender (resolve imports de imagem/asset que `tsx` puro não resolve).
-3. `node scripts/prerender.mjs` → lê `prerenderRoutes` (gerado a partir de `landingPages` em `src/entry-server.tsx`), renderiza cada rota com `renderToStaticMarkup` + `StaticRouter` + `HelmetProvider`, escreve `dist/informacoes/<slug>/index.html` com title/OG/canonical únicos.
+3. `node scripts/prerender.mjs` → lê `prerenderRoutes` (rotas institucionais + rotas geradas a partir de `landingPages` em `src/entry-server.tsx`), renderiza cada rota com `renderToString` + `StaticRouter` + `HelmetProvider`, escreve um `index.html` estático por URL e aplica todas as validações das regras obrigatórias acima.
 4. `tsx scripts/generate-sitemap.tsx` → gera `dist/sitemap.xml` a partir do mesmo array `landingPages`.
 
 Tudo isso roda via `npm run build`. Rodar localmente com `npm run build` sempre que mexer em `landingPages.ts`/`entry-server.tsx` pra confirmar que as páginas prerenderizam certo (checar `dist/informacoes/<slug>/index.html` tem title/OG específico da página, não o genérico do `index.html`).

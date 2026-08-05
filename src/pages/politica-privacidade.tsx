@@ -1,7 +1,13 @@
 import LegalPageLayout from "@/components/LegalPageLayout";
 
 const PoliticaPrivacidade = () => (
-  <LegalPageLayout title="Política de Privacidade">
+  <LegalPageLayout
+    title="Política de Privacidade"
+    seoTitle="Política de Privacidade | CODEXY"
+    description="Saiba como a CODEXY coleta, utiliza, armazena e protege dados pessoais dos usuários do site e de seus serviços digitais."
+    path="/politica-privacidade/"
+    keywords="política de privacidade, proteção de dados, LGPD, CODEXY"
+  >
     <p className="mb-4 text-tech-gray">Esta Política de Privacidade explica como a Codexy coleta, utiliza, armazena, compartilha e protege as informações pessoais dos usuários do site e dos serviços oferecidos. Ao utilizar nossos serviços, você concorda com as práticas descritas nesta política.</p>
     <h2 className="text-2xl font-semibold mt-8 mb-2 text-primary">1. Informações que Coletamos</h2>
     <ul className="list-disc pl-6 mb-4 text-tech-gray">

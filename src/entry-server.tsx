@@ -1,27 +1,34 @@
 import React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
-import { AppRoutes } from "./App";
+import { AppProviders, AppRoutes } from "./App";
 import { landingPages } from "./data/landingPages";
 
 export const prerenderRoutes = [
+  "/",
+  "/politica-privacidade",
+  "/termos-uso",
+  "/cookies",
   ...landingPages.map((page) => `/informacoes/${page.slug}`),
   "/parceiros/doctorchatbot",
+  "/404",
 ];
 
 // React warns about useLayoutEffect on the server (Radix/shadcn components use it);
-// renderToStaticMarkup never runs effects, so the warning is noise, not a real issue.
+// Server rendering never runs effects, so the warning is noise, not a real issue.
 React.useLayoutEffect = React.useEffect;
 
 export function render(url: string) {
   const helmetContext: { helmet?: HelmetServerState } = {};
 
-  const html = renderToStaticMarkup(
+  const html = renderToString(
     <HelmetProvider context={helmetContext}>
-      <StaticRouter location={url}>
-        <AppRoutes />
-      </StaticRouter>
+      <AppProviders>
+        <StaticRouter location={url}>
+          <AppRoutes />
+        </StaticRouter>
+      </AppProviders>
     </HelmetProvider>
   );
 

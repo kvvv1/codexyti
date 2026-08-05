@@ -55,6 +55,8 @@ interface StateInfo {
   preposition: string;
   /** e.g. "na Bahia", "no Rio de Janeiro", "em Minas Gerais" — precomputed so templates don't repeat this. */
   in: string;
+  /** Location text used only in SEO metadata; cities include the UF to stay unique from namesake states. */
+  seoIn: string;
 }
 
 const DIACRITICS_PATTERN = new RegExp(String.fromCharCode(0x5b, 0x5c, 0x75, 0x30, 0x33, 0x30, 0x30, 0x2d, 0x5c, 0x75, 0x30, 0x33, 0x36, 0x66, 0x5d), "g");
@@ -106,6 +108,7 @@ const BRAZILIAN_STATES: StateInfo[] = (
   ...state,
   slug: slugify(state.label),
   in: `${state.preposition} ${state.label}`,
+  seoIn: `${state.preposition} ${state.label}`,
 }));
 
 // Fase 3 (cidade): maiores cidades do Brasil por população (fonte: estimativa
@@ -139,6 +142,7 @@ const BRAZILIAN_CITIES: StateInfo[] = (
   ...city,
   slug: `${slugify(city.label)}-${city.uf.toLowerCase()}`,
   in: `${city.preposition} ${city.label}`,
+  seoIn: `${city.preposition} ${city.label}, ${city.uf}`,
 }));
 
 // One template per niche. Pain points / benefits / FAQ / hero image / partner
@@ -256,9 +260,9 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       `A CODEXY é especializada em automação e chatbots para o comércio local e implanta o chatbot para padaria ${state.in} direto no WhatsApp que sua padaria já usa hoje. A solução responde cardápio, horário e formas de pagamento na hora, organiza encomendas de bolo e festa automaticamente e funciona 24 horas por dia, todos os dias da semana, sem depender de mão de obra extra na equipe.`,
     whatsappMessage: (state) =>
       `Olá! Vi a página sobre chatbot para padaria ${state.in} e quero saber mais sobre como implantar na minha padaria.`,
-    seoTitle: (state) => `Chatbot para Padarias ${state.in} | CODEXY`,
+    seoTitle: (state) => `Chatbot para Padarias ${state.seoIn} | CODEXY`,
     seoDescription: (state) =>
-      `Automatize o atendimento e as encomendas da sua padaria ${state.in} com um chatbot no WhatsApp disponível 24h. Fale com a CODEXY.`,
+      `Automatize o atendimento e as encomendas da sua padaria ${state.seoIn} com um chatbot no WhatsApp disponível 24h. Fale com a CODEXY.`,
   },
   {
     nicheSlug: "clinicas-de-estetica",
@@ -357,9 +361,9 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       `A CODEXY implanta chatbot para clínica de estética ${state.in} integrado ao WhatsApp da clínica, automatizando o agendamento de consultas e procedimentos, o envio de lembretes e a qualificação de leads vindos de Instagram e Google Ads. O resultado é menos no-show, recepção mais livre para atender quem já está na clínica e resposta imediata para quem pesquisa procedimentos e valores.`,
     whatsappMessage: (state) =>
       `Olá! Vi a página sobre chatbot para clínica de estética ${state.in} e quero saber mais sobre como implantar na minha clínica.`,
-    seoTitle: (state) => `Chatbot para Clínicas de Estética ${state.in} | CODEXY`,
+    seoTitle: (state) => `Chatbot para Clínicas de Estética ${state.seoIn} | CODEXY`,
     seoDescription: (state) =>
-      `Reduza o no-show e automatize o agendamento da sua clínica de estética ${state.in} com um chatbot no WhatsApp. Fale com a CODEXY.`,
+      `Reduza o no-show e automatize o agendamento da sua clínica de estética ${state.seoIn} com um chatbot no WhatsApp. Fale com a CODEXY.`,
   },
   {
     nicheSlug: "construtoras",
@@ -449,9 +453,9 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       `A CODEXY desenvolve chatbot para construtora ${state.in} capaz de atender o alto volume de leads gerado por portais imobiliários e campanhas de Google e Meta Ads. O chatbot qualifica orçamento, tipo de imóvel e prazo de compra antes de repassar o contato ao corretor, envia plantas e valores automaticamente e garante resposta 24 horas por dia para cada lançamento da construtora.`,
     whatsappMessage: (state) =>
       `Olá! Vi a página sobre chatbot para construtora ${state.in} e quero saber mais sobre como implantar na minha construtora.`,
-    seoTitle: (state) => `Chatbot para Construtoras ${state.in} | CODEXY`,
+    seoTitle: (state) => `Chatbot para Construtoras ${state.seoIn} | CODEXY`,
     seoDescription: (state) =>
-      `Qualifique automaticamente os leads de imóveis da sua construtora ${state.in} com um chatbot no WhatsApp. Fale com a CODEXY.`,
+      `Qualifique automaticamente os leads de imóveis da sua construtora ${state.seoIn} com um chatbot no WhatsApp. Fale com a CODEXY.`,
   },
 ];
 

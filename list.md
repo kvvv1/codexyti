@@ -53,10 +53,11 @@ Fonte: `src/data/landingPages.ts`. URL: `https://codexy.com.br/informacoes/chatb
 
 ## SEO — revisão feita nesta rodada
 
-- Title/description únicos nas 81 (checado, sem duplicata).
-- OG completo (title/description/image com width/height/alt/locale pt_BR) + Twitter card + canonical — todos únicos por página.
+- **Regra permanente da máquina de páginas:** toda URL pública precisa sair do build com HTML estático completo, title e meta description únicos, canonical próprio e metadados OG/Twitter presentes no HTML inicial. O build interrompe automaticamente se a regra for quebrada.
+- 138 HTMLs estáticos validados (137 URLs indexáveis + 404), com 138 titles e 138 meta descriptions únicos.
+- OG completo + Twitter card; canonical exclusivo nas 137 páginas indexáveis.
 - **Adicionado agora**: JSON-LD `FAQPage` (rich snippet de FAQ no Google) e `BreadcrumbList` em todas as 81 páginas.
-- Sitemap.xml (86 URLs) e robots.txt com `Sitemap:` — ok.
+- Sitemap.xml (137 URLs) e robots.txt com `Sitemap:` — ok.
 - Nenhum `noindex` vazando em página válida; slug inválido corretamente marcado noindex.
 
 **Risco em aberto (não corrigido, é decisão de produto):** ~84% do texto visível é idêntico entre estados do mesmo nicho (só headline/intro/WhatsApp/SEO mudam). Google pode não indexar as 81 igualmente por conteúdo fino/duplicado. Não mexi nisso agora porque a correção real (conteúdo único por estado) contraria a regra de "criação rápida" — decisão de negócio, não meramente técnica.
@@ -97,13 +98,13 @@ Fonte: `src/data/landingPages.ts`, array `BRAZILIAN_CITIES`. URL: `https://codex
 | 16 | São Gonçalo | RJ | ✅ | ✅ | ✅ |
 | 17 | Maceió | AL | ✅ | ✅ | ✅ |
 
-`npm run build` rodado, 132 páginas prerenderizadas sem erro, 0 slugs duplicados, sitemap.xml com 137 URLs.
+`npm run build` rodado: 132 landing pages e 5 páginas institucionais indexáveis pré-renderizadas, mais a 404 estática; metadados sem duplicatas e sitemap.xml com 137 URLs.
 
 **Lote 2 (pendente, ~próximo)**: continuar por ordem populacional a partir da 18ª cidade — candidatas: Duque de Caxias (RJ), Natal (RN), Teresina (PI), Campo Grande (MS), São Bernardo do Campo (SP), Nova Iguaçu (RJ), João Pessoa (PB), Santo André (SP), Osasco (SP), Jaboatão dos Guararapes (PE), São José dos Campos (SP), Ribeirão Preto (SP), Uberlândia (MG), Sorocaba (SP), Contagem (MG), Aracaju (SE), Feira de Santana (BA) — mais ~17 pra fechar lote de 51. Confirmar lista exata com usuário antes de gerar (nomes/UF podem ter imprecisão de memória, vale checar fonte IBGE atualizada).
 
 ## Não esquecer amanhã
 
 - [ ] Rodar lote 2 de cidades (~17 cidades, +51 páginas) quando usuário sinalizar
-- [ ] Cada lote: `npm run build`, checar `dist/informacoes/<slug>/index.html`, checar sitemap sem duplicata
+- [ ] Cada lote: `npm run build`; só aceitar se a validação de HTML estático, metadados únicos, canonical e sitemap passar
 - [ ] Atualizar este `list.md` a cada lote novo
 - [ ] Commit + push

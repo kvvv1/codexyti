@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import type { ReactNode } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PoliticaPrivacidade from "./pages/politica-privacidade";
@@ -13,6 +14,16 @@ import InformacoesLandingPage from "./pages/InformacoesLandingPage";
 import ParceiroDoctorChatbot from "./pages/ParceiroDoctorChatbot";
 
 const queryClient = new QueryClient();
+
+export const AppProviders = ({ children }: { children: ReactNode }) => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      {children}
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export const AppRoutes = () => (
   <Routes>
@@ -28,17 +39,13 @@ export const AppRoutes = () => (
 );
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HelmetProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </HelmetProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <AppProviders>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AppProviders>
+  </HelmetProvider>
 );
 
 export default App;
