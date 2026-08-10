@@ -137,6 +137,8 @@ const BRAZILIAN_CITIES: StateInfo[] = (
     { label: "São Luís", uf: "MA", preposition: "em" },
     { label: "São Gonçalo", uf: "RJ", preposition: "em" },
     { label: "Maceió", uf: "AL", preposition: "em" },
+      { label: "Campo Grande", uf: "MS", preposition: "em" },
+    { label: "Teresina", uf: "PI", preposition: "em" },
   ] as const
 ).map((city) => ({
   ...city,
