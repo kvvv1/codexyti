@@ -4,6 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import { AppProviders, AppRoutes } from "./App";
 import { landingPages } from "./data/landingPages";
+import { blogPosts } from "./data/blogPosts";
 
 export const prerenderRoutes = [
   "/",
@@ -11,6 +12,8 @@ export const prerenderRoutes = [
   "/termos-uso",
   "/cookies",
   ...landingPages.map((page) => `/informacoes/${page.slug}`),
+  "/blog",
+  ...blogPosts.map((post) => `/blog/${post.slug}`),
   "/parceiros/doctorchatbot",
   "/404",
 ];

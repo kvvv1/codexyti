@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { landingPages } from "../src/data/landingPages";
+import { blogPosts } from "../src/data/blogPosts";
 
 const SITE_URL = "https://codexy.com.br";
 
@@ -16,12 +17,17 @@ const staticRoutes: { path: string; priority: string }[] = [
   { path: "/parceiros/doctorchatbot/", priority: "0.8" },
 ];
 
+const blogRoutes = [
+  { path: "/blog/", priority: "0.6" },
+  ...blogPosts.map((post) => ({ path: `/blog/${post.slug}/`, priority: "0.6" })),
+];
+
 const landingRoutes = landingPages.map((page) => ({
   path: `/informacoes/${page.slug}/`,
   priority: "0.8",
 }));
 
-const urls = [...staticRoutes, ...landingRoutes]
+const urls = [...staticRoutes, ...landingRoutes, ...blogRoutes]
   .map(
     ({ path: routePath, priority }) => `  <url>
     <loc>${SITE_URL}${routePath}</loc>
@@ -38,4 +44,4 @@ ${urls}
 `;
 
 fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap, "utf-8");
-console.log(`Generated sitemap.xml with ${staticRoutes.length + landingRoutes.length} URLs`);
+console.log(`Generated sitemap.xml with ${staticRoutes.length + landingRoutes.length + blogRoutes.length} URLs`);
