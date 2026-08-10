@@ -3,7 +3,9 @@ import { Helmet } from "react-helmet-async";
 import {
   ArrowLeft,
   CheckCircle2,
+  Clock,
   ExternalLink,
+  ListTree,
   MapPin,
   MessageCircle,
   ShieldCheck,
@@ -19,11 +21,33 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import InformacoesNavbar from "@/components/landing/InformacoesNavbar";
-import { getLandingPageBySlug, getRelatedPages } from "@/data/landingPages";
+import { getLandingPageBySlug, getRelatedPages, type LandingPageData } from "@/data/landingPages";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
+const WORDS_PER_MINUTE = 200;
+
+function estimateReadingMinutes(page: LandingPageData): number {
+  const words = [
+    page.introParagraph,
+    ...page.painPoints.flatMap((p) => [p.title, p.description]),
+    ...page.benefits.flatMap((b) => [b.title, b.description]),
+    ...page.faq.flatMap((f) => [f.question, f.answer]),
+  ]
+    .join(" ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+}
 
 const InformacoesLandingPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -41,6 +65,7 @@ const InformacoesLandingPage = () => {
   }
 
   const { otherNichesSameLocation, otherLocationsSameNiche } = getRelatedPages(page);
+  const readingMinutes = estimateReadingMinutes(page);
   const pageUrl = `${SITE_URL}/informacoes/${page.slug}/`;
   const ogImageUrl = new URL(page.seo.ogImage ?? "/logo.png", SITE_URL).toString();
 
@@ -164,16 +189,60 @@ const InformacoesLandingPage = () => {
       {/* Intro */}
       <section className="py-12 sm:py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Início</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="line-clamp-1">
+                  {page.niche} {page.stateIn}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           <p className="text-base sm:text-lg text-tech-gray leading-relaxed">
             {page.introParagraph}
           </p>
+
+          <nav aria-label="Sumário" className="mt-8 rounded-xl border border-border bg-secondary/40 p-5">
+            <div className="mb-3 flex items-center justify-between gap-3 text-sm font-semibold text-primary">
+              <span className="flex items-center gap-2">
+                <ListTree className="h-4 w-4" />
+                Sumário
+              </span>
+              <span className="flex items-center gap-1.5 font-normal text-tech-gray">
+                <Clock className="h-4 w-4" />
+                {readingMinutes} min de leitura
+              </span>
+            </div>
+            <ol className="space-y-1.5 text-sm">
+              <li>
+                <a href="#desafios" className="text-tech-gray transition-colors hover:text-primary">
+                  Desafios comuns em {page.niche.toLowerCase()}
+                </a>
+              </li>
+              <li>
+                <a href="#beneficios" className="text-tech-gray transition-colors hover:text-primary">
+                  O que o chatbot resolve
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="text-tech-gray transition-colors hover:text-primary">
+                  Perguntas frequentes
+                </a>
+              </li>
+            </ol>
+          </nav>
         </div>
       </section>
 
       {/* Pain points */}
       <section className="py-16 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
+          <h2 id="desafios" className="scroll-mt-24 text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
             Desafios comuns em {page.niche.toLowerCase()}
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -195,7 +264,7 @@ const InformacoesLandingPage = () => {
       {/* Benefits */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
+          <h2 id="beneficios" className="scroll-mt-24 text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
             O que o chatbot resolve
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -254,7 +323,7 @@ const InformacoesLandingPage = () => {
       {/* FAQ */}
       <section className="py-16 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
+          <h2 id="faq" className="scroll-mt-24 text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
             Perguntas frequentes
           </h2>
           <Accordion type="single" collapsible>

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, CalendarDays, MessageCircle } from "lucide-react";
+import { ArrowLeft, CalendarDays, Clock, ListTree, MessageCircle } from "lucide-react";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/NotFound";
 import { Badge } from "@/components/ui/badge";
@@ -11,12 +11,45 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import InformacoesNavbar from "@/components/landing/InformacoesNavbar";
-import { getBlogPostBySlug, getOtherPosts, FALLBACK_COVER } from "@/data/blogPosts";
+import { getBlogPostBySlug, getOtherPosts, FALLBACK_COVER, type BlogPost as BlogPostData } from "@/data/blogPosts";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
 const DEFAULT_WHATSAPP_MESSAGE = "Olá! Li um post do blog da CODEXY e quero saber mais sobre automação de atendimento.";
+const WORDS_PER_MINUTE = 200;
+
+function slugifyHeading(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function getHeadings(post: BlogPostData) {
+  return post.content
+    .filter((block) => block.type === "heading" && block.text)
+    .map((block) => ({ text: block.text as string, id: slugifyHeading(block.text as string) }));
+}
+
+function estimateReadingMinutes(post: BlogPostData): number {
+  const words = post.content
+    .map((block) => block.text ?? (block.items ?? []).join(" "))
+    .join(" ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -34,6 +67,8 @@ const BlogPost = () => {
   }
 
   const otherPosts = getOtherPosts(post.slug);
+  const headings = getHeadings(post);
+  const readingMinutes = estimateReadingMinutes(post);
   const pageUrl = `${SITE_URL}/blog/${post.slug}/`;
   const ogImageUrl = new URL(post.seo.ogImage ?? post.coverImage ?? "/logo.png", SITE_URL).toString();
 
@@ -133,6 +168,10 @@ const BlogPost = () => {
                 year: "numeric",
               })}
             </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-4 w-4" />
+              {readingMinutes} min de leitura
+            </span>
             {post.source && (
               <span>
                 Inspirado em{" "}
@@ -152,10 +191,48 @@ const BlogPost = () => {
 
       <article className="bg-background py-12 sm:py-16">
         <div className="container mx-auto max-w-3xl px-4 sm:px-6">
+          <Breadcrumb className="mb-8">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Início</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/blog/">Blog</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          {headings.length > 1 && (
+            <nav aria-label="Sumário" className="mb-10 rounded-xl border border-border bg-secondary/40 p-5">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-primary">
+                <ListTree className="h-4 w-4" />
+                Sumário
+              </div>
+              <ol className="space-y-1.5 text-sm">
+                {headings.map((h) => (
+                  <li key={h.id}>
+                    <a href={`#${h.id}`} className="text-tech-gray transition-colors hover:text-primary">
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
           {post.content.map((block, index) => {
             if (block.type === "heading") {
               return (
-                <h2 key={index} className="mb-4 mt-10 text-2xl font-bold text-primary first:mt-0">
+                <h2
+                  key={index}
+                  id={slugifyHeading(block.text as string)}
+                  className="mb-4 mt-10 scroll-mt-24 text-2xl font-bold text-primary first:mt-0"
+                >
                   {block.text}
                 </h2>
               );
