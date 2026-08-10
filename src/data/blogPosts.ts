@@ -61,6 +61,34 @@ export const blogPosts: BlogPost[] = [
     ],
     seo: { title: "Custo de um Chatbot de WhatsApp para Pequenas Empresas | Blog CODEXY", description: "Entenda os fatores que influenciam o custo de implementar e manter um chatbot de WhatsApp para pequenas empresas." },
   },
+  {
+    slug: "automcao-de-atendimento-no-whatsapp",
+    title: "Automção de Atendimento no WhatsApp",
+    excerpt: "Saiba como a CODEXY ajuda os negócios a automatizar a resposta às mensagens no WhatsApp",
+    category: "WhatsApp Business, Automação",
+    coverImage: "",
+    coverImageAlt: "Automção de Atendimento no WhatsApp",
+    publishedAt: "2026-08-10",
+    content: [
+      { type: "paragraph", text: "A automação de atendimento no WhatsApp é uma ferramenta que permite aos negócios responder automaticamente às mensagens recebidas nos canais do aplicativo." },
+      { type: "heading", text: "Como funciona a automação" },
+      { type: "paragraph", text: "O sistema utiliza inteligência artificial para analisar as mensagens e determinar se uma resposta automatizada é adequada ou se o caso deve ser transferido para um atendente humano." },
+      { type: "list", items: ["Perguntas frequentes","Mensagens de boas-vindas","Respostas a perguntas sobre produtos e serviços"] },
+      { type: "heading", text: "Vantagens da automação" },
+      { type: "paragraph", text: "A automação de atendimento no WhatsApp oferece várias vantagens, incluindo aumento da eficiência, melhoria da experiência do cliente e redução dos custos com atendimento." },
+      { type: "list", items: ["Resposta rápida às mensagens","Redução do tempo gasto com atendimento","Melhoria da satisfação do cliente"] },
+      { type: "heading", text: "Como implementar a automação" },
+      { type: "paragraph", text: "A CODEXY ajuda os negócios a implementar a automação de atendimento no WhatsApp, desde o desenvolvimento do sistema até a integração com os canais de comunicação já existentes." },
+      { type: "heading", text: "Próximos passos" },
+      { type: "paragraph", text: "Para saber mais sobre como a CODEXY pode ajudar seu negócio a automatizar o atendimento no WhatsApp, entre em contato conosco para agendar uma consulta." },
+    ],
+    faq: [
+      { question: "O que é automação de atendimento?", answer: "A automação de atendimento é um sistema que permite aos negócios responder automaticamente às mensagens recebidas nos canais do WhatsApp." },
+      { question: "Por que a CODEXY oferece essa ferramenta?", answer: "A CODEXY desenvolve soluções personalizadas para os negócios, e a automação de atendimento é uma ferramenta essencial para ajudar os clientes a melhorar a experiência do cliente." },
+      { question: "Qual é o custo da implementação?", answer: "O custo da implementação varia dependendo das necessidades específicas do negócio, e a CODEXY oferece soluções personalizadas para atender às demandas de cada cliente." },
+    ],
+    seo: { title: "Automção de Atendimento no WhatsApp | Blog CODEXY", description: "Saiba como a CODEXY ajuda os negócios a automatizar a resposta às mensagens no WhatsApp" },
+  },
 ] as const;
 
 export function getAllBlogPosts(): BlogPost[] {
