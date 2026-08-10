@@ -127,7 +127,7 @@ const BlogPost = () => {
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/70">
             <span className="flex items-center gap-1.5">
               <CalendarDays className="h-4 w-4" />
-              {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+              {new Date(post.publishedAt + "T00:00:00").toLocaleDateString("pt-BR", {
                 day: "2-digit",
                 month: "long",
                 year: "numeric",

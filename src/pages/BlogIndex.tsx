@@ -26,11 +26,14 @@ const BlogIndex = () => {
           property="og:description"
           content="Conteúdo sobre atendimento automatizado, chatbots de WhatsApp e tecnologia para pequenas e médias empresas."
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog CODEXY" />
-        <meta name="twitter:description" content="Conteúdo sobre atendimento automatizado, chatbots de WhatsApp e tecnologia para pequenas e médias empresas." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog CODEXY" />
+        <meta
+          name="twitter:description"
+          content="Conteúdo sobre atendimento automatizado, chatbots de WhatsApp e tecnologia para pequenas e médias empresas."
+        />
         <link rel="canonical" href={pageUrl} />
       </Helmet>
 
@@ -73,7 +76,7 @@ const BlogIndex = () => {
                     <p className="flex-1 text-sm text-tech-gray">{post.excerpt}</p>
                     <div className="flex items-center gap-1.5 text-xs text-tech-gray/80">
                       <CalendarDays className="h-3.5 w-3.5" />
-                      {new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+                      {new Date(post.publishedAt + "T00:00:00").toLocaleDateString("pt-BR", {
                         day: "2-digit",
                         month: "long",
                         year: "numeric",
