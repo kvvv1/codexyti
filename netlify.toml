@@ -16,6 +16,16 @@
   status = 200
 
 [[redirects]]
+  from = "/blog"
+  to = "/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/:splat/index.html"
+  status = 200
+
+[[redirects]]
   from = "/politica-privacidade"
   to = "/politica-privacidade/index.html"
   status = 200
