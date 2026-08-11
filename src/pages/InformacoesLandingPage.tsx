@@ -8,7 +8,10 @@ import {
   ListTree,
   MapPin,
   MessageCircle,
+  Package,
   ShieldCheck,
+  Sparkles,
+  Wrench,
   XCircle,
 } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -35,6 +38,27 @@ import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
 const WORDS_PER_MINUTE = 200;
+
+const TRUST_PILLARS = [
+  { icon: Wrench, title: "Desenvolvimento sob medida", description: "Cada projeto pensado pro negócio específico — não é solução genérica de prateleira." },
+  { icon: Sparkles, title: "No WhatsApp que já existe", description: "Usa o número que a empresa já usa — cliente não precisa salvar contato novo." },
+  { icon: ShieldCheck, title: "Suporte na implantação", description: "Acompanhamento até o chatbot responder do jeito certo, não só entrega e some." },
+];
+
+const PROCESS_STEPS = [
+  { title: "Diagnóstico", description: "Entendemos o atendimento atual e onde o chatbot ajuda mais." },
+  { title: "Configuração", description: "Montamos os fluxos de resposta específicos pro seu nicho." },
+  { title: "Integração", description: "Conectamos ao WhatsApp Business que a empresa já usa." },
+  { title: "Testes", description: "Validamos as respostas antes de colocar no ar de verdade." },
+  { title: "Acompanhamento", description: "Ajustes depois que o chatbot já tá atendendo cliente real." },
+];
+
+const DELIVERABLES = [
+  "Chatbot configurado e funcionando no seu WhatsApp Business",
+  "Respostas automáticas pros assuntos mais comuns do seu nicho",
+  "Encaminhamento pra atendimento humano quando a conversa exige",
+  "Suporte durante a implantação e os primeiros ajustes",
+];
 
 function estimateReadingMinutes(page: LandingPageData): number {
   const words = [
@@ -186,6 +210,21 @@ const InformacoesLandingPage = () => {
         </div>
       </section>
 
+      {/* Banda de confiança */}
+      <section className="border-b border-border bg-secondary/30 py-8">
+        <div className="container mx-auto grid gap-6 px-4 sm:grid-cols-3 sm:px-6">
+          {TRUST_PILLARS.map((pillar) => (
+            <div key={pillar.title} className="flex items-start gap-3">
+              <pillar.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+              <div>
+                <p className="text-sm font-semibold text-primary">{pillar.title}</p>
+                <p className="text-xs text-tech-gray">{pillar.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Intro */}
       <section className="py-12 sm:py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
@@ -227,6 +266,16 @@ const InformacoesLandingPage = () => {
               <li>
                 <a href="#beneficios" className="text-tech-gray transition-colors hover:text-primary">
                   O que o chatbot resolve
+                </a>
+              </li>
+              <li>
+                <a href="#como-funciona" className="text-tech-gray transition-colors hover:text-primary">
+                  Como funciona
+                </a>
+              </li>
+              <li>
+                <a href="#entregaveis" className="text-tech-gray transition-colors hover:text-primary">
+                  O que você recebe
                 </a>
               </li>
               <li>
@@ -278,6 +327,43 @@ const InformacoesLandingPage = () => {
                   </div>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Como funciona */}
+      <section className="py-16 bg-secondary/50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          <h2 id="como-funciona" className="scroll-mt-24 text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
+            Como funciona
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-5">
+            {PROCESS_STEPS.map((step, index) => (
+              <div key={step.title} className="flex flex-col items-center text-center sm:items-start sm:text-left">
+                <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                  {index + 1}
+                </span>
+                <h3 className="mb-1 font-semibold text-primary">{step.title}</h3>
+                <p className="text-sm text-tech-gray">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* O que você recebe */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+          <h2 id="entregaveis" className="scroll-mt-24 text-2xl sm:text-3xl font-bold mb-10 text-center text-primary">
+            O que você recebe
+          </h2>
+          <div className="space-y-4">
+            {DELIVERABLES.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-border bg-secondary/30 p-4">
+                <Package className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                <p className="text-sm text-tech-gray">{item}</p>
+              </div>
             ))}
           </div>
         </div>
