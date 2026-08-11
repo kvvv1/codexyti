@@ -5,10 +5,13 @@ import {
   CheckCircle2,
   Clock,
   ExternalLink,
+  Link2,
   ListTree,
+  Lock,
   MapPin,
   MessageCircle,
   Package,
+  Share2,
   ShieldCheck,
   Sparkles,
   Wrench,
@@ -34,10 +37,12 @@ import {
 } from "@/components/ui/breadcrumb";
 import InformacoesNavbar from "@/components/landing/InformacoesNavbar";
 import { getLandingPageBySlug, getRelatedPages, type LandingPageData } from "@/data/landingPages";
+import { getAllBlogPosts } from "@/data/blogPosts";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
 const WORDS_PER_MINUTE = 200;
+const CTA_IMAGE = "/images/shared/cta-professional.jpg";
 
 const TRUST_PILLARS = [
   { icon: Wrench, title: "Desenvolvimento sob medida", description: "Cada projeto pensado pro negócio específico — não é solução genérica de prateleira." },
@@ -89,8 +94,11 @@ const InformacoesLandingPage = () => {
   }
 
   const { otherNichesSameLocation, otherLocationsSameNiche } = getRelatedPages(page);
+  const recentBlogPosts = getAllBlogPosts().slice(0, 3);
   const readingMinutes = estimateReadingMinutes(page);
   const pageUrl = `${SITE_URL}/informacoes/${page.slug}/`;
+  const shareText = encodeURIComponent(page.headline);
+  const shareUrl = encodeURIComponent(pageUrl);
   const ogImageUrl = new URL(page.seo.ogImage ?? "/logo.png", SITE_URL).toString();
 
   const faqSchema = {
@@ -245,6 +253,11 @@ const InformacoesLandingPage = () => {
           <p className="text-base sm:text-lg text-tech-gray leading-relaxed">
             {page.introParagraph}
           </p>
+
+          <blockquote className="mt-8 rounded-xl border-l-4 border-accent bg-secondary/40 p-5 text-tech-gray">
+            <p className="font-medium text-primary">Automatizar não é substituir o atendimento humano.</p>
+            <p>É dar mais tempo pro que realmente importa: o cliente na sua frente.</p>
+          </blockquote>
 
           <nav aria-label="Sumário" className="mt-8 rounded-xl border border-border bg-secondary/40 p-5">
             <div className="mb-3 flex items-center justify-between gap-3 text-sm font-semibold text-primary">
@@ -406,6 +419,50 @@ const InformacoesLandingPage = () => {
         </section>
       )}
 
+      {/* Compartilhar */}
+      <section className="py-8 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl flex flex-wrap items-center gap-3">
+          <span className="flex items-center gap-1.5 text-sm font-medium text-primary">
+            <Share2 className="h-4 w-4" />
+            Compartilhe
+          </span>
+          <a
+            href={`https://wa.me/?text=${shareText}%20${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartilhar no WhatsApp"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray transition-colors hover:border-primary/40 hover:text-primary"
+          >
+            <MessageCircle className="h-4 w-4" />
+          </a>
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartilhar no LinkedIn"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray text-xs font-bold transition-colors hover:border-primary/40 hover:text-primary"
+          >
+            in
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartilhar no Facebook"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray text-xs font-bold transition-colors hover:border-primary/40 hover:text-primary"
+          >
+            f
+          </a>
+          <a
+            href={pageUrl}
+            aria-label="Copiar link"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray transition-colors hover:border-primary/40 hover:text-primary"
+          >
+            <Link2 className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
@@ -428,25 +485,65 @@ const InformacoesLandingPage = () => {
       </section>
 
       {/* Closing CTA */}
-      <section className="py-16 sm:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-primary">
-            Pronto para automatizar o atendimento de {page.niche.toLowerCase()} {page.stateIn}?
-          </h2>
-          <p className="text-tech-gray mb-8 max-w-2xl mx-auto">
-            Fale agora com a CODEXY e veja como implantar um chatbot no WhatsApp
-            para {page.niche.toLowerCase()} {page.stateIn}.
-          </p>
-          <Button
-            size="lg"
-            className="px-6 sm:px-8 py-4 sm:py-6 tech-glow group text-base sm:text-lg font-semibold"
-            onClick={() => openWhatsApp(page.whatsappMessage)}
-          >
-            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-            Enviar Mensagem no WhatsApp
-          </Button>
+      <section className="py-16 sm:py-20 bg-gradient-primary">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid gap-8 items-center md:grid-cols-[1fr_auto] max-w-4xl mx-auto">
+            <div className="text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+                Pronto para automatizar o atendimento de {page.niche.toLowerCase()} {page.stateIn}?
+              </h2>
+              <p className="text-white/80 mb-8 max-w-2xl">
+                Fale agora com a CODEXY e veja como implantar um chatbot no WhatsApp
+                para {page.niche.toLowerCase()} {page.stateIn}.
+              </p>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="px-6 sm:px-8 py-4 sm:py-6 tech-glow group text-base sm:text-lg font-semibold"
+                onClick={() => openWhatsApp(page.whatsappMessage)}
+              >
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                Enviar Mensagem no WhatsApp
+              </Button>
+            </div>
+            <div className="hidden md:block h-40 w-40 overflow-hidden rounded-2xl border-4 border-white/20">
+              <img src={CTA_IMAGE} alt="" className="h-full w-full object-cover" />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Segurança — afirmação real e verificável */}
+      <section className="py-6 bg-background border-b border-border">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl flex items-center gap-3 text-sm text-tech-gray">
+          <Lock className="h-4 w-4 flex-shrink-0" />
+          A conversa acontece no seu WhatsApp normal, com a mesma criptografia de ponta a ponta que você já usa.
+        </div>
+      </section>
+
+      {recentBlogPosts.length > 0 && (
+        <section className="py-16 bg-secondary/50">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+            <h2 className="mb-6 text-lg font-semibold text-primary">Leia também no blog</h2>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {recentBlogPosts.map((post) => (
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}/`}
+                  className="flex gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-primary/40"
+                >
+                  <div className="h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg bg-secondary">
+                    {post.coverImage && (
+                      <img src={post.coverImage} alt="" className="h-full w-full object-cover" />
+                    )}
+                  </div>
+                  <p className="line-clamp-3 text-sm font-medium text-foreground">{post.title}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {(otherNichesSameLocation.length > 0 || otherLocationsSameNiche.length > 0) && (
         <section className="py-16 bg-secondary/50">

@@ -1,6 +1,15 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, CalendarDays, Clock, ListTree, MessageCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Bot,
+  CalendarDays,
+  Clock,
+  Link2,
+  ListTree,
+  MessageCircle,
+  Share2,
+} from "lucide-react";
 import Footer from "@/components/Footer";
 import NotFound from "@/pages/NotFound";
 import { Badge } from "@/components/ui/badge";
@@ -71,6 +80,8 @@ const BlogPost = () => {
   const readingMinutes = estimateReadingMinutes(post);
   const pageUrl = `${SITE_URL}/blog/${post.slug}/`;
   const ogImageUrl = new URL(post.seo.ogImage ?? post.coverImage ?? "/logo.png", SITE_URL).toString();
+  const shareText = encodeURIComponent(post.title);
+  const shareUrl = encodeURIComponent(pageUrl);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -135,17 +146,9 @@ const BlogPost = () => {
 
       <InformacoesNavbar onWhatsAppClick={() => openWhatsApp(DEFAULT_WHATSAPP_MESSAGE)} />
 
+      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-primary">
-        <div className="absolute inset-0">
-          <img
-            src={post.coverImage || FALLBACK_COVER}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40" />
-        </div>
-        <div className="container relative mx-auto px-4 py-14 sm:px-6 sm:py-20">
+        <div className="container relative mx-auto px-4 py-12 sm:px-6 sm:py-16">
           <a
             href="/blog/"
             className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
@@ -153,159 +156,259 @@ const BlogPost = () => {
             <ArrowLeft className="h-4 w-4" />
             Voltar pro blog
           </a>
-          <Badge variant="secondary" className="mb-4 w-fit">
-            {post.category}
-          </Badge>
-          <h1 className="max-w-3xl text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-            {post.title}
-          </h1>
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/70">
-            <span className="flex items-center gap-1.5">
-              <CalendarDays className="h-4 w-4" />
-              {new Date(post.publishedAt + "T00:00:00").toLocaleDateString("pt-BR", {
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-              })}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4" />
-              {readingMinutes} min de leitura
-            </span>
-            {post.source && (
-              <span>
-                Inspirado em{" "}
-                <a
-                  href={post.source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-white/40 underline-offset-2 hover:text-white"
-                >
-                  {post.source.label}
-                </a>
-              </span>
-            )}
+
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+            <div>
+              <Badge variant="secondary" className="mb-4 w-fit">
+                {post.category}
+              </Badge>
+              <h1 className="max-w-2xl text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+                {post.title}
+              </h1>
+              <p className="mt-5 max-w-xl text-lg text-white/80">{post.excerpt}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/70">
+                <span className="flex items-center gap-1.5 font-medium text-white/90">
+                  <Bot className="h-4 w-4" />
+                  Equipe CODEXY
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CalendarDays className="h-4 w-4" />
+                  {new Date(post.publishedAt + "T00:00:00").toLocaleDateString("pt-BR", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4" />
+                  {readingMinutes} min de leitura
+                </span>
+                {post.source && (
+                  <span>
+                    Inspirado em{" "}
+                    <a
+                      href={post.source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-white/40 underline-offset-2 hover:text-white"
+                    >
+                      {post.source.label}
+                    </a>
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 shadow-2xl shadow-primary/30">
+              <img
+                src={post.coverImage || FALLBACK_COVER}
+                alt={post.coverImageAlt ?? post.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <article className="bg-background py-12 sm:py-16">
-        <div className="container mx-auto max-w-3xl px-4 sm:px-6">
-          <Breadcrumb className="mb-8">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Início</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/blog/">Blog</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+      {/* Corpo: conteúdo + sidebar */}
+      <div className="container mx-auto px-4 py-12 sm:px-6 sm:py-16">
+        <Breadcrumb className="mb-8">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Início</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/blog/">Blog</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
-          {headings.length > 1 && (
-            <nav aria-label="Sumário" className="mb-10 rounded-xl border border-border bg-secondary/40 p-5">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-primary">
-                <ListTree className="h-4 w-4" />
-                Sumário
-              </div>
-              <ol className="space-y-1.5 text-sm">
-                {headings.map((h) => (
-                  <li key={h.id}>
-                    <a href={`#${h.id}`} className="text-tech-gray transition-colors hover:text-primary">
-                      {h.text}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          )}
-
-          {post.content.map((block, index) => {
-            if (block.type === "heading") {
+        <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
+          <article className="min-w-0">
+            {post.content.map((block, index) => {
+              if (block.type === "heading") {
+                return (
+                  <h2
+                    key={index}
+                    id={slugifyHeading(block.text as string)}
+                    className="mb-4 mt-10 scroll-mt-24 text-2xl font-bold text-primary first:mt-0"
+                  >
+                    {block.text}
+                  </h2>
+                );
+              }
+              if (block.type === "list") {
+                return (
+                  <ul key={index} className="mb-4 list-disc space-y-2 pl-6 text-tech-gray">
+                    {block.items?.map((item, itemIndex) => (
+                      <li key={itemIndex}>{item}</li>
+                    ))}
+                  </ul>
+                );
+              }
               return (
-                <h2
-                  key={index}
-                  id={slugifyHeading(block.text as string)}
-                  className="mb-4 mt-10 scroll-mt-24 text-2xl font-bold text-primary first:mt-0"
-                >
+                <p key={index} className="mb-4 leading-relaxed text-tech-gray">
                   {block.text}
-                </h2>
+                </p>
               );
-            }
-            if (block.type === "list") {
-              return (
-                <ul key={index} className="mb-4 list-disc space-y-2 pl-6 text-tech-gray">
-                  {block.items?.map((item, itemIndex) => (
-                    <li key={itemIndex}>{item}</li>
-                  ))}
-                </ul>
-              );
-            }
-            return (
-              <p key={index} className="mb-4 leading-relaxed text-tech-gray">
-                {block.text}
+            })}
+
+            <div className="mt-12 rounded-2xl bg-secondary/50 p-8 text-center">
+              <h2 className="mb-3 text-xl font-bold text-primary">
+                Quer automatizar o atendimento da sua empresa?
+              </h2>
+              <p className="mb-6 text-tech-gray">
+                A CODEXY implanta chatbot de WhatsApp pronto pra atender seus clientes 24h.
               </p>
-            );
-          })}
-
-          <div className="mt-12 rounded-2xl bg-secondary/50 p-8 text-center">
-            <h2 className="mb-3 text-xl font-bold text-primary">
-              Quer automatizar o atendimento da sua empresa?
-            </h2>
-            <p className="mb-6 text-tech-gray">
-              A CODEXY implanta chatbot de WhatsApp pronto pra atender seus clientes 24h.
-            </p>
-            <Button
-              size="lg"
-              className="tech-glow group font-semibold"
-              onClick={() => openWhatsApp(DEFAULT_WHATSAPP_MESSAGE)}
-            >
-              <MessageCircle className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              Falar no WhatsApp
-            </Button>
-          </div>
-
-          {post.faq && post.faq.length > 0 && (
-            <div className="mt-12">
-              <h2 className="mb-6 text-2xl font-bold text-primary">Perguntas frequentes</h2>
-              <Accordion type="single" collapsible>
-                {post.faq.map((item, index) => (
-                  <AccordionItem key={item.question} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left text-primary">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-tech-gray">{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <Button
+                size="lg"
+                className="tech-glow group font-semibold"
+                onClick={() => openWhatsApp(DEFAULT_WHATSAPP_MESSAGE)}
+              >
+                <MessageCircle className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                Falar no WhatsApp
+              </Button>
             </div>
-          )}
+
+            {post.faq && post.faq.length > 0 && (
+              <div className="mt-12">
+                <h2 className="mb-6 text-2xl font-bold text-primary">Perguntas frequentes</h2>
+                <Accordion type="single" collapsible>
+                  {post.faq.map((item, index) => (
+                    <AccordionItem key={item.question} value={`item-${index}`}>
+                      <AccordionTrigger className="text-left text-primary">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-tech-gray">{item.answer}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            )}
+
+            {/* Compartilhar */}
+            <div className="mt-12 flex flex-wrap items-center gap-3 border-t border-border pt-8">
+              <span className="flex items-center gap-1.5 text-sm font-medium text-primary">
+                <Share2 className="h-4 w-4" />
+                Compartilhe este artigo
+              </span>
+              <a
+                href={`https://wa.me/?text=${shareText}%20${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compartilhar no WhatsApp"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <MessageCircle className="h-4 w-4" />
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compartilhar no LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray text-xs font-bold transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                in
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compartilhar no Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray text-xs font-bold transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                f
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compartilhar no X"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray text-xs font-bold transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                X
+              </a>
+              <a
+                href={pageUrl}
+                aria-label="Copiar link"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-tech-gray transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <Link2 className="h-4 w-4" />
+              </a>
+            </div>
+          </article>
+
+          {/* Sidebar */}
+          <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
+            {headings.length > 1 && (
+              <nav aria-label="Sumário" className="rounded-xl border border-border bg-secondary/40 p-5">
+                <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-primary">
+                  <ListTree className="h-4 w-4" />
+                  Neste artigo
+                </div>
+                <ol className="space-y-2 text-sm">
+                  {headings.map((h) => (
+                    <li key={h.id} className="border-l-2 border-transparent pl-3 hover:border-primary/50">
+                      <a href={`#${h.id}`} className="text-tech-gray transition-colors hover:text-primary">
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+
+            <div className="rounded-xl bg-primary p-6 text-white">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-white/70">
+                Automatize seu atendimento
+              </p>
+              <p className="mb-4 text-sm text-white/85">
+                Veja como a CODEXY pode ajudar sua empresa a atender melhor no WhatsApp.
+              </p>
+              <Button
+                variant="secondary"
+                className="w-full font-semibold"
+                onClick={() => openWhatsApp(DEFAULT_WHATSAPP_MESSAGE)}
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Falar no WhatsApp
+              </Button>
+            </div>
+
+            {otherPosts.length > 0 && (
+              <div>
+                <h2 className="mb-4 text-sm font-semibold text-primary">Artigos relacionados</h2>
+                <div className="space-y-4">
+                  {otherPosts.map((other) => (
+                    <a key={other.slug} href={`/blog/${other.slug}/`} className="flex gap-3 group">
+                      <div className="h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg bg-secondary">
+                        <img
+                          src={other.coverImage || FALLBACK_COVER}
+                          alt=""
+                          className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="line-clamp-2 text-sm font-medium text-foreground group-hover:text-primary">
+                          {other.title}
+                        </p>
+                        <p className="mt-1 text-xs text-tech-gray">
+                          {estimateReadingMinutes(other)} min de leitura
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
         </div>
-      </article>
-
-      {otherPosts.length > 0 && (
-        <section className="bg-secondary/50 py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="mb-8 text-lg font-semibold text-primary">Leia também</h2>
-            <div className="flex flex-wrap gap-3">
-              {otherPosts.map((other) => (
-                <a
-                  key={other.slug}
-                  href={`/blog/${other.slug}/`}
-                  className="rounded-full border border-primary/20 bg-background px-4 py-2 text-sm text-primary transition-colors hover:bg-primary hover:text-white"
-                >
-                  {other.title}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      </div>
 
       <Footer />
     </>
