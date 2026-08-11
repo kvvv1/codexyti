@@ -65,7 +65,7 @@ const ContactSection = () => {
                       <div>
                         <h4 className="font-semibold text-primary mb-1">{info.title}</h4>
                         <p className="text-tech-gray font-medium mb-1">{info.value}</p>
-                        <p className="text-sm text-tech-gray/70">{info.description}</p>
+                        <p className="text-sm text-tech-gray">{info.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -107,7 +107,7 @@ const ContactSection = () => {
                       </p>
                       <div className="bg-accent/10 p-4 rounded-lg">
                         <p className="text-sm text-accent font-medium mb-2">📝 Sua mensagem deve incluir:</p>
-                        <ul className="text-xs sm:text-sm text-tech-gray space-y-1">
+                        <ul className="text-xs sm:text-sm text-gray-700 space-y-1">
                           <li>• Nome da empresa/projeto</li>
                           <li>• Tipo de solução desejada (site, app, sistema)</li>
                           <li>• Breve descrição do objetivo</li>
@@ -169,7 +169,7 @@ Podem me ajudar?`;
                       Enviar Mensagem no WhatsApp
                     </Button>
                     
-                    <p className="text-xs text-tech-gray/70 text-center mt-4">
+                    <p className="text-xs text-gray-600 text-center mt-4">
                       Resposta garantida em até 2 horas durante horário comercial
                     </p>
                   </div>

@@ -31,7 +31,7 @@ const AboutSection = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-accent mt-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Inovação Constante</h4>
+                    <h3 className="font-semibold text-primary mb-1">Inovação Constante</h3>
                     <p className="text-tech-gray">Utilizamos as tecnologias mais avançadas para criar soluções à frente do mercado.</p>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ const AboutSection = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-accent mt-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Foco no Cliente</h4>
+                    <h3 className="font-semibold text-primary mb-1">Foco no Cliente</h3>
                     <p className="text-tech-gray">Cada projeto é desenvolvido com foco nas necessidades específicas do cliente.</p>
                   </div>
                 </div>
@@ -47,7 +47,7 @@ const AboutSection = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-accent mt-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Qualidade Premium</h4>
+                    <h3 className="font-semibold text-primary mb-1">Qualidade Premium</h3>
                     <p className="text-tech-gray">Mantemos os mais altos padrões de qualidade em todos os nossos entregáveis.</p>
                   </div>
                 </div>
