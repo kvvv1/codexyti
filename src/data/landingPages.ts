@@ -163,6 +163,12 @@ interface NicheTemplate {
   painPoints: FeatureItem[];
   benefits: FeatureItem[];
   faq: FaqItem[];
+  /** Quando presente, cada pagina sorteia (deterministico por local+nicho) uma
+   * variante em vez de usar sempre painPoints/benefits/faq -- quebra o
+   * conteudo quase-identico entre localidades do mesmo nicho. */
+  painPointsVariants?: FeatureItem[][];
+  benefitsVariants?: FeatureItem[][];
+  faqVariants?: FaqItem[][];
   partner?: PartnerRecommendation;
   headline: (state: StateInfo) => string;
   introParagraph: (state: StateInfo) => string;
@@ -257,6 +263,198 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
           "Não. A CODEXY cuida de toda a configuração e entrega o chatbot pronto para uso.",
       },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Pedidos perdidos fora do horário",
+        "description": "Cliente manda mensagem à noite ou no domingo e só recebe resposta no dia seguinte — quando já comprou em outra padaria."
+      },
+      {
+        "title": "Fila de mensagens no horário de pico",
+        "description": "Manhã e véspera de feriado lotam o WhatsApp e a equipe do caixa não consegue responder todo mundo a tempo."
+      },
+      {
+        "title": "Encomendas de bolo e festa mal controladas",
+        "description": "Anotações soltas em papel ou memória geram erro de sabor, tamanho, data de entrega e cobrança."
+      },
+      {
+        "title": "Equipe sobrecarregada",
+        "description": "Quem atende o balcão também tenta responder o WhatsApp, e as duas tarefas saem prejudicadas."
+      }
+    ],
+    [
+      {
+        "title": "Atendimento desatualizado",
+        "description": "Clientes recebem informações de horário, cardápio e endereço que não estão mais atualizados."
+      },
+      {
+        "title": "Falta de consistência nos pedidos",
+        "description": "Encomendas de bolo e festa são feitas com detalhes diferentes cada vez, causando problemas na produção e entrega."
+      },
+      {
+        "title": "Equipe sobrecarregada pelo WhatsApp",
+        "description": "A equipe do caixa tenta atender ao balcão e responder mensagens no WhatsApp, reduzindo a qualidade de ambos os serviços."
+      },
+      {
+        "title": "Dificuldade em seguir protocolos",
+        "description": "Procedimentos como confirmação de pedidos e cobrança não são seguidos corretamente, gerando problemas."
+      }
+    ],
+    [
+      {
+        "title": "Perda de pedidos",
+        "description": "Clientes enviam mensagens fora do horário ou no domingo, mas só recebem respostas no dia seguinte — quando já compraram em outra padaria."
+      },
+      {
+        "title": "Fila de mensagens durante o horário de pico",
+        "description": "Manhã e véspera de feriado criam uma grande demanda, sobrecarregando a equipe do caixa e afetando o atendimento no balcão."
+      },
+      {
+        "title": "Problemas com encomendas de bolo e festa",
+        "description": "Anotações soltas em papel ou memória geram erros em sabor, tamanho, data de entrega e cobrança das encomendas."
+      },
+      {
+        "title": "Equipe sobrecarregada",
+        "description": "Quem atende ao balcão também tenta responder WhatsApp, resultando na prejudicamento de ambas as tarefas."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Atendimento automático 24/7",
+        "description": "Cardápio, horário de funcionamento, endereço e formas de pagamento respondidos na hora, todo dia."
+      },
+      {
+        "title": "Encomendas organizadas automaticamente",
+        "description": "O chatbot recebe e confirma pedidos de bolo e festa com data, sabor e quantidade, sem depender de anotação manual."
+      },
+      {
+        "title": "Menos carga para a equipe",
+        "description": "O time do balcão foca em quem já está na loja, enquanto o chatbot cuida do WhatsApp."
+      },
+      {
+        "title": "Resposta instantânea reduz desistência",
+        "description": "Cliente que recebe resposta na hora tem muito mais chance de fechar o pedido em vez de procurar concorrente."
+      },
+      {
+        "title": "Mesmo número que você já usa",
+        "description": "Não precisa trocar de WhatsApp nem pedir para os clientes salvarem um novo contato."
+      }
+    ],
+    [
+      {
+        "title": "Atendimento automático e preciso",
+        "description": "O chatbot fornece informações atualizadas sobre horário, cardápio e endereço para os clientes."
+      },
+      {
+        "title": "Pedidos organizados e confiáveis",
+        "description": "O chatbot coleta e confirma encomendas de bolo e festa com dados precisos, evitando problemas na produção e entrega."
+      },
+      {
+        "title": "Carga de trabalho reduzida para a equipe",
+        "description": "A equipe do caixa se concentra no atendimento ao balcão, enquanto o chatbot cuida do WhatsApp."
+      },
+      {
+        "title": "Resposta instantânea e consistente",
+        "description": "Os clientes recebem respostas rápidas e consistentes em todos os momentos, aumentando a satisfação."
+      },
+      {
+        "title": "Atendimento personalizado sem perder o contato antigo",
+        "description": "A padaria mantém seu número de WhatsApp original e oferece atendimento automático personalizado aos clientes."
+      }
+    ],
+    [
+      {
+        "title": "Atendimento automático 24/7",
+        "description": "O chatbot responde a perguntas e mensagens fora do horário, garantindo que os clientes recebam informações atualizadas em todos os momentos."
+      },
+      {
+        "title": "Encomendas organizadas automaticamente",
+        "description": "O chatbot coleta e confirma detalhes das encomendas de bolo e festa, como sabor, tamanho e data de entrega."
+      },
+      {
+        "title": "Redução da carga de trabalho para a equipe",
+        "description": "A equipe do caixa se concentra no atendimento ao balcão enquanto o chatbot cuida das mensagens do WhatsApp."
+      },
+      {
+        "title": "Resposta instantânea reduz desistência dos pedidos",
+        "description": "Clientes que recebem respostas rápidas têm maior chance de concluir a compra em vez de procurar outra padaria."
+      },
+      {
+        "title": "Uso do mesmo número de WhatsApp",
+        "description": "A padaria não precisa trocar seu número de WhatsApp ou pedir aos clientes para salvarem um novo contato."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "O chatbot substitui o atendente humano?",
+        "answer": "Não. Ele cuida das perguntas repetitivas e dos pedidos simples, e transfere para um atendente humano quando o assunto exige."
+      },
+      {
+        "question": "Funciona no mesmo número de WhatsApp que já uso?",
+        "answer": "Sim, a implantação é feita em cima do número que a padaria já utiliza hoje."
+      },
+      {
+        "question": "Ele recebe encomenda de bolo e festa?",
+        "answer": "Sim, o chatbot coleta sabor, tamanho, data de entrega e demais detalhes e organiza tudo automaticamente."
+      },
+      {
+        "question": "Quanto tempo leva para colocar no ar?",
+        "answer": "A implantação costuma ser rápida, sem necessidade de a padaria mexer em nada técnico."
+      },
+      {
+        "question": "Preciso saber programar para usar?",
+        "answer": "Não. A CODEXY cuida de toda a configuração e entrega o chatbot pronto para uso."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot é capaz de realizar procedimentos complexos?",
+        "answer": "Não, ele cuida das tarefas mais simples, transferindo para um atendente humano quando necessário."
+      },
+      {
+        "question": "Posso continuar usando meu número de WhatsApp habitual?",
+        "answer": "Sim, a implantação é feita sobre o seu número atual."
+      },
+      {
+        "question": "O chatbot pode coletar e confirmar encomendas de bolo e festa?",
+        "answer": "Sim, ele é capaz de coletar todos os detalhes necessários para organizar as encomendas corretamente."
+      },
+      {
+        "question": "Quanto tempo leva para colocar o chatbot no ar?",
+        "answer": "A implantação geralmente é rápida e não requer intervenção técnica da padaria."
+      },
+      {
+        "question": "Preciso ter conhecimento de programação para configurá-lo?",
+        "answer": "Não, a CODEXY cuida de toda a configuração e entrega o chatbot pronto para uso."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot substitui os atendentes humanos?",
+        "answer": "Não, ele cuida das mensagens simples e transfere para um atendente humano quando necessário."
+      },
+      {
+        "question": "Funciona sobre o mesmo número de WhatsApp que a padaria já usa?",
+        "answer": "Sim, a implantação é feita diretamente sobre o seu número atual."
+      },
+      {
+        "question": "Ele pode coletar e confirmar encomendas de bolo e festa?",
+        "answer": "Sim, o chatbot coleta todos os detalhes necessários para organizar as encomendas corretamente."
+      },
+      {
+        "question": "Quanto tempo leva para colocar no ar?",
+        "answer": "A implantação geralmente é rápida e não requer intervenção técnica da padaria."
+      },
+      {
+        "question": "Preciso ter conhecimento de programação para configurá-lo?",
+        "answer": "Não, a CODEXY cuida de toda a configuração e entrega o chatbot pronto para uso."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Padarias ${state.in}`,
     introParagraph: (state) =>
       `A CODEXY é especializada em automação e chatbots para o comércio local e implanta o chatbot para padaria ${state.in} direto no WhatsApp que sua padaria já usa hoje. A solução responde cardápio, horário e formas de pagamento na hora, organiza encomendas de bolo e festa automaticamente e funciona 24 horas por dia, todos os dias da semana, sem depender de mão de obra extra na equipe.`,
@@ -1558,7 +1756,58 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
   },
 ];
 
+/** Hash simples e estavel (mesmo input = mesmo output sempre, entre builds e
+ * entre site1/site2) -- usado so pra escolher variante, nao precisa ser
+ * criptografico. */
+function hashSeed(text: string): number {
+  let h = 0;
+  for (let i = 0; i < text.length; i++) {
+    h = (h * 31 + text.charCodeAt(i)) >>> 0;
+  }
+  return h;
+}
+
+function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number): T {
+  if (!variants || variants.length === 0) return fallback;
+  return variants[seed % variants.length  {
+    nicheSlug: "jardinagem-e-paisagismo",
+    niche: "Jardinagem e Paisagismo",
+    eyebrow: "Chatbot para Jardinagem e Paisagismo",
+    heroImage: "/images/landing/jardinagem-e-paisagismo-hero.jpg",
+    heroImageAlt: "Profissionais de jardinagem e paisagismo trabalhando com chatbot",
+    ogImage: "/images/og/jardinagem-e-paisagismo-og.jpg",
+    subheadline: "A CODEXY ajuda a automatizar o atendimento de clientes, agilizando orçamentos e manutenção",
+    painPoints: [
+      { title: "Orçamento demorado", description: "Cliente pede orçamento por telefone e espera até o fim do dia pra receber resposta, e muitas vezes já fechou com outro profissional." },
+      { title: "Cliente sem notícia do andamento do serviço", description: "Cliente liga várias vezes perguntando quando o jardim fica pronto porque não recebe atualização automática." },
+      { title: "Agenda de entrega sem controle", description: "Sem sistema, é fácil perder o prazo combinado de entrega do material necessário." },
+      { title: "Equipe sobrecarregada", description: "Mesma pessoa que atende o cliente na loja também tenta responder WhatsApp o dia todo." },
+    ],
+    benefits: [
+      { title: "Orçamento respondido na hora", description: "Cliente manda foto do local e recebe retorno inicial rápido, sem esperar até o fim do dia." },
+      { title: "Atualização automática de status", description: "Cliente acompanha andamento da manutenção sem precisar ligar pra saber." },
+      { title: "Agendamento de entrega organizado", description: "Chatbot confirma data de retirada do material e evita esquecimento." },
+      { title: "Menos ligação repetitiva", description: "Perguntas de status saem do telefone e vão pro chatbot." },
+      { title: "Mesmo número que já usa", description: "Não precisa trocar de WhatsApp nem pedir pro cliente salvar novo contato." },
+    ],
+    faq: [
+      { question: "Como funciona o chatbot?", answer: "O chatbot é uma ferramenta automatizada que responde perguntas e realiza tarefas específicas." },
+      { question: "Posso personalizar o chatbot para meu negócio?", answer: "Sim, a CODEXY oferece opções de personalização para atender às necessidades específicas do seu negócio." },
+      { question: "O chatbot é seguro e privado?", answer: "Sim, o chatbot é desenvolvido com segurança e privacidade em mente, garantindo que os dados dos clientes sejam protegidos." },
+      { question: "Posso cancelar o serviço de chatbot a qualquer momento?", answer: "Sim, você pode cancelar o serviço a qualquer momento, sem penalidades ou custos adicionais." },
+      { question: "Como posso contatar a CODEXY para mais informações?", answer: "Você pode entrar em contato conosco pelo WhatsApp ou e-mail para mais informações sobre o chatbot e como implantá-lo no seu negócio." },
+    ],
+    headline: (state) => `Chatbot para Jardinagem e Paisagismo ${state.in}`,
+    introParagraph: (state) => `A CODEXY implanta chatbot para jardinagem e paisagismo ${state.in} direto no WhatsApp que a loja já usa, agilizando o primeiro retorno de orçamento e mantendo o cliente atualizado sobre o andamento da manutenção sem precisar ligar.`,
+    whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para jardinagem e paisagismo ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
+    seoTitle: (state) => `Chatbot para Jardinagem e Paisagismo ${state.seoIn} | CODEXY`,
+    seoDescription: (state) => `Automatize orçamentos e atualizações de serviço da sua empresa de jardinagem e paisagismo ${state.seoIn}. Fale com a CODEXY.`,
+  },
+];
+}
+
 function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
+  const seed = hashSeed(`${template.nicheSlug}:${state.slug}`);
   return {
     slug: `chatbot-para-${template.nicheSlug}-${state.slug}`,
     service: "chatbot",
@@ -1574,9 +1823,9 @@ function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPag
     heroImage: template.heroImage,
     heroImageAlt: template.heroImageAlt,
     introParagraph: template.introParagraph(state),
-    painPoints: template.painPoints,
-    benefits: template.benefits,
-    faq: template.faq,
+    painPoints: pickVariant(template.painPointsVariants, template.painPoints, seed),
+    benefits: pickVariant(template.benefitsVariants, template.benefits, seed),
+    faq: pickVariant(template.faqVariants, template.faq, seed),
     partner: template.partner,
     whatsappMessage: template.whatsappMessage(state),
     seo: {
