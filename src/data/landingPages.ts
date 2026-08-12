@@ -1255,6 +1255,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Posso personalizar o chatbot para atender às necessidades específicas da minha clínica?", answer: "Sim, é possível personalizar a experiência do usuário e as interações com o chatbot para atender às necessidades específicas da sua clínica." },
       { question: "Posso acompanhar os dados de uso e desempenho do meu chatbot?", answer: "Sim, você pode acompanhar os dados de uso e desempenho do seu chatbot através do painel de controle fornecido pela CODEXY." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Tempo perdido",
+        "description": "O tempo dedicado ao atendimento ao cliente pode ser reduzido com o uso de um chatbot."
+      },
+      {
+        "title": "Maior eficiência",
+        "description": "Os funcionários podem se concentrar em procedimentos mais críticos."
+      },
+      {
+        "title": "Aumento da satisfação do paciente",
+        "description": "Pacientes podem agendar consultas e realizar pedidos de forma rápida e fácil."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar agendamentos",
+        "description": "Pacientes frequentemente ligam para marcar consultas, o que pode ser um problema para clínicas com agendas lotadas."
+      },
+      {
+        "title": "Falta de comunicação eficaz",
+        "description": "Mensagens e chamados perdidos podem causar desconforto para os pacientes e desorganização para a equipe."
+      },
+      {
+        "title": "Custo de manutenção de recursos humanos",
+        "description": "Gerenciar equipes pode ser caro, especialmente se você está lidando com uma grande quantidade de pacientes e procedimentos diários."
+      }
+    ],
+    [
+      {
+        "title": "Desorganização da rotina diária",
+        "description": "Muitas vezes, a equipe da clínica fica ocupada com tarefas administrativas e não tem tempo para se concentrar no atendimento aos pacientes."
+      },
+      {
+        "title": "Perda de oportunidades de marketing",
+        "description": "Com a falta de uma ferramenta eficaz para gerenciar as interações com os pacientes, a clínica pode perder chances de promover seus serviços e produtos."
+      },
+      {
+        "title": "Problemas de escalabilidade",
+        "description": "Quando a clínica cresce, torna-se cada vez mais difícil gerenciar as necessidades dos pacientes sem a ajuda de ferramentas automatizadas."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Maior eficiência",
+        "description": "Os funcionários podem se concentrar em procedimentos mais críticos."
+      },
+      {
+        "title": "Redução do tempo de espera",
+        "description": "Pacientes aguardam menos tempo para serem atendidos."
+      },
+      {
+        "title": "Aumento da satisfação do paciente",
+        "description": "Pacientes podem agendar consultas e realizar pedidos de forma rápida e fácil."
+      },
+      {
+        "title": "Redução dos custos operacionais",
+        "description": "O uso de recursos pode ser otimizado com a automatização de tarefas."
+      }
+    ],
+    [
+      {
+        "title": "Redução do tempo de espera dos pacientes",
+        "description": "Com um chatbot, os pacientes podem agendar consultas rapidamente e sem a necessidade de entrar em contato diretamente com a clínica."
+      },
+      {
+        "title": "Aumento da eficiência na gestão de recursos",
+        "description": "O uso de recursos pode ser otimizado e a equipe pode se concentrar em procedimentos mais críticos."
+      },
+      {
+        "title": "Melhoria na experiência do paciente",
+        "description": "Os pacientes podem agendar consultas e realizar pedidos de forma rápida e fácil, o que melhora sua satisfação."
+      },
+      {
+        "title": "Redução dos custos operacionais",
+        "description": "A automação de tarefas pode ajudar a reduzir os custos associados à gestão da clínica."
+      }
+    ],
+    [
+      {
+        "title": "Redução do estresse da equipe",
+        "description": "Com um chatbot, a equipe pode se concentrar em procedimentos mais críticos e deixar para o chatbot as tarefas rotineiras."
+      },
+      {
+        "title": "Aumento das oportunidades de marketing",
+        "description": "O chatbot pode ser personalizado para promover os serviços e produtos da clínica, aumentando a visibilidade e a lealdade dos pacientes."
+      },
+      {
+        "title": "Melhoria na eficiência operacional",
+        "description": "A automação de tarefas pode ajudar a reduzir o tempo gasto em atividades administrativas, permitindo que a equipe se concentre no atendimento aos pacientes."
+      },
+      {
+        "title": "Redução dos custos operacionais",
+        "description": "A automatização de processos pode ajudar a diminuir os custos associados à gestão da clínica."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como funciona o chatbot?",
+        "answer": "O chatbot é um software que pode ser integrado ao WhatsApp e outros canais para fornecer informações e realizar tarefas automática e personalizada."
+      },
+      {
+        "question": "Qual é a vantagem de usar um chatbot em vez de um funcionário?",
+        "answer": "Os chatbots podem trabalhar 24 horas por dia, sete dias por semana sem precisar de descanso ou folga."
+      },
+      {
+        "question": "Posso personalizar o chatbot para atender às necessidades específicas da minha clínica?",
+        "answer": "Sim, é possível personalizar a experiência do usuário e as interações com o chatbot para atender às necessidades específicas da sua clínica."
+      },
+      {
+        "question": "Posso acompanhar os dados de uso e desempenho do meu chatbot?",
+        "answer": "Sim, você pode acompanhar os dados de uso e desempenho do seu chatbot através do painel de controle fornecido pela CODEXY."
+      }
+    ],
+    [
+      {
+        "question": "Como posso garantir que meu chatbot seja bem recebido pelos pacientes?",
+        "answer": "O importante é personalizar a experiência do usuário e as interações com o chatbot para atender às necessidades específicas da sua clínica."
+      },
+      {
+        "question": "Posso configurar o chatbot para lidar com procedimentos especiais?",
+        "answer": "Sim, é possível personalizar o chatbot para realizar tarefas específicas relacionadas a procedimentos de saúde."
+      },
+      {
+        "question": "Qual é a vantagem de usar um chatbot em vez de um funcionário?",
+        "answer": "Os chatbots podem trabalhar 24 horas por dia, sete dias por semana sem precisar de descanso ou folga."
+      },
+      {
+        "question": "Posso acompanhar os dados de uso e desempenho do meu chatbot?",
+        "answer": "Sim, você pode acompanhar os dados de uso e desempenho do seu chatbot através do painel de controle fornecido pela CODEXY."
+      }
+    ],
+    [
+      {
+        "question": "Posso integrar meu chatbot com outros sistemas da clínica?",
+        "answer": "Sim, é possível integrar o chatbot com outros sistemas para garantir a fluidez das operações e reduzir a necessidade de manutenção."
+      },
+      {
+        "question": "Qual é a vantagem de usar um chatbot em vez de um funcionário?",
+        "answer": "Os chatbots podem trabalhar 24 horas por dia, sete dias por semana sem precisar de descanso ou folga."
+      },
+      {
+        "question": "Posso acompanhar os dados de uso e desempenho do meu chatbot?",
+        "answer": "Sim, você pode acompanhar os dados de uso e desempenho do seu chatbot através do painel de controle fornecido pela CODEXY."
+      },
+      {
+        "question": "Qual é a forma mais fácil de configurar o meu chatbot?",
+        "answer": "A configuração é feita diretamente no painel de controle, onde você pode definir as regras e fluxos que melhor atendam às necessidades da sua clínica."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Clínicas Odontológicas ${state.in}`,
     introParagraph: (state) => `A CODEXY oferece uma solução inovadora para as clínicas odontológicas ${state.in}, permitindo que elas se concentrem no cuidado dos pacientes enquanto automatizam tarefas rotineiras. Com o chatbot, os pacientes podem agendar consultas e realizar pedidos de forma rápida e fácil, reduzindo o tempo de espera e aumentando a satisfação do paciente.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para clínica odontológica ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -1503,6 +1659,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "O chatbot pode lidar com pedidos de serviços especializados?", answer: "Sim, o chatbot pode ser configurado para atender a necessidades específicas de serviços adicionais ou especializados oferecidos pela sua empresa." },
       { question: "Quem terá acesso ao dashboard do chatbot?", answer: "Você e seus funcionários terão acesso ao painel de controle, permitindo que vocês monitorem e gerenciem o desempenho do chatbot em tempo real." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade em gerenciar agendamentos e pedidos",
+        "description": "Muitas empresas de limpeza residencial enfrentam problemas para organizar e atender às demandas dos clientes."
+      },
+      {
+        "title": "Falta de comunicação eficaz com os clientes",
+        "description": "Os diaristas e funcionários podem ter dificuldade em manter a comunicação com os clientes, levando a mal-entendidos e frustrações."
+      },
+      {
+        "title": "Dificuldade em escalonar o negócio",
+        "description": "À medida que o negócio cresce, pode ser desafiador gerenciar a expansão e manter a qualidade do serviço."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar a rotina de trabalho dos diaristas",
+        "description": "Às vezes, os funcionários não sabem como priorizar as tarefas e podem se perder com pedidos duplicados ou confusos."
+      },
+      {
+        "title": "Falta de comunicação eficaz entre os funcionários e os clientes",
+        "description": "Os diaristas podem ter dificuldade em manter a comunicação com os clientes, levando a mal-entendidos e frustrações."
+      },
+      {
+        "title": "Dificuldade em manter a qualidade do serviço ao crescer o negócio",
+        "description": "À medida que o negócio cresce, pode ser desafiador garantir que os clientes recebam o mesmo nível de atendimento e qualidade esperados."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em agendar serviços e manter a rotina de trabalho dos diaristas",
+        "description": "Os clientes podem ter dificuldade em encontrar horários disponíveis para os serviços, e os funcionários podem se perder com pedidos duplicados ou confusos."
+      },
+      {
+        "title": "Falta de atualização constante das informações sobre os serviços oferecidos",
+        "description": "Os diaristas podem não estar cientes dos últimos acordos, alterações nos horários de funcionamento ou novas promoções da empresa."
+      },
+      {
+        "title": "Dificuldade em garantir a eficiência na expansão do negócio",
+        "description": "À medida que o negócio cresce, pode ser desafiador manter a qualidade do serviço e agilidade para atender aos novos clientes e demandas."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Aumento da eficiência na gestão de agendamentos e pedidos",
+        "description": "O chatbot ajuda a organizar e automatizar os processos, liberando tempo para atendimento ao cliente e crescimento do negócio."
+      },
+      {
+        "title": "Melhoria na comunicação com os clientes",
+        "description": "O chatbot oferece uma interface intuitiva e eficaz para que os clientes possam agendar serviços e fazer pedidos de forma fácil e rápida."
+      },
+      {
+        "title": "Aumento da satisfação do cliente",
+        "description": "Com o chatbot, os clientes podem ter acesso a informações precisas e atualizadas sobre seus serviços, melhorando a experiência geral com a empresa."
+      },
+      {
+        "title": "Flexibilidade e escalabilidade para o negócio",
+        "description": "O chatbot pode ser personalizado para atender às necessidades específicas da sua empresa, permitindo uma expansão mais eficiente e controlada."
+      }
+    ],
+    [
+      {
+        "title": "Aumento da eficiência na gestão da rotina de trabalho dos diaristas",
+        "description": "O chatbot ajuda a organizar e automatizar as tarefas, liberando tempo para que os funcionários possam se concentrar em atender aos clientes."
+      },
+      {
+        "title": "Melhoria na comunicação eficaz entre os funcionários e os clientes",
+        "description": "O chatbot oferece uma interface intuitiva e eficaz para que os clientes possam agendar serviços e fazer pedidos de forma fácil e rápida."
+      },
+      {
+        "title": "Aumento da satisfação do cliente com a qualidade do serviço",
+        "description": "Com o chatbot, os clientes podem ter acesso a informações precisas e atualizadas sobre seus serviços, melhorando a experiência geral com a empresa."
+      },
+      {
+        "title": "Flexibilidade e escalabilidade para manter a qualidade do serviço ao crescer o negócio",
+        "description": "O chatbot pode ser personalizado para atender às necessidades específicas da sua empresa, permitindo uma expansão mais eficiente e controlada."
+      }
+    ],
+    [
+      {
+        "title": "Aumento da eficiência na gestão de agendamentos de serviços",
+        "description": "O chatbot ajuda a organizar e automatizar os processos, liberando tempo para que os funcionários possam se concentrar em atender aos clientes."
+      },
+      {
+        "title": "Melhoria constante das informações sobre os serviços oferecidos",
+        "description": "Com o chatbot, os diaristas podem ter acesso a atualizações precisas e em tempo real sobre novos acordos, alterações nos horários de funcionamento ou promoções da empresa."
+      },
+      {
+        "title": "Aumento da satisfação do cliente com a eficiência na expansão do negócio",
+        "description": "Com o chatbot, os clientes podem ter acesso a informações precisas e atualizadas sobre seus serviços, melhorando a experiência geral com a empresa."
+      },
+      {
+        "title": "Flexibilidade e escalabilidade para garantir a eficiência na expansão do negócio",
+        "description": "O chatbot pode ser personalizado para atender às necessidades específicas da sua empresa, permitindo uma expansão mais eficiente e controlada."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como funciona a implementação do chatbot na minha empresa?",
+        "answer": "A CODEXY fornece suporte completo para a instalação e personalização do chatbot para atender às necessidades da sua empresa de limpeza residencial."
+      },
+      {
+        "question": "Posso customizar o chatbot para corresponder ao meu negócio?",
+        "answer": "Sim, é possível personalizar o conteúdo e comportamento do chatbot para refletir a identidade e valores da sua empresa."
+      },
+      {
+        "question": "O chatbot pode lidar com pedidos de serviços especializados?",
+        "answer": "Sim, o chatbot pode ser configurado para atender a necessidades específicas de serviços adicionais ou especializados oferecidos pela sua empresa."
+      },
+      {
+        "question": "Quem terá acesso ao dashboard do chatbot?",
+        "answer": "Você e seus funcionários terão acesso ao painel de controle, permitindo que vocês monitorem e gerenciem o desempenho do chatbot em tempo real."
+      }
+    ],
+    [
+      {
+        "question": "Como posso garantir que os diaristas usem o chatbot corretamente?",
+        "answer": "A CODEXY oferece suporte completo para a instalação e personalização do chatbot, incluindo treinamento para os funcionários."
+      },
+      {
+        "question": "Posso alterar as configurações do chatbot para atender às necessidades específicas de meu negócio?",
+        "answer": "Sim, é possível personalizar o conteúdo e comportamento do chatbot para refletir a identidade e valores da sua empresa."
+      },
+      {
+        "question": "O chatbot pode lidar com pedidos de serviços especializados ou adicionais?",
+        "answer": "Sim, o chatbot pode ser configurado para atender a necessidades específicas de serviços adicionais ou especializados oferecidos pela sua empresa."
+      },
+      {
+        "question": "Quem terá acesso ao dashboard do chatbot e como posso monitorar seu desempenho?",
+        "answer": "Você e seus funcionários terão acesso ao painel de controle, permitindo que vocês monitorem e gerenciem o desempenho do chatbot em tempo real."
+      }
+    ],
+    [
+      {
+        "question": "Como posso garantir que as informações sobre os serviços sejam atualizadas corretamente no chatbot?",
+        "answer": "A CODEXY oferece suporte completo para a instalação e personalização do chatbot, incluindo treinamento para os funcionários sobre como manter as informações atualizadas."
+      },
+      {
+        "question": "Posso alterar as configurações do chatbot para atender às necessidades específicas de meu negócio?",
+        "answer": "Sim, é possível personalizar o conteúdo e comportamento do chatbot para refletir a identidade e valores da sua empresa."
+      },
+      {
+        "question": "O chatbot pode lidar com pedidos de serviços especializados ou adicionais?",
+        "answer": "Sim, o chatbot pode ser configurado para atender a necessidades específicas de serviços adicionais ou especializados oferecidos pela sua empresa."
+      },
+      {
+        "question": "Quem terá acesso ao dashboard do chatbot e como posso monitorar seu desempenho?",
+        "answer": "Você e seus funcionários terão acesso ao painel de controle, permitindo que vocês monitorem e gerenciem o desempenho do chatbot em tempo real."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Diaristas e Limpeza Residencial ${state.in}`,
     introParagraph: (state) => `A CODEXY oferece soluções inovadoras para as empresas de limpeza residencial, como a cidade ${state.in}, que buscam melhorar a experiência do cliente e aumentar sua competitividade no mercado. Com o nosso chatbot, você pode automatizar agendamentos, pedidos e atendimento, otimizando os recursos da sua empresa e permitindo que ela cresça de forma sustentável.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para diaristas e limpeza residencial ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -1596,6 +1908,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "O chatbot substitui os funcionários?", answer: "Não, o chatbot é uma ferramenta que ajuda a automatizar tarefas e liberar tempo para os funcionários se concentrarem em atividades mais importantes." },
       { question: "Quais são as plataformas suportadas pelo chatbot?", answer: "O chatbot está disponível para WhatsApp, permitindo que os clientes interajam com o sistema de forma fácil e intuitiva." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade em atender todas as demandas",
+        "description": "Muitos clientes ligam ao mesmo tempo, ocupando todo o seu dia com perguntas e solicitações."
+      },
+      {
+        "title": "Perda de produtividade",
+        "description": "Você gasta tempo respondendo a mensagens que poderiam ser feitas pelo chatbot"
+      },
+      {
+        "title": "Dificuldade em gerenciar agendamentos",
+        "description": "Muitas vezes, os clientes não têm suas datas e horários atualizados no sistema."
+      }
+    ],
+    [
+      {
+        "title": "Ocupação de tempo valioso",
+        "description": "Muitos clientes ligam ao mesmo tempo, ocupando todo o seu dia com perguntas e solicitações."
+      },
+      {
+        "title": "Dificuldade em priorizar tarefas",
+        "description": "Você gasta tempo respondendo a mensagens que poderiam ser feitas pelo chatbot"
+      },
+      {
+        "title": "Falta de organização nos agendamentos",
+        "description": "Muitas vezes, os clientes não têm suas datas e horários atualizados no sistema."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em lidar com demandas constantes",
+        "description": "Muitos clientes ligam ao mesmo tempo, ocupando todo o seu dia com perguntas e solicitações."
+      },
+      {
+        "title": "Falta de disciplina na gestão do tempo",
+        "description": "Você gasta tempo respondendo a mensagens que poderiam ser feitas pelo chatbot"
+      },
+      {
+        "title": "Impossibilidade de gerenciar agendamentos de forma eficaz",
+        "description": "Muitas vezes, os clientes não têm suas datas e horários atualizados no sistema."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Mais tempo para focar na advocacia",
+        "description": "Com o chatbot, você pode se concentrar em representar seus clientes de forma eficaz"
+      },
+      {
+        "title": "Redução do estresse",
+        "description": "O chatbot ajuda a gerenciar as demandas dos clientes e reduzir o estresse"
+      },
+      {
+        "title": "Melhoria na produtividade",
+        "description": "Com o chatbot, você pode processar mais pedidos e atendimentos em menos tempo"
+      },
+      {
+        "title": "Agilidade nos agendamentos",
+        "description": "O chatbot garante que as datas e horários dos clientes estejam atualizados no sistema"
+      }
+    ],
+    [
+      {
+        "title": "Mais tempo para focar na advocacia",
+        "description": "Com o chatbot, você pode se concentrar em representar seus clientes de forma eficaz"
+      },
+      {
+        "title": "Redução do estresse e melhoria da saúde",
+        "description": "O chatbot ajuda a gerenciar as demandas dos clientes e reduzir o estresse, contribuindo para uma melhor qualidade de vida"
+      },
+      {
+        "title": "Agilidade nos processos",
+        "description": "Com o chatbot, você pode processar mais pedidos e atendimentos em menos tempo"
+      },
+      {
+        "title": "Garantia da eficiência dos agendamentos",
+        "description": "O chatbot garante que as datas e horários dos clientes estejam atualizados no sistema"
+      }
+    ],
+    [
+      {
+        "title": "Mais tempo para se concentrar nos casos mais importantes",
+        "description": "Com o chatbot, você pode se concentrar em representar seus clientes de forma eficaz"
+      },
+      {
+        "title": "Redução da pressão e melhoria do bem-estar",
+        "description": "O chatbot ajuda a gerenciar as demandas dos clientes e reduzir o estresse, contribuindo para uma melhor qualidade de vida"
+      },
+      {
+        "title": "Agilidade nos processos administrativos",
+        "description": "Com o chatbot, você pode processar mais pedidos e atendimentos em menos tempo"
+      },
+      {
+        "title": "Garantia da eficiência dos agendamentos e das atividades",
+        "description": "O chatbot garante que as datas e horários dos clientes estejam atualizados no sistema"
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como o chatbot interage com os clientes?",
+        "answer": "O chatbot é configurado para responder a perguntas frequentes e realizar tarefas específicas, como agendar reuniões ou enviar documentos."
+      },
+      {
+        "question": "Posso personalizar as respostas do chatbot?",
+        "answer": "Sim, você pode criar respostas personalizadas para atender às necessidades específicas de seu escritório de advocacia."
+      },
+      {
+        "question": "O chatbot substitui os funcionários?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a automatizar tarefas e liberar tempo para os funcionários se concentrarem em atividades mais importantes."
+      },
+      {
+        "question": "Quais são as plataformas suportadas pelo chatbot?",
+        "answer": "O chatbot está disponível para WhatsApp, permitindo que os clientes interajam com o sistema de forma fácil e intuitiva."
+      }
+    ],
+    [
+      {
+        "question": "Como o chatbot pode ser personalizado?",
+        "answer": "Você pode configurar as respostas do chatbot para atender às necessidades específicas de seu escritório de advocacia."
+      },
+      {
+        "question": "O chatbot é capaz de realizar tarefas complexas?",
+        "answer": "Sim, o chatbot está projetado para realizar tarefas específicas, como agendar reuniões ou enviar documentos."
+      },
+      {
+        "question": "O chatbot substitui os funcionários?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a automatizar tarefas e liberar tempo para os funcionários se concentrarem em atividades mais importantes."
+      },
+      {
+        "question": "Quais são as plataformas suportadas pelo chatbot?",
+        "answer": "O chatbot está disponível para WhatsApp, permitindo que os clientes interajam com o sistema de forma fácil e intuitiva"
+      }
+    ],
+    [
+      {
+        "question": "Como o chatbot pode ser personalizado para atender às necessidades do escritório?",
+        "answer": "Você pode configurar as respostas do chatbot para atender às necessidades específicas de seu escritório de advocacia."
+      },
+      {
+        "question": "O chatbot é capaz de realizar tarefas complexas e específicas?",
+        "answer": "Sim, o chatbot está projetado para realizar tarefas específicas, como agendar reuniões ou enviar documentos."
+      },
+      {
+        "question": "O chatbot substitui os funcionários ou ajuda a automatizar tarefas?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a automatizar tarefas e liberar tempo para os funcionários se concentrarem em atividades mais importantes."
+      },
+      {
+        "question": "Quais são as plataformas suportadas pelo chatbot?",
+        "answer": "O chatbot está disponível para WhatsApp, permitindo que os clientes interajam com o sistema de forma fácil e intuitiva"
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Escritório de Advocacia ${state.in}`,
     introParagraph: (state) => `A CODEXY entende que a representação jurídica é um assunto delicado e requer atenção meticulosa. Por isso, desenvolvemos o chatbot para escritórios de advocacia ${state.in}, para ajudar a automatizar tarefas rotineiras e liberar tempo para os profissionais focarem na defesa dos seus clientes.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para escritório de advocacia ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -1658,6 +2126,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Quais são as vantagens de usar o chatbot da CODEXY?", answer: "O chatbot aumenta agendamentos e vendas, melhora a experiência do cliente e reduz custos operacionais." },
       { question: "Como posso implantar o chatbot no meu estúdio?", answer: "A CODEXY oferece suporte completo para implantação do chatbot em seu estúdio, desde configuração até treinamento dos funcionários." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Tempo de atendimento é alto",
+        "description": "Os funcionários precisam responder a muitas perguntas, deixando pouco tempo para outras tarefas."
+      },
+      {
+        "title": "Agendamentos são feitos manualmente",
+        "description": "O processo de agendar é demorado e pode ser complicado para os clientes."
+      },
+      {
+        "title": "Pedidos não são atendidos com rapidez",
+        "description": "Os pedidos dos clientes podem levar tempo para serem atendidos, o que pode afastar os clientes."
+      }
+    ],
+    [
+      {
+        "title": "Funcionários cansados de responder a perguntas repetidas",
+        "description": "Os funcionários do seu estúdio de Pilates e Yoga precisam dedicar tempo ao atendimento, afastando-os das atividades mais importantes."
+      },
+      {
+        "title": "Agendamentos feitos à mão resultam em perda de produtividade",
+        "description": "O processo de agendar aulas e sessões de Pilates e Yoga manualmente pode levar tempo valioso, afastando os clientes que buscam um treino mais eficiente."
+      },
+      {
+        "title": "Pedidos não atendidos em tempo hábil podem perder clientes",
+        "description": "Os pedidos dos clientes para horários de aula e sessões específicas podem não ser atendidos rapidamente, levando os clientes a procurar outras opções."
+      }
+    ],
+    [
+      {
+        "title": "Desenvolvimento de relacionamentos com clientes é afetado",
+        "description": "A falta de atenção aos detalhes dos pedidos dos clientes pode afastá-los do seu estúdio de Pilates e Yoga, levando a perda de oportunidades de crescimento."
+      },
+      {
+        "title": "Processos manuais são lentos e burocráticos",
+        "description": "Os processos manuais para agendar aulas e sessões podem ser demorados e complicados, afastando os clientes que buscam uma experiência mais eficiente."
+      },
+      {
+        "title": "Clientes não estão satisfeitos com o atendimento atual",
+        "description": "A falta de suporte em tempo real pode levar a insatisfação dos clientes, afastando-os do seu estúdio e levando a perda de negócios."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Automatize perguntas frequentes",
+        "description": "O chatbot responde a perguntas comuns dos clientes, liberando tempo do seu time."
+      },
+      {
+        "title": "Aumente agendamentos e vendas",
+        "description": "Com o chatbot, os clientes podem agendar facilmente, aumentando as suas vendas."
+      },
+      {
+        "title": "Melhore a experiência do cliente",
+        "description": "O chatbot oferece suporte aos seus clientes 24/7, melhorando sua experiência com seu estúdio."
+      },
+      {
+        "title": "Reduza custos operacionais",
+        "description": "Com o chatbot, você pode reduzir os custos operacionais de atendimento e agendamento."
+      }
+    ],
+    [
+      {
+        "title": "Automatize perguntas comuns e libere tempo para atividades mais importantes",
+        "description": "Com o chatbot da CODEXY, você pode liberar seu funcionários para focarem em treinamentos e aulas personalizadas."
+      },
+      {
+        "title": "Aumente agendamentos e vendas com um processo simples",
+        "description": "O chatbot facilita os processos de agendar aulas e sessões, tornando-o mais fácil para os clientes encontrar horários que se adequem às suas necessidades."
+      },
+      {
+        "title": "Melhore a experiência do cliente com suporte 24/7",
+        "description": "O chatbot oferece suporte aos seus clientes em tempo real, garantindo que eles possam agendar e realizar treinos sem problemas."
+      },
+      {
+        "title": "Reduza custos operacionais e aumente a produtividade do seu estúdio",
+        "description": "Com o chatbot da CODEXY, você pode reduzir os custos de atendimento manual e aumentar a produtividade dos seus funcionários."
+      }
+    ],
+    [
+      {
+        "title": "Automatize perguntas frequentes e libere funcionários para atividades mais importantes",
+        "description": "Com o chatbot da CODEXY, você pode automatizar as perguntas comuns dos clientes e liberar seu equipe para focarem em desenvolver relacionamentos com os clientes."
+      },
+      {
+        "title": "Aumente agendamentos e vendas com processos mais eficientes",
+        "description": "O chatbot facilita os processos de agendar aulas e sessões, tornando-o mais fácil para os clientes encontrar horários que se adequem às suas necessidades."
+      },
+      {
+        "title": "Melhore a experiência do cliente com suporte 24/7 e personalizado",
+        "description": "O chatbot oferece suporte aos seus clientes em tempo real, garantindo que eles possam agendar e realizar treinos sem problemas, e pode ser personalizado para atender às necessidades específicas dos clientes."
+      },
+      {
+        "title": "Reduza custos operacionais e aumente a produtividade com processos mais eficientes",
+        "description": "Com o chatbot da CODEXY, você pode reduzir os custos de atendimento manual e aumentar a produtividade dos seus funcionários."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como funciona o chatbot da CODEXY?",
+        "answer": "O chatbot é um software que interage com os clientes via WhatsApp, automatizando perguntas frequentes e agendamentos."
+      },
+      {
+        "question": "Posso personalizar o chatbot para meu estúdio?",
+        "answer": "Sim, você pode personalizar o chatbot com informações específicas do seu estúdio e serviços oferecidos."
+      },
+      {
+        "question": "Quais são as vantagens de usar o chatbot da CODEXY?",
+        "answer": "O chatbot aumenta agendamentos e vendas, melhora a experiência do cliente e reduz custos operacionais."
+      },
+      {
+        "question": "Como posso implantar o chatbot no meu estúdio?",
+        "answer": "A CODEXY oferece suporte completo para implantação do chatbot em seu estúdio, desde configuração até treinamento dos funcionários."
+      }
+    ],
+    [
+      {
+        "question": "Como funciona o chatbot da CODEXY?",
+        "answer": "O chatbot é um software que interage com os clientes via WhatsApp, automatizando perguntas frequentes e agendamentos de aulas e sessões de Pilates e Yoga."
+      },
+      {
+        "question": "Posso personalizar o chatbot para necessidades específicas do meu estúdio?",
+        "answer": "Sim, você pode personalizar o chatbot com informações específicas sobre os serviços oferecidos no seu estúdio, como horários de aula e sessões disponíveis."
+      },
+      {
+        "question": "Quais são as vantagens principais de usar o chatbot da CODEXY?",
+        "answer": "O chatbot aumenta agendamentos e vendas, melhora a experiência do cliente e reduz custos operacionais com processos mais eficientes."
+      },
+      {
+        "question": "Quanto tempo leva para implantar o chatbot no meu estúdio?",
+        "answer": "A CODEXY oferece suporte completo para implantação do chatbot, desde configuração até treinamento dos funcionários, garantindo que a implementação seja rápida e eficiente."
+      }
+    ],
+    [
+      {
+        "question": "Quais são as principais vantagens do uso do chatbot da CODEXY?",
+        "answer": "O chatbot aumenta agendamentos e vendas, melhora a experiência do cliente e reduz custos operacionais com processos mais eficientes."
+      },
+      {
+        "question": "Posso personalizar o chatbot para necessidades específicas do meu estúdio?",
+        "answer": "Sim, você pode personalizar o chatbot com informações específicas sobre os serviços oferecidos no seu estúdio e necessidades dos clientes."
+      },
+      {
+        "question": "Como posso implantação do chatbot no meu estúdio?",
+        "answer": "A CODEXY oferece suporte completo para implantação do chatbot, desde configuração até treinamento dos funcionários, garantindo que a implementação seja rápida e eficiente."
+      },
+      {
+        "question": "Quais são as principais características do chatbot da CODEXY?",
+        "answer": "O chatbot é um software que interage com os clientes via WhatsApp, automatizando perguntas frequentes e agendamentos de aulas e sessões de Pilates e Yoga."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Estúdios de Pilates e Yoga ${state.in}`,
     introParagraph: (state) => `A CODEXY ajuda os estúdios de Pilates e Yoga a automatizar o atendimento, agendamentos e pedidos dos clientes. Com nosso chatbot personalizado, você pode oferecer suporte aos seus clientes 24/7, aumentar as vendas e reduzir custos operacionais. ${state.in}, os estúdios de Pilates e Yoga precisam de soluções inovadoras para se destacar no mercado. Nossa tecnologia é projetada para atender às necessidades específicas do seu negócio.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para pilates ${state.in} e quero saber mais sobre como implantar no meu estúdio.`,
@@ -1782,6 +2406,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Qual a garantia que o chatbot funciona corretamente?", answer: "A CODEXY oferece suporte contínuo para garantir o funcionamento correto do chatbot." },
       { question: "Quais são os custos associados ao uso do chatbot?", answer: "Nenhum custo adicional além do plano de assinatura da CODEXY, que inclui atualizações e suporte técnico." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade em gerenciar demanda",
+        "description": "Muitos clientes procuram serviço por meio de rede social ou sites de classificados."
+      },
+      {
+        "title": "Perda de oportunidades",
+        "description": "Atendentes ocupados não conseguem atender a todos os clientes que precisam agendar serviços."
+      },
+      {
+        "title": "Custo elevado",
+        "description": "Contratar funcionários para gerenciar demanda pode ser caro e burocrático."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em agendar serviços de forma eficiente",
+        "description": "Clientes precisam esperar por dias ou semanas para marcar a instalação, afetando a experiência do cliente."
+      },
+      {
+        "title": "Perda de oportunidades de vendas",
+        "description": "Atendentes ocupados não conseguem atender a todos os clientes que buscam serviços de instalação de ar-condicionado."
+      },
+      {
+        "title": "Custo elevado com mão de obra temporária",
+        "description": "Contratar funcionários para gerenciar demanda pode ser caro e burocrático, especialmente durante períodos de alta demanda."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar fluxo de trabalho",
+        "description": "Atendentes ocupados não conseguem manter o ritmo de atendimento, afetando a experiência do cliente e a produtividade da equipe."
+      },
+      {
+        "title": "Perda de oportunidades de crescimento",
+        "description": "A empresa não consegue capturar a demanda em tempo real, perdendo oportunidades de vendas e crescimento."
+      },
+      {
+        "title": "Custo elevado com tecnologia e suporte",
+        "description": "Contratar funcionários para gerenciar demanda pode ser caro e burocrático, especialmente durante períodos de alta demanda."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Redução de custos",
+        "description": "Nenhum investimento extra necessário para implementação do chatbot."
+      },
+      {
+        "title": "Melhoria na experiência do cliente",
+        "description": "Respostas imediatas aos clientes, melhorando a satisfação com o serviço."
+      },
+      {
+        "title": "Agilidade no agendamento de serviços",
+        "description": "Clientes podem escolher horários e dias para os serviços diretamente via WhatsApp."
+      },
+      {
+        "title": "Redução do tempo de resposta",
+        "description": "Atendentes livres para atender a outras demandas, sem perda de oportunidades."
+      }
+    ],
+    [
+      {
+        "title": "Agilidade no agendamento de serviços",
+        "description": "Clientes podem escolher horários e dias para os serviços diretamente via WhatsApp, sem precisar esperar por dias ou semanas."
+      },
+      {
+        "title": "Redução do tempo de resposta",
+        "description": "Atendentes livres para atender a outras demandas, sem perda de oportunidades de vendas."
+      },
+      {
+        "title": "Melhoria na experiência do cliente",
+        "description": "Respostas imediatas aos clientes, melhorando a satisfação com o serviço e aumentando a chance de retorno do cliente."
+      },
+      {
+        "title": "Redução de custos com mão de obra",
+        "description": "Nenhum investimento extra necessário para implementação do chatbot, reduzindo os custos com mão de obra temporária."
+      }
+    ],
+    [
+      {
+        "title": "Melhoria na eficiência do fluxo de trabalho",
+        "description": "O chatbot auxilia no gerenciamento da demanda, liberando os funcionários para outras tarefas e melhorando a produtividade da equipe."
+      },
+      {
+        "title": "Agilidade em capturar demanda em tempo real",
+        "description": "A empresa consegue capturar a demanda em tempo real, sem perda de oportunidades de vendas e crescimento."
+      },
+      {
+        "title": "Redução do custo com tecnologia e suporte",
+        "description": "Nenhum investimento extra necessário para implementação do chatbot, reduzindo os custos com tecnologia e suporte."
+      },
+      {
+        "title": "Melhoria na experiência do cliente",
+        "description": "Respostas imediatas aos clientes, melhorando a satisfação com o serviço e aumentando a chance de retorno do cliente."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "O chatbot vai substituir meus funcionários?",
+        "answer": "Não. O chatbot é uma ferramenta que auxilia no gerenciamento da demanda, liberando os funcionários para outras tarefas."
+      },
+      {
+        "question": "Eu preciso ter conhecimento em tecnologia para implantar o chatbot?",
+        "answer": "Nenhum conhecimento técnico é necessário. A CODEXY fornece suporte completo na implementação do chatbot."
+      },
+      {
+        "question": "Qual a garantia que o chatbot funciona corretamente?",
+        "answer": "A CODEXY oferece suporte contínuo para garantir o funcionamento correto do chatbot."
+      },
+      {
+        "question": "Quais são os custos associados ao uso do chatbot?",
+        "answer": "Nenhum custo adicional além do plano de assinatura da CODEXY, que inclui atualizações e suporte técnico."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot vai substituir meus funcionários?",
+        "answer": "Não. O chatbot é uma ferramenta que auxilia no gerenciamento da demanda, liberando os funcionários para outras tarefas."
+      },
+      {
+        "question": "Eu preciso ter conhecimento em tecnologia para implantar o chatbot?",
+        "answer": "Nenhum conhecimento técnico é necessário. A CODEXY fornece suporte completo na implementação do chatbot."
+      },
+      {
+        "question": "Qual a garantia que o chatbot funciona corretamente?",
+        "answer": "A CODEXY oferece suporte contínuo para garantir o funcionamento correto do chatbot."
+      },
+      {
+        "question": "Quais são os custos associados ao uso do chatbot?",
+        "answer": "Nenhum custo adicional além do plano de assinatura da CODEXY, que inclui atualizações e suporte técnico."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot vai substituir meus funcionários?",
+        "answer": "Não. O chatbot é uma ferramenta que auxilia no gerenciamento da demanda, liberando os funcionários para outras tarefas."
+      },
+      {
+        "question": "Eu preciso ter conhecimento em tecnologia para implantar o chatbot?",
+        "answer": "Nenhum conhecimento técnico é necessário. A CODEXY fornece suporte completo na implementação do chatbot."
+      },
+      {
+        "question": "Qual a garantia que o chatbot funciona corretamente?",
+        "answer": "A CODEXY oferece suporte contínuo para garantir o funcionamento correto do chatbot."
+      },
+      {
+        "question": "Quais são os custos associados ao uso do chatbot?",
+        "answer": "Nenhum custo adicional além do plano de assinatura da CODEXY, que inclui atualizações e suporte técnico."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Instaladores de Ar-Condicionado ${state.in}`,
     introParagraph: (state) => `A CODEXY entende as necessidades específicas dos instaladores de ar-condicionado ${state.in}, onde a eficiência e agilidade no atendimento aos clientes são fundamentais. Com o chatbot, os profissionais podem se concentrar nas suas especialidades enquanto o chatbot gerencia a demanda e agendamentos diretamente via WhatsApp.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para instaladores de ar-condicionado ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -1906,6 +2686,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "O chatbot pode ser integrado com outros sistemas de gerenciamento do meu petshop?", answer: "Sim, o chatbot pode ser integrado com outros sistemas de gerenciamento para garantir uma experiência de usuário completa e eficiente." },
       { question: "Posso acessar estatísticas e dados sobre o desempenho do chatbot?", answer: "Sim, a CODEXY fornece ferramentas para que você possa monitorar o desempenho do chatbot e entender melhor como ele está ajudando seu negócio." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade em atender ao aumento da demanda",
+        "description": "Muitos petshops enfrentam dificuldade em atender a todos os clientes que buscam serviços como banho e corte de pelo, além de consultas com veterinários."
+      },
+      {
+        "title": "Perda de tempo nas ligações telefônicas",
+        "description": "Os funcionários dos petshops precisam dedicar muito tempo para atender às ligações telefônicas e agendar serviços."
+      },
+      {
+        "title": "Falta de organização no agendamento de serviços",
+        "description": "Muitas vezes, os petshops não têm uma forma eficiente de organizar o agendamento de serviços como banhos, cortes e consultas."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar a fila de espera",
+        "description": "Os petshops precisam lidar com uma grande demanda de clientes, o que leva a filas longas e frustradas."
+      },
+      {
+        "title": "Perda de dinheiro com funcionários ociosos",
+        "description": "Muitos funcionários dos petshops estão ocupados respondendo ligações telefônicas em vez de realizar atividades mais produtivas."
+      },
+      {
+        "title": "Falta de informação para os clientes sobre horários e disponibilidade",
+        "description": "Os petshops não têm uma forma eficiente de comunicar informações importantes aos seus clientes, levando a confusão e insatisfação."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar a equipe de atendimento",
+        "description": "Os petshops precisam lidar com uma grande demanda de clientes, o que leva a problemas de gestão da equipe de atendimento."
+      },
+      {
+        "title": "Perda de oportunidades comerciais por falta de comunicação eficaz",
+        "description": "Muitos petshops não têm uma forma eficiente de comunicar informações importantes aos seus clientes, levando a perda de oportunidades comerciais."
+      },
+      {
+        "title": "Falta de dados precisos para tomar decisões informadas",
+        "description": "Os petshops não têm uma forma eficiente de coletar e analisar dados sobre o comportamento dos clientes, levando a decisões informadas."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Melhoria na experiência do cliente",
+        "description": "O chatbot ajuda a melhorar a experiência do cliente ao fornecer informações precisas e atender às suas necessidades rapidamente."
+      },
+      {
+        "title": "Redução no tempo de espera dos clientes",
+        "description": "Com o chatbot, os clientes não precisam mais esperar por telefone ou pessoalmente para agendar serviços."
+      },
+      {
+        "title": "Aumento na eficiência operacional",
+        "description": "O chatbot automatiza tarefas rotineiras, liberando tempo dos funcionários para atividades mais importantes."
+      },
+      {
+        "title": "Ganho de visibilidade online",
+        "description": "O chatbot ajuda a melhorar a presença online do petshop, aumentando sua visibilidade e atraindo mais clientes."
+      }
+    ],
+    [
+      {
+        "title": "Aumento da produtividade dos funcionários",
+        "description": "O chatbot ajuda a liberar tempo dos funcionários para atividades mais importantes, como cuidado com os animais e marketing."
+      },
+      {
+        "title": "Melhoria na experiência do cliente online",
+        "description": "O chatbot fornece informações precisas e atende às necessidades dos clientes rapidamente, melhorando a experiência online."
+      },
+      {
+        "title": "Redução no tempo de espera dos clientes",
+        "description": "Com o chatbot, os clientes não precisam mais esperar por telefone ou pessoalmente para agendar serviços."
+      },
+      {
+        "title": "Ganho de visibilidade e reconhecimento online",
+        "description": "O chatbot ajuda a melhorar a presença online do petshop, aumentando sua visibilidade e atraindo mais clientes."
+      }
+    ],
+    [
+      {
+        "title": "Aumento da eficiência operacional",
+        "description": "O chatbot ajuda a automatizar tarefas rotineiras, liberando tempo dos funcionários para atividades mais importantes e melhorando a eficiência operacional."
+      },
+      {
+        "title": "Melhoria na experiência do cliente com informações precisas",
+        "description": "O chatbot fornece informações precisas e atende às necessidades dos clientes rapidamente, melhorando a experiência do cliente."
+      },
+      {
+        "title": "Redução no tempo de espera dos clientes",
+        "description": "Com o chatbot, os clientes não precisam mais esperar por telefone ou pessoalmente para agendar serviços."
+      },
+      {
+        "title": "Ganho de visibilidade e reconhecimento online",
+        "description": "O chatbot ajuda a melhorar a presença online do petshop, aumentando sua visibilidade e atraindo mais clientes."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como funciona o chatbot?",
+        "answer": "O chatbot é um sistema automatizado que atende às perguntas e solicitações dos clientes por meio de mensagens no WhatsApp."
+      },
+      {
+        "question": "Posso personalizar o chatbot para atender às necessidades do meu petshop?",
+        "answer": "Sim, a CODEXY oferece opção de personalização do chatbot para que ele se adapte às necessidades e características específicas do seu negócio."
+      },
+      {
+        "question": "O chatbot pode ser integrado com outros sistemas de gerenciamento do meu petshop?",
+        "answer": "Sim, o chatbot pode ser integrado com outros sistemas de gerenciamento para garantir uma experiência de usuário completa e eficiente."
+      },
+      {
+        "question": "Posso acessar estatísticas e dados sobre o desempenho do chatbot?",
+        "answer": "Sim, a CODEXY fornece ferramentas para que você possa monitorar o desempenho do chatbot e entender melhor como ele está ajudando seu negócio."
+      }
+    ],
+    [
+      {
+        "question": "Como posso garantir que o chatbot esteja funcionando corretamente?",
+        "answer": "A CODEXY oferece suporte técnico para garantir que o chatbot esteja funcionando corretamente e atendendo às necessidades do seu negócio."
+      },
+      {
+        "question": "Posso personalizar o chatbot para atender às necessidades específicas de meu petshop?",
+        "answer": "Sim, a CODEXY oferece opção de personalização do chatbot para que ele se adapte às necessidades e características específicas do seu negócio."
+      },
+      {
+        "question": "O chatbot pode ser integrado com outros sistemas de gerenciamento do meu petshop?",
+        "answer": "Sim, o chatbot pode ser integrado com outros sistemas de gerenciamento para garantir uma experiência de usuário completa e eficiente."
+      },
+      {
+        "question": "Como posso monitorar o desempenho do chatbot?",
+        "answer": "A CODEXY fornece ferramentas para que você possa monitorar o desempenho do chatbot e entender melhor como ele está ajudando seu negócio."
+      }
+    ],
+    [
+      {
+        "question": "Como posso personalizar o chatbot para atender às necessidades específicas de meu petshop?",
+        "answer": "A CODEXY oferece opção de personalização do chatbot para que ele se adapte às necessidades e características específicas do seu negócio."
+      },
+      {
+        "question": "O chatbot pode ser integrado com outros sistemas de gerenciamento do meu petshop?",
+        "answer": "Sim, o chatbot pode ser integrado com outros sistemas de gerenciamento para garantir uma experiência de usuário completa e eficiente."
+      },
+      {
+        "question": "Como posso monitorar o desempenho do chatbot?",
+        "answer": "A CODEXY fornece ferramentas para que você possa monitorar o desempenho do chatbot e entender melhor como ele está ajudando seu negócio."
+      },
+      {
+        "question": "O chatbot pode ser usado em diferentes dispositivos e plataformas?",
+        "answer": "Sim, o chatbot é compatível com diferentes dispositivos e plataformas, garantindo que os clientes possam acessá-lo de forma fácil e conveniente."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Petshops ${state.in}`,
     introParagraph: (state) => `A CODEXY ajuda petshops como o seu a oferecer uma experiência de atendimento mais eficiente e personalizada. Com nosso chatbot, você pode automatizar agendamentos, fornecer informações precisas aos clientes e aumentar a visibilidade online do seu negócio. Aproveite os benefícios de ter um chatbot personalizado para o seu petshop ${state.in}.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para petshops ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -1968,6 +2904,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "O chatbot substitui os funcionários da recepção?", answer: "Não, o chatbot é uma ferramenta que ajuda a melhorar a eficiência dos atendimentos. Ele não substitui os funcionários da recepção." },
       { question: "Como posso garantir a segurança dos dados de meus clientes?", answer: "A CODEXY utiliza práticas de segurança rigorosas para proteger os dados dos hóspedes, conforme as melhores práticas de mercado e as leis locais aplicáveis." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade no gerenciamento do fluxo de clientes",
+        "description": "Muitas vezes as pousadas enfrentam dificuldades em atender às demandas dos hóspedes em tempo real."
+      },
+      {
+        "title": "Perda de oportunidades de venda",
+        "description": "Os clientes podem se sentir abandonados e não ter a opção de fazer pedidos ou reservas online."
+      },
+      {
+        "title": "Falta de eficiência no atendimento",
+        "description": "O pessoal da recepção pode ficar sobrecarregado, levando a demoras nos serviços e perda de faturamento."
+      }
+    ],
+    [
+      {
+        "title": "Falta de comunicação eficaz com os hóspedes",
+        "description": "As pousadas enfrentam dificuldades em manter contato com os clientes, levando a problemas de satisfação e perda de oportunidades"
+      },
+      {
+        "title": "Perda de tempo e recursos com atendimento manual",
+        "description": "Os funcionários da recepção podem se sentir sobrecarregados e perder tempo respondendo às mesmas perguntas, afetando a eficiência do negócio"
+      },
+      {
+        "title": "Dificuldades em gerenciar fluxo de entrada e saída de clientes",
+        "description": "As pousadas podem enfrentar congestionamentos ou perda de oportunidades de venda, afetando a capacidade de atender aos hóspedes"
+      }
+    ],
+    [
+      {
+        "title": "Dificuldades em manter a experiência do cliente",
+        "description": "As pousadas podem enfrentar problemas de satisfação dos hóspedes, afetando a capacidade de gerenciar o negócio"
+      },
+      {
+        "title": "Perda de oportunidades de venda e faturamento",
+        "description": "Os clientes podem se sentir abandonados e não ter a opção de fazer pedidos ou reservas online, levando a perda de receita"
+      },
+      {
+        "title": "Falta de eficiência no gerenciamento do fluxo de entrada e saída de clientes",
+        "description": "As pousadas podem enfrentar congestionamentos ou perda de oportunidades de venda, afetando a capacidade de atender aos hóspedes"
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Redução do tempo de resposta aos clientes",
+        "description": "Os hóspedes recebem respostas imediatas às suas perguntas ou solicitações, melhorando a satisfação e aumentando as chances de retorno."
+      },
+      {
+        "title": "Aumento da eficiência no atendimento",
+        "description": "Com o chatbot lidando com pedidos e reservas, os funcionários podem se concentrar em serviços mais valorizados, como a experiência dos hóspedes."
+      },
+      {
+        "title": "Melhoria na gestão de fluxo de clientes",
+        "description": "O chatbot ajuda a equilibrar o fluxo de entrada e saída de clientes, evitando congestionamentos ou perda de oportunidades."
+      },
+      {
+        "title": "Redução dos custos com mão de obra",
+        "description": "Com menos necessidade de funcionários para atender aos hóspedes, as pousadas podem reduzir seus custos operacionais."
+      }
+    ],
+    [
+      {
+        "title": "Aumento da eficiência no atendimento com tecnologia",
+        "description": "O chatbot ajuda a equilibrar o fluxo de entrada e saída de clientes, permitindo que os funcionários se concentrem em serviços mais valorizados"
+      },
+      {
+        "title": "Melhoria na comunicação eficaz com os hóspedes",
+        "description": "Com o chatbot, os hóspedes recebem respostas imediatas às suas perguntas ou solicitações, melhorando a satisfação e aumentando as chances de retorno"
+      },
+      {
+        "title": "Redução da sobrecarga dos funcionários da recepção",
+        "description": "Com menos necessidade de funcionários para atender aos hóspedes, as pousadas podem reduzir seus custos operacionais e melhorar a experiência do cliente"
+      },
+      {
+        "title": "Aumento da capacidade de atender aos hóspedes",
+        "description": "O chatbot ajuda a melhorar a gestão de fluxo de clientes, permitindo que as pousadas atendam mais hóspedes e aumentem suas receitas"
+      }
+    ],
+    [
+      {
+        "title": "Melhoria na experiência do cliente com tecnologia",
+        "description": "Com o chatbot, os hóspedes recebem respostas imediatas às suas perguntas ou solicitações, melhorando a satisfação e aumentando as chances de retorno"
+      },
+      {
+        "title": "Aumento da eficiência no gerenciamento do fluxo de clientes",
+        "description": "O chatbot ajuda a equilibrar o fluxo de entrada e saída de clientes, permitindo que os funcionários se concentrem em serviços mais valorizados"
+      },
+      {
+        "title": "Redução da perda de oportunidades de venda e faturamento",
+        "description": "Com menos necessidade de funcionários para atender aos hóspedes, as pousadas podem reduzir seus custos operacionais e melhorar a experiência do cliente"
+      },
+      {
+        "title": "Aumento da capacidade de gerenciar o negócio",
+        "description": "O chatbot ajuda a melhorar a gestão de fluxo de clientes, permitindo que as pousadas atendam mais hóspedes e aumentem suas receitas"
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como o chatbot vai ajudar a meus funcionários?",
+        "answer": "O chatbot distribui a demanda de forma eficiente, permitindo que os funcionários se concentrem em serviços mais importantes e valorizados."
+      },
+      {
+        "question": "Eu preciso ter conhecimento técnico para gerenciar o chatbot?",
+        "answer": "Não, você não precisa ter conhecimento técnico. A CODEXY fornece suporte completo para a implementação e manutenção do seu chatbot."
+      },
+      {
+        "question": "O chatbot substitui os funcionários da recepção?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a melhorar a eficiência dos atendimentos. Ele não substitui os funcionários da recepção."
+      },
+      {
+        "question": "Como posso garantir a segurança dos dados de meus clientes?",
+        "answer": "A CODEXY utiliza práticas de segurança rigorosas para proteger os dados dos hóspedes, conforme as melhores práticas de mercado e as leis locais aplicáveis."
+      }
+    ],
+    [
+      {
+        "question": "Como o chatbot vai me ajudar a gerenciar meu negócio?",
+        "answer": "O chatbot distribui a demanda de forma eficiente, permitindo que você se concentre em serviços mais importantes e valorizados"
+      },
+      {
+        "question": "Eu preciso ter conhecimento técnico para gerenciar o chatbot?",
+        "answer": "Não, você não precisa ter conhecimento técnico. A CODEXY fornece suporte completo para a implementação e manutenção do seu chatbot"
+      },
+      {
+        "question": "O chatbot substitui os funcionários da recepção?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a melhorar a eficiência dos atendimentos. Ele não substitui os funcionários da recepção"
+      },
+      {
+        "question": "Como posso garantir a segurança dos dados de meus clientes?",
+        "answer": "A CODEXY utiliza práticas de segurança rigorosas para proteger os dados dos hóspedes, conforme as melhores práticas de mercado e as leis locais aplicáveis"
+      }
+    ],
+    [
+      {
+        "question": "Como o chatbot vai me ajudar a melhorar a experiência do cliente?",
+        "answer": "O chatbot distribui a demanda de forma eficiente, permitindo que você se concentre em serviços mais importantes e valorizados"
+      },
+      {
+        "question": "Eu preciso ter conhecimento técnico para gerenciar o chatbot?",
+        "answer": "Não, você não precisa ter conhecimento técnico. A CODEXY fornece suporte completo para a implementação e manutenção do seu chatbot"
+      },
+      {
+        "question": "O chatbot substitui os funcionários da recepção?",
+        "answer": "Não, o chatbot é uma ferramenta que ajuda a melhorar a eficiência dos atendimentos. Ele não substitui os funcionários da recepção"
+      },
+      {
+        "question": "Como posso garantir a segurança dos dados de meus clientes?",
+        "answer": "A CODEXY utiliza práticas de segurança rigorosas para proteger os dados dos hóspedes, conforme as melhores práticas de mercado e as leis locais aplicáveis"
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Pousadas ${state.in}`,
     introParagraph: (state) => `A CODEXY ajuda pousadas ${state.in} a automatizar o atendimento aos hóspedes, melhorar a eficiência e aumentar a satisfação dos clientes. Com um chatbot personalizado, você pode oferecer uma experiência de hospedagem mais inovadora e competitiva no mercado local.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para pousadas ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -2030,6 +3122,162 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Existe suporte técnico disponível?", answer: "Sim, a CODEXY fornece apoio especializado para garantir que o seu chatbot esteja funcionando corretamente e atendendo às necessidades do seu negócio." },
       { question: "Posso acompanhar as interações do cliente com o chatbot?", answer: "Sim, a CODEXY oferece ferramentas de monitoramento para que você possa rastrear as conversas e entender melhor os comportamentos dos seus clientes." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Dificuldade em atender ao grande volume de solicitações",
+        "description": "Muitos clientes solicitam agendamentos e pedidos ao mesmo tempo, sobrecarregando os profissionais do salão."
+      },
+      {
+        "title": "Perda de oportunidades comerciais",
+        "description": "Clientes que não recebem atendimento rápido podem buscar serviços concorrentes."
+      },
+      {
+        "title": "Dificuldade em manter a organização e gerenciar o tempo",
+        "description": "Profissionais precisam lidar com agendamentos, pedidos e comunicação com os clientes manualmente, o que pode ser confuso e demorado."
+      }
+    ],
+    [
+      {
+        "title": "Perda de oportunidades comerciais",
+        "description": "Clientes que esperam por atendimento demorado podem buscar serviços concorrentes, levando a uma perda potencial para o negócio."
+      },
+      {
+        "title": "Dificuldade em manter a organização e gerenciar o tempo dos funcionários",
+        "description": "A falta de estrutura pode levar a erros e confusão nos agendamentos, pedidos e comunicação com os clientes, sobrecarregando os profissionais."
+      },
+      {
+        "title": "Dificuldade em atender ao grande volume de solicitações",
+        "description": "A demanda por serviços pode ser alta, especialmente durante as horas pico, tornando difícil manter um atendimento eficaz e satisfatório."
+      }
+    ],
+    [
+      {
+        "title": "Dificuldade em gerenciar o tempo dos funcionários",
+        "description": "A falta de estrutura pode levar a erros e confusão nos agendamentos, pedidos e comunicação com os clientes, sobrecarregando os profissionais."
+      },
+      {
+        "title": "Dificuldade em manter a organização no salão",
+        "description": "A falta de estrutura pode levar a erros e confusão nos agendamentos, pedidos e comunicação com os clientes, sobrecarregando os profissionais."
+      },
+      {
+        "title": "Perda de oportunidades comerciais",
+        "description": "Clientes que esperam por atendimento demorado podem buscar serviços concorrentes, levando a uma perda potencial para o negócio."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Aumente a produtividade dos funcionários",
+        "description": "O chatbot automatiza tarefas rotineiras, liberando tempo para serviços mais valorizados."
+      },
+      {
+        "title": "Melhore a experiência do cliente",
+        "description": "Respostas rápidas e personalizadas garantem satisfação com os serviços oferecidos pelo salão."
+      },
+      {
+        "title": "Reduza custos operacionais",
+        "description": "A automação de tarefas reduz a necessidade de investir em recursos humanos para execução de tarefas rotineiras."
+      },
+      {
+        "title": "Obtenha insights valiosos sobre o negócio",
+        "description": "O chatbot pode fornecer dados sobre as preferências dos clientes, ajudando na tomada de decisões estratégicas do salão."
+      }
+    ],
+    [
+      {
+        "title": "Mantenha a qualidade do atendimento mesmo com volumes altos",
+        "description": "O chatbot pode lidar com as solicitações de forma automática, garantindo que os clientes recebam respostas rápidas e personalizadas."
+      },
+      {
+        "title": "Aumente a produtividade dos funcionários e reduza custos operacionais",
+        "description": "Com o chatbot lidando com tarefas rotineiras, os profissionais podem se concentrar em serviços mais valorizados, aumentando a eficiência do negócio."
+      },
+      {
+        "title": "Melhore a experiência do cliente e aumente a satisfação",
+        "description": "O chatbot pode fornecer respostas rápidas e personalizadas, garantindo que os clientes se sintam bem atendidos e satisfeitos com os serviços oferecidos."
+      },
+      {
+        "title": "Obtenha insights valiosos sobre o negócio e faça tomadas de decisões estratégicas",
+        "description": "O chatbot pode fornecer dados sobre as preferências dos clientes, ajudando a entender melhor o mercado e fazer ajustes nos serviços oferecidos."
+      }
+    ],
+    [
+      {
+        "title": "Mantenha a qualidade do atendimento mesmo com volumes altos",
+        "description": "O chatbot pode lidar com as solicitações de forma automática, garantindo que os clientes recebam respostas rápidas e personalizadas."
+      },
+      {
+        "title": "Reduza custos operacionais e aumente a produtividade dos funcionários",
+        "description": "Com o chatbot lidando com tarefas rotineiras, os profissionais podem se concentrar em serviços mais valorizados, aumentando a eficiência do negócio."
+      },
+      {
+        "title": "Aumente a satisfação dos clientes e melhore a experiência",
+        "description": "O chatbot pode fornecer respostas rápidas e personalizadas, garantindo que os clientes se sintam bem atendidos e satisfeitos com os serviços oferecidos."
+      },
+      {
+        "title": "Obtenha insights valiosos sobre o negócio e faça tomadas de decisões estratégicas",
+        "description": "O chatbot pode fornecer dados sobre as preferências dos clientes, ajudando a entender melhor o mercado e fazer ajustes nos serviços oferecidos."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "Como funciona a integração com WhatsApp?",
+        "answer": "A CODEXY fornece uma solução fácil e rápida para integrar o chatbot ao aplicativo de mensagens do WhatsApp, garantindo que os clientes possam entrar em contato de forma fácil e intuitiva."
+      },
+      {
+        "question": "Posso personalizar a experiência do cliente com meu próprio layout?",
+        "answer": "Sim, é possível. A CODEXY oferece opções para personalização da interface do chatbot, garantindo que ele se alinhe às necessidades específicas do seu negócio e da sua marca."
+      },
+      {
+        "question": "Existe suporte técnico disponível?",
+        "answer": "Sim, a CODEXY fornece apoio especializado para garantir que o seu chatbot esteja funcionando corretamente e atendendo às necessidades do seu negócio."
+      },
+      {
+        "question": "Posso acompanhar as interações do cliente com o chatbot?",
+        "answer": "Sim, a CODEXY oferece ferramentas de monitoramento para que você possa rastrear as conversas e entender melhor os comportamentos dos seus clientes."
+      }
+    ],
+    [
+      {
+        "question": "Como posso integrar o chatbot ao meu WhatsApp?",
+        "answer": "A CODEXY fornece uma solução fácil e rápida para integrar o chatbot ao aplicativo de mensagens do WhatsApp, garantindo que os clientes possam entrar em contato de forma fácil e intuitiva."
+      },
+      {
+        "question": "Posso personalizar a experiência do cliente com meu próprio layout?",
+        "answer": "Sim, é possível. A CODEXY oferece opções para personalização da interface do chatbot, garantindo que ele se alinhe às necessidades específicas do seu negócio e da sua marca."
+      },
+      {
+        "question": "Existe suporte técnico disponível?",
+        "answer": "Sim, a CODEXY fornece apoio especializado para garantir que o seu chatbot esteja funcionando corretamente e atendendo às necessidades do seu negócio."
+      },
+      {
+        "question": "Posso acompanhar as interações do cliente com o chatbot?",
+        "answer": "Sim, a CODEXY oferece ferramentas de monitoramento para que você possa rastrear as conversas e entender melhor os comportamentos dos seus clientes."
+      }
+    ],
+    [
+      {
+        "question": "Como posso integrar o chatbot ao meu WhatsApp?",
+        "answer": "A CODEXY fornece uma solução fácil e rápida para integrar o chatbot ao aplicativo de mensagens do WhatsApp, garantindo que os clientes possam entrar em contato de forma fácil e intuitiva."
+      },
+      {
+        "question": "Posso personalizar a experiência do cliente com meu próprio layout?",
+        "answer": "Sim, é possível. A CODEXY oferece opções para personalização da interface do chatbot, garantindo que ele se alinhe às necessidades específicas do seu negócio e da sua marca."
+      },
+      {
+        "question": "Existe suporte técnico disponível?",
+        "answer": "Sim, a CODEXY fornece apoio especializado para garantir que o seu chatbot esteja funcionando corretamente e atendendo às necessidades do seu negócio."
+      },
+      {
+        "question": "Posso acompanhar as interações do cliente com o chatbot?",
+        "answer": "Sim, a CODEXY oferece ferramentas de monitoramento para que você possa rastrear as conversas e entender melhor os comportamentos dos seus clientes."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Salões de Beleza ${state.in}`,
     introParagraph: (state) => `A CODEXY entende a complexidade do negócio de salão de beleza. Com um chatbot personalizado, pode oferecer experiência de atendimento inovadora e aumentar a satisfação dos seus clientes ${state.in}. Automatizar tarefas rotineiras permite que os profissionais se concentrem nas áreas que realmente importam: oferecer serviços de alta qualidade e criar relacionamentos fortes com os clientes.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para salões de beleza ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -2098,6 +3346,198 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Posso personalizar o chatbot para atender às necessidades específicas do meu escritório?", answer: "Sim, a CODEXY oferece opção de personalização para garantir que o chatbot se adeque às suas necessidades." },
       { question: "Como posso medir o retorno sobre o investimento (ROE) do uso do chatbot?", answer: "A CODEXY fornece relatórios detalhados sobre a utilização e eficiência do chatbot, ajudando-o a avaliar seu ROE." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Orçamento demorado",
+        "description": "Cliente pede orçamento por telefone e espera até o fim do dia pra receber resposta, e muitas vezes já fechou com outra arquitetura."
+      },
+      {
+        "title": "Projetos atrasados sem atualização",
+        "description": "Cliente liga várias vezes perguntando status do projeto porque não recebe atualização automática."
+      },
+      {
+        "title": "Equipe sobrecarregada de tarefas administrativas",
+        "description": "Mesma pessoa que trabalha no projeto também tenta responder WhatsApp o dia todo."
+      },
+      {
+        "title": "Dificuldade em gerenciar múltiplos projetos ao mesmo tempo",
+        "description": "Sem sistema, é fácil perder o prazo combinado de entrega do projeto."
+      }
+    ],
+    [
+      {
+        "title": "Tempo de resposta demorado para orçamentos",
+        "description": "Clientes esperam muito tempo por um retorno inicial sobre o projeto, levando a perda de oportunidades."
+      },
+      {
+        "title": "Projetos parados sem atualização",
+        "description": "Equipes têm dificuldade em manter os clientes informados sobre o status dos projetos."
+      },
+      {
+        "title": "Equipe sobrecarregada de tarefas administrativas",
+        "description": "Profissionais estão ocupados demais respondendo mensagens e não podem se concentrar no projeto principal."
+      },
+      {
+        "title": "Dificuldade em gerenciar múltiplos projetos",
+        "description": "É difícil manter o controle sobre vários projetos ao mesmo tempo, levando a erros e atrasos."
+      }
+    ],
+    [
+      {
+        "title": "Perda de oportunidades por falta de resposta",
+        "description": "Clientes deixam de fechar projetos por falta de resposta rápida das equipes de arquitetura."
+      },
+      {
+        "title": "Dificuldade em manter os clientes informados",
+        "description": "Equipes têm dificuldade em atualizar os clientes sobre o status dos projetos."
+      },
+      {
+        "title": "Tempo desperdiçado em tarefas administrativas",
+        "description": "Profissionais estão ocupados demais respondendo mensagens e não podem se concentrar no projeto principal."
+      },
+      {
+        "title": "Dificuldade em gerenciar múltiplos projetos ao mesmo tempo",
+        "description": "É difícil manter o controle sobre vários projetos ao mesmo tempo, levando a erros e atrasos."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Orçamento respondido na hora",
+        "description": "Cliente manda foto do local e recebe retorno inicial rápido, sem esperar até o fim do dia."
+      },
+      {
+        "title": "Atualização automática de status dos projetos",
+        "description": "Cliente acompanha andamento do projeto sem precisar ligar pra saber."
+      },
+      {
+        "title": "Agendamento de reuniões organizado",
+        "description": "Chatbot confirma data da reunião e evita esquecimento."
+      },
+      {
+        "title": "Menos ligação repetitiva",
+        "description": "Perguntas de status saem do telefone e vão pro chatbot."
+      },
+      {
+        "title": "Mesmo número que já usa",
+        "description": "Não precisa trocar de WhatsApp nem pedir pro cliente salvar novo contato."
+      }
+    ],
+    [
+      {
+        "title": "Orçamento respondido rapidamente",
+        "description": "Clientes recebem resposta inicial rápida após enviar o pedido de orçamento."
+      },
+      {
+        "title": "Atualização automática de status dos projetos",
+        "description": "Os clientes são mantidos informados sobre o andamento do projeto sem precisar ligar."
+      },
+      {
+        "title": "Agendamento de reuniões eficiente",
+        "description": "O chatbot ajuda a agendar reuniões e a evitar esquecimentos."
+      },
+      {
+        "title": "Menos tempo desperdiçado em tarefas administrativas",
+        "description": "A equipe pode se concentrar nas tarefas importantes enquanto o chatbot cuida das questões administrativas."
+      },
+      {
+        "title": "Integração fácil com WhatsApp",
+        "description": "O chatbot é fácil de implementar e não requer mudanças no número do WhatsApp."
+      }
+    ],
+    [
+      {
+        "title": "Resposta rápida e eficiente",
+        "description": "Clientes recebem resposta inicial rápida após enviar o pedido de orçamento."
+      },
+      {
+        "title": "Atualização automática de status dos projetos",
+        "description": "Os clientes são mantidos informados sobre o andamento do projeto sem precisar ligar."
+      },
+      {
+        "title": "Agendamento de reuniões eficiente e organizado",
+        "description": "O chatbot ajuda a agendar reuniões e a evitar esquecimentos."
+      },
+      {
+        "title": "Menos tempo desperdiçado em tarefas administrativas",
+        "description": "A equipe pode se concentrar nas tarefas importantes enquanto o chatbot cuida das questões administrativas."
+      },
+      {
+        "title": "Integração fácil e sem custo adicional",
+        "description": "O chatbot é fácil de implementar e não requer mudanças no número do WhatsApp ou gastos adicionais."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "O chatbot interfere na criação de projetos?",
+        "answer": "Não, o chatbot é apenas uma ferramenta para agilizar a comunicação e gerenciar tarefas administrativas."
+      },
+      {
+        "question": "Como posso implantar o chatbot em meu escritório?",
+        "answer": "A CODEXY fornece suporte completo para a implementação do chatbot, incluindo configuração e treinamento."
+      },
+      {
+        "question": "O que é necessário para usar o chatbot?",
+        "answer": "Só precisamos de um número de WhatsApp ativo e uma conexão com internet."
+      },
+      {
+        "question": "Posso personalizar o chatbot para atender às necessidades específicas do meu escritório?",
+        "answer": "Sim, a CODEXY oferece opção de personalização para garantir que o chatbot se adeque às suas necessidades."
+      },
+      {
+        "question": "Como posso medir o retorno sobre o investimento (ROE) do uso do chatbot?",
+        "answer": "A CODEXY fornece relatórios detalhados sobre a utilização e eficiência do chatbot, ajudando-o a avaliar seu ROE."
+      }
+    ],
+    [
+      {
+        "question": "Como funciona o chatbot?",
+        "answer": "O chatbot é uma ferramenta automatizada que ajuda a responder perguntas frequentes e agendar reuniões."
+      },
+      {
+        "question": "Quais são os requisitos para usar o chatbot?",
+        "answer": "Precisamos de um número de WhatsApp ativo e conexão com internet."
+      },
+      {
+        "question": "Posso personalizar o chatbot para as minhas necessidades?",
+        "answer": "Sim, é possível personalizar o chatbot para atender às suas necessidades específicas."
+      },
+      {
+        "question": "Como posso medir o retorno sobre o investimento do uso do chatbot?",
+        "answer": "A CODEXY fornece relatórios detalhados sobre a utilização e eficiência do chatbot."
+      },
+      {
+        "question": "Quais são os benefícios da implantação do chatbot no meu escritório?",
+        "answer": "O chatbot ajuda a agilizar a comunicação, reduzir tempo desperdiçado em tarefas administrativas e melhorar a produtividade."
+      }
+    ],
+    [
+      {
+        "question": "Como funciona o chatbot?",
+        "answer": "O chatbot é uma ferramenta automatizada que ajuda a responder perguntas frequentes e agendar reuniões."
+      },
+      {
+        "question": "Quais são os requisitos para usar o chatbot?",
+        "answer": "Precisamos de um número de WhatsApp ativo e conexão com internet."
+      },
+      {
+        "question": "Posso personalizar o chatbot para as minhas necessidades?",
+        "answer": "Sim, é possível personalizar o chatbot para atender às suas necessidades específicas."
+      },
+      {
+        "question": "Como posso medir o retorno sobre o investimento do uso do chatbot?",
+        "answer": "A CODEXY fornece relatórios detalhados sobre a utilização e eficiência do chatbot."
+      },
+      {
+        "question": "Quais são os benefícios da implantação do chatbot no meu escritório?",
+        "answer": "O chatbot ajuda a agilizar a comunicação, reduzir tempo desperdiçado em tarefas administrativas e melhorar a produtividade."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Escritório de Arquitetura ${state.in}`,
     introParagraph: (state) => `A CODEXY implanta chatbot para escritórios de arquitetura ${state.in}, agilizando a comunicação com clientes e aumentando a produtividade da equipe. Com o chatbot, você pode responder orçamentos rapidamente, atualizar status dos projetos e gerenciar tarefas administrativas com eficiência.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para escritório de arquitetura ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
@@ -2132,6 +3572,198 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
       { question: "Funciona pra funilaria com vários carros ao mesmo tempo?", answer: "Sim, dá pra acompanhar o status de vários veículos em paralelo." },
       { question: "Quanto tempo leva pra implantar?", answer: "A CODEXY configura o chatbot em cima do número que a funilaria já usa, sem demora." },
     ],
+    painPointsVariants: [
+    [
+      {
+        "title": "Orçamento demorado",
+        "description": "Cliente pede orçamento por telefone e espera até o fim do dia pra receber resposta, e muitas vezes já fechou com outra oficina."
+      },
+      {
+        "title": "Carro parado sem atualização",
+        "description": "Cliente liga várias vezes perguntando status do reparo porque não recebe atualização automática."
+      },
+      {
+        "title": "Agenda de entrega sem controle",
+        "description": "Sem sistema, é fácil perder o prazo combinado de entrega do veículo."
+      },
+      {
+        "title": "Equipe do balcão sobrecarregada",
+        "description": "Mesma pessoa que atende o cliente na oficina também tenta responder WhatsApp o dia todo."
+      }
+    ],
+    [
+      {
+        "title": "Cliente aguardando orçamento",
+        "description": "Pessoa manda mensagem perguntando sobre o valor do reparo, e a oficina só responde após o fim do dia."
+      },
+      {
+        "title": "Dificuldade em manter atualizações",
+        "description": "Clientes ligam várias vezes para saber sobre o status do veículo porque não recebem informação automática."
+      },
+      {
+        "title": "Sobrecarga de trabalho da equipe",
+        "description": "Atendentes estão ocupados com outras tarefas além de responder WhatsApp e atender clientes na oficina."
+      },
+      {
+        "title": "Perda de tempo em agendar retirada",
+        "description": "Veículos ficam parados por mais tempo do que necessário porque a equipe não consegue manter um cronograma de entrega eficiente."
+      }
+    ],
+    [
+      {
+        "title": "Falta de agilidade no atendimento",
+        "description": "Clientes precisam esperar por resposta ao orçamento e atualizações sobre o status do veículo, o que pode afastá-los da oficina."
+      },
+      {
+        "title": "Custo financeiro da sobrecarga manual",
+        "description": "A necessidade de manter uma equipe grande para lidar com as mensagens de WhatsApp e atender clientes pessoalmente aumenta os custos operacionais."
+      },
+      {
+        "title": "Desgaste dos atendentes",
+        "description": "A repetição das tarefas de resposta a perguntas do status e orçamentos pode levar ao desgaste da equipe do balcão."
+      },
+      {
+        "title": "Perda de oportunidades por não responder imediatamente",
+        "description": "Por não ter um sistema para responder rapidamente às mensagens, a oficina perde possíveis contratos com clientes que procuram soluções mais ágeis."
+      }
+    ],
+  ],
+    benefitsVariants: [
+    [
+      {
+        "title": "Orçamento respondido na hora",
+        "description": "Cliente manda foto do dano e recebe retorno inicial rápido, sem esperar até o fim do dia."
+      },
+      {
+        "title": "Atualização automática de status",
+        "description": "Cliente acompanha andamento do reparo sem precisar ligar pra saber."
+      },
+      {
+        "title": "Agendamento de entrega organizado",
+        "description": "Chatbot confirma data de retirada do veículo e evita esquecimento."
+      },
+      {
+        "title": "Menos ligação repetitiva",
+        "description": "Perguntas de status saem do telefone e vão pro chatbot."
+      },
+      {
+        "title": "Mesmo número que já usa",
+        "description": "Não precisa trocar de WhatsApp nem pedir pro cliente salvar novo contato."
+      }
+    ],
+    [
+      {
+        "title": "Orçamento instantâneo",
+        "description": "Clientes recebem resposta inicial sobre o valor do reparo em minutos, sem precisar aguardar até o fim do dia."
+      },
+      {
+        "title": "Atualizações constantes",
+        "description": "Clientes são informados automaticamente sobre os progressos do veículo, evitando ligações repetidas."
+      },
+      {
+        "title": "Agendamento de entrega eficiente",
+        "description": "Chatbot ajuda a confirmar e manter o cronograma de entrega, garantindo que os clientes recebam seus veículos nos prazos combinados."
+      },
+      {
+        "title": "Libertação de tempo dos atendentes",
+        "description": "Equipe do balcão pode se concentrar em tarefas mais importantes, pois o chatbot cuida das perguntas repetitivas e orçamentos iniciais."
+      },
+      {
+        "title": "Menos distrações para a equipe",
+        "description": "Atendentes não precisam responder perguntas de status por WhatsApp, podendo se concentrar no trabalho na oficina."
+      }
+    ],
+    [
+      {
+        "title": "Resposta imediata aos orçamentos",
+        "description": "Clientes podem obter retorno sobre o valor do reparo em segundos, mantendo a confiança na oficina."
+      },
+      {
+        "title": "Atendimento personalizado e eficiente",
+        "description": "O chatbot fornece atualizações automáticas, agilizando o processo de comunicação entre a oficina e seus clientes."
+      },
+      {
+        "title": "Redução do custo operacional",
+        "description": "A automatização das tarefas de resposta a perguntas diminui a necessidade de manter uma equipe grande, reduzindo os custos financeiros."
+      },
+      {
+        "title": "Melhoria da experiência do cliente",
+        "description": "Com atualizações automáticas e respostas rápidas aos orçamentos, a oficina aumenta a satisfação dos clientes, mantendo-os leais."
+      },
+      {
+        "title": "Distribuição mais eficiente de tarefas",
+        "description": "O chatbot libera os atendentes para se concentrar em tarefas mais críticas, mantendo um equilíbrio na carga de trabalho e prevenindo o desgaste da equipe."
+      }
+    ],
+  ],
+    faqVariants: [
+    [
+      {
+        "question": "O chatbot faz orçamento sozinho?",
+        "answer": "Ele coleta as informações iniciais (foto, descrição do problema) e agiliza o primeiro retorno; o valor final ainda depende de avaliação da oficina."
+      },
+      {
+        "question": "Como funciona a atualização de status?",
+        "answer": "A oficina atualiza a etapa do reparo e o cliente recebe aviso automático pelo WhatsApp."
+      },
+      {
+        "question": "O chatbot substitui o atendente do balcão?",
+        "answer": "Não. Ele cuida das perguntas repetitivas de status e orçamento inicial; o atendente foca em quem está na oficina."
+      },
+      {
+        "question": "Funciona pra funilaria com vários carros ao mesmo tempo?",
+        "answer": "Sim, dá pra acompanhar o status de vários veículos em paralelo."
+      },
+      {
+        "question": "Quanto tempo leva pra implantar?",
+        "answer": "A CODEXY configura o chatbot em cima do número que a funilaria já usa, sem demora."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot pode fazer orçamento sem intervenção humana?",
+        "answer": "Ele coleta as informações iniciais e agiliza o primeiro retorno; o valor final ainda depende de avaliação da oficina."
+      },
+      {
+        "question": "Como o chatbot envia atualizações aos clientes?",
+        "answer": "A oficina atualiza a etapa do reparo, e o cliente recebe aviso automático pelo WhatsApp."
+      },
+      {
+        "question": "O chatbot substitui completamente os atendentes do balcão?",
+        "answer": "Não. Ele cuida das perguntas repetitivas de status e orçamento inicial; o atendente foca em quem está na oficina."
+      },
+      {
+        "question": "O chatbot é capaz de acompanhar vários veículos ao mesmo tempo?",
+        "answer": "Sim, é possível manter atualizações para múltiplos carros simultaneamente."
+      },
+      {
+        "question": "Quanto tempo leva para configurar e iniciar o uso do chatbot?",
+        "answer": "A CODEXY configura rapidamente o chatbot em cima do número da oficina, sem causar atrasos ou inconvenientes."
+      }
+    ],
+    [
+      {
+        "question": "O chatbot pode fazer orçamento sem intervenção humana?",
+        "answer": "Ele coleta as informações iniciais e agiliza o primeiro retorno; o valor final ainda depende de avaliação da oficina."
+      },
+      {
+        "question": "Como funciona a atualização automática de status do veículo?",
+        "answer": "A oficina atualiza a etapa do reparo, e o cliente recebe aviso automático pelo WhatsApp."
+      },
+      {
+        "question": "O chatbot substitui completamente os atendentes do balcão?",
+        "answer": "Não. Ele cuida das perguntas repetitivas de status e orçamento inicial; o atendente foca em quem está na oficina."
+      },
+      {
+        "question": "O chatbot é capaz de acompanhar vários veículos ao mesmo tempo?",
+        "answer": "Sim, é possível manter atualizações para múltiplos carros simultaneamente."
+      },
+      {
+        "question": "Quanto tempo leva pra implantar o sistema de chatbot?",
+        "answer": "A CODEXY configura rapidamente o chatbot em cima do número da oficina, sem causar atrasos ou inconvenientes."
+      }
+    ],
+  ],
     headline: (state) => `Chatbot para Funilarias ${state.in}`,
     introParagraph: (state) => `A CODEXY implanta chatbot para funilaria ${state.in} direto no WhatsApp que a oficina já usa, agilizando o primeiro retorno de orçamento e mantendo o cliente atualizado sobre o andamento do reparo sem precisar ligar. O resultado é menos ligação repetitiva pro balcão e cliente mais tranquilo esperando o carro.`,
     whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para funilaria ${state.in} e quero saber mais sobre como implantar na minha oficina.`,
