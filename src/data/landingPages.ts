@@ -1522,6 +1522,40 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
     seoTitle: (state) => `Chatbot para Escritório de Arquitetura ${state.seoIn} | CODEXY`,
     seoDescription: (state) => `Melhore a comunicação com clientes e aumente a produtividade da sua equipe com o chatbot para escritório de arquitetura ${state.seoIn}. Fale com a CODEXY.`,
   },
+  {
+    nicheSlug: "funilarias",
+    niche: "Funilarias",
+    eyebrow: "Chatbot para Funilarias",
+    heroImage: "/images/landing/funilarias-hero.jpg",
+    heroImageAlt: "Atendente de funilaria mostrando orçamento no celular pro cliente",
+    ogImage: "/images/og/funilarias-og.jpg",
+    subheadline: "Orçamento rápido e atualização automática do reparo pelo WhatsApp — cliente informado, balcão livre.",
+    painPoints: [
+      { title: "Orçamento demorado", description: "Cliente pede orçamento por telefone e espera até o fim do dia pra receber resposta, e muitas vezes já fechou com outra oficina." },
+      { title: "Carro parado sem atualização", description: "Cliente liga várias vezes perguntando status do reparo porque não recebe atualização automática." },
+      { title: "Agenda de entrega sem controle", description: "Sem sistema, é fácil perder o prazo combinado de entrega do veículo." },
+      { title: "Equipe do balcão sobrecarregada", description: "Mesma pessoa que atende o cliente na oficina também tenta responder WhatsApp o dia todo." },
+    ],
+    benefits: [
+      { title: "Orçamento respondido na hora", description: "Cliente manda foto do dano e recebe retorno inicial rápido, sem esperar até o fim do dia." },
+      { title: "Atualização automática de status", description: "Cliente acompanha andamento do reparo sem precisar ligar pra saber." },
+      { title: "Agendamento de entrega organizado", description: "Chatbot confirma data de retirada do veículo e evita esquecimento." },
+      { title: "Menos ligação repetitiva", description: "Perguntas de status saem do telefone e vão pro chatbot." },
+      { title: "Mesmo número que já usa", description: "Não precisa trocar de WhatsApp nem pedir pro cliente salvar novo contato." },
+    ],
+    faq: [
+      { question: "O chatbot faz orçamento sozinho?", answer: "Ele coleta as informações iniciais (foto, descrição do problema) e agiliza o primeiro retorno; o valor final ainda depende de avaliação da oficina." },
+      { question: "Como funciona a atualização de status?", answer: "A oficina atualiza a etapa do reparo e o cliente recebe aviso automático pelo WhatsApp." },
+      { question: "O chatbot substitui o atendente do balcão?", answer: "Não. Ele cuida das perguntas repetitivas de status e orçamento inicial; o atendente foca em quem está na oficina." },
+      { question: "Funciona pra funilaria com vários carros ao mesmo tempo?", answer: "Sim, dá pra acompanhar o status de vários veículos em paralelo." },
+      { question: "Quanto tempo leva pra implantar?", answer: "A CODEXY configura o chatbot em cima do número que a funilaria já usa, sem demora." },
+    ],
+    headline: (state) => `Chatbot para Funilarias ${state.in}`,
+    introParagraph: (state) => `A CODEXY implanta chatbot para funilaria ${state.in} direto no WhatsApp que a oficina já usa, agilizando o primeiro retorno de orçamento e mantendo o cliente atualizado sobre o andamento do reparo sem precisar ligar. O resultado é menos ligação repetitiva pro balcão e cliente mais tranquilo esperando o carro.`,
+    whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para funilaria ${state.in} e quero saber mais sobre como implantar na minha oficina.`,
+    seoTitle: (state) => `Chatbot para Funilarias ${state.seoIn} | CODEXY`,
+    seoDescription: (state) => `Agilize orçamento e atualize o cliente automaticamente sobre o reparo do carro na sua funilaria ${state.seoIn}. Fale com a CODEXY.`,
+  },
 ];
 
 function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
