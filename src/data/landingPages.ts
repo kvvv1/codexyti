@@ -21,6 +21,7 @@ export interface PartnerRecommendation {
 export interface LandingPageData {
   slug: string;
   service: string;
+  productSlug: string;
   niche: string;
   nicheSlug: string;
   /** slug of the location alone (state or city), used to group "same place, other niche" links */
@@ -154,6 +155,7 @@ const BRAZILIAN_CITIES: StateInfo[] = (
 // (one template = 27 pages) or a new state (one entry = +N pages) cheap.
 interface NicheTemplate {
   nicheSlug: string;
+  productSlug: string;
   niche: string;
   eyebrow: string;
   heroImage: string;
@@ -180,6 +182,7 @@ interface NicheTemplate {
 const NICHE_TEMPLATES: NicheTemplate[] = [
   {
     nicheSlug: "padarias",
+    productSlug: "chatbot",
     niche: "Padarias",
     eyebrow: "Chatbot para Padarias",
     heroImage: "/images/landing/padarias-hero.webp",
@@ -466,6 +469,7 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
   },
   {
     nicheSlug: "clinicas-de-estetica",
+    productSlug: "chatbot",
     niche: "Clínicas de Estética",
     eyebrow: "Chatbot para Clínicas de Estética",
     heroImage: "/images/landing/clinicas-estetica-hero.webp",
@@ -759,6 +763,7 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
   },
   {
     nicheSlug: "construtoras",
+    productSlug: "chatbot",
     niche: "Construtoras",
     eyebrow: "Chatbot para Construtoras",
     heroImage: "/images/landing/construtoras-hero.webp",
@@ -2138,55 +2143,6 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
     seoTitle: (state) => `Chatbot para Jardinagem e Paisagismo ${state.seoIn} | CODEXY`,
     seoDescription: (state) => `Automatize orçamentos e atualizações de serviço da sua empresa de jardinagem e paisagismo ${state.seoIn}. Fale com a CODEXY.`,
   },
-];
-
-/** Hash simples e estavel (mesmo input = mesmo output sempre, entre builds e
- * entre site1/site2) -- usado so pra escolher variante, nao precisa ser
- * criptografico. */
-function hashSeed(text: string): number {
-  let h = 0;
-  for (let i = 0; i < text.length; i++) {
-    h = (h * 31 + text.charCodeAt(i)) >>> 0;
-  }
-  return h;
-}
-
-function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number): T {
-  if (!variants || variants.length === 0) return fallback;
-  return variants[seed % variants.length  {
-    nicheSlug: "jardinagem-e-paisagismo",
-    niche: "Jardinagem e Paisagismo",
-    eyebrow: "Chatbot para Jardinagem e Paisagismo",
-    heroImage: "/images/landing/jardinagem-e-paisagismo-hero.jpg",
-    heroImageAlt: "Profissionais de jardinagem e paisagismo trabalhando com chatbot",
-    ogImage: "/images/og/jardinagem-e-paisagismo-og.jpg",
-    subheadline: "A CODEXY ajuda a automatizar o atendimento de clientes, agilizando orçamentos e manutenção",
-    painPoints: [
-      { title: "Orçamento demorado", description: "Cliente pede orçamento por telefone e espera até o fim do dia pra receber resposta, e muitas vezes já fechou com outro profissional." },
-      { title: "Cliente sem notícia do andamento do serviço", description: "Cliente liga várias vezes perguntando quando o jardim fica pronto porque não recebe atualização automática." },
-      { title: "Agenda de entrega sem controle", description: "Sem sistema, é fácil perder o prazo combinado de entrega do material necessário." },
-      { title: "Equipe sobrecarregada", description: "Mesma pessoa que atende o cliente na loja também tenta responder WhatsApp o dia todo." },
-    ],
-    benefits: [
-      { title: "Orçamento respondido na hora", description: "Cliente manda foto do local e recebe retorno inicial rápido, sem esperar até o fim do dia." },
-      { title: "Atualização automática de status", description: "Cliente acompanha andamento da manutenção sem precisar ligar pra saber." },
-      { title: "Agendamento de entrega organizado", description: "Chatbot confirma data de retirada do material e evita esquecimento." },
-      { title: "Menos ligação repetitiva", description: "Perguntas de status saem do telefone e vão pro chatbot." },
-      { title: "Mesmo número que já usa", description: "Não precisa trocar de WhatsApp nem pedir pro cliente salvar novo contato." },
-    ],
-    faq: [
-      { question: "Como funciona o chatbot?", answer: "O chatbot é uma ferramenta automatizada que responde perguntas e realiza tarefas específicas." },
-      { question: "Posso personalizar o chatbot para meu negócio?", answer: "Sim, a CODEXY oferece opções de personalização para atender às necessidades específicas do seu negócio." },
-      { question: "O chatbot é seguro e privado?", answer: "Sim, o chatbot é desenvolvido com segurança e privacidade em mente, garantindo que os dados dos clientes sejam protegidos." },
-      { question: "Posso cancelar o serviço de chatbot a qualquer momento?", answer: "Sim, você pode cancelar o serviço a qualquer momento, sem penalidades ou custos adicionais." },
-      { question: "Como posso contatar a CODEXY para mais informações?", answer: "Você pode entrar em contato conosco pelo WhatsApp ou e-mail para mais informações sobre o chatbot e como implantá-lo no seu negócio." },
-    ],
-    headline: (state) => `Chatbot para Jardinagem e Paisagismo ${state.in}`,
-    introParagraph: (state) => `A CODEXY implanta chatbot para jardinagem e paisagismo ${state.in} direto no WhatsApp que a loja já usa, agilizando o primeiro retorno de orçamento e mantendo o cliente atualizado sobre o andamento da manutenção sem precisar ligar.`,
-    whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para jardinagem e paisagismo ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
-    seoTitle: (state) => `Chatbot para Jardinagem e Paisagismo ${state.seoIn} | CODEXY`,
-    seoDescription: (state) => `Automatize orçamentos e atualizações de serviço da sua empresa de jardinagem e paisagismo ${state.seoIn}. Fale com a CODEXY.`,
-  },
   {
     nicheSlug: "reforco-escolar",
     niche: "Reforço Escolar",
@@ -2222,13 +2178,29 @@ function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number):
     seoDescription: (state) => `Melhore a comunicação com seus clientes e agilie sua rotina de reforço escolar com o chatbot da CODEXY ${state.seoIn}, Fale com a CODEXY.`,
   },
 ];
+
+/** Hash simples e estavel (mesmo input = mesmo output sempre, entre builds e
+ * entre site1/site2) -- usado so pra escolher variante, nao precisa ser
+ * criptografico. */
+function hashSeed(text: string): number {
+  let h = 0;
+  for (let i = 0; i < text.length; i++) {
+    h = (h * 31 + text.charCodeAt(i)) >>> 0;
+  }
+  return h;
+}
+
+function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number): T {
+  if (!variants || variants.length === 0) return fallback;
+  return variants[seed % variants.length];
 }
 
 function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
   const seed = hashSeed(`${template.nicheSlug}:${state.slug}`);
   return {
-    slug: `chatbot-para-${template.nicheSlug}-${state.slug}`,
-    service: "chatbot",
+    slug: `${template.productSlug}-para-${template.nicheSlug}-${state.slug}`,
+    service: template.productSlug,
+    productSlug: template.productSlug,
     niche: template.niche,
     nicheSlug: template.nicheSlug,
     locationSlug: state.slug,
