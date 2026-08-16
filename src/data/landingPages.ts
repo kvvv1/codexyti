@@ -141,6 +141,7 @@ const BRAZILIAN_CITIES: StateInfo[] = (
       { label: "Campo Grande", uf: "MS", preposition: "em" },
     { label: "Teresina", uf: "PI", preposition: "em" },
       { label: "João Pessoa", uf: "PB", preposition: "em" },
+      { label: "São Bernardo do Campo", uf: "SP", preposition: "em" },
   ] as const
 ).map((city) => ({
   ...city,
