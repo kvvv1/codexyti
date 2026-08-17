@@ -15,10 +15,10 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <PageSeo
-        title="CODEXY - Soluções Digitais e Desenvolvimento Web"
-        description="A CODEXY desenvolve sites, aplicativos, automações, chatbots e soluções digitais personalizadas para impulsionar empresas."
+        title="CODEXY — Chatbot de WhatsApp e Soluções Digitais para Empresas"
+        description="A CODEXY desenvolve chatbot de WhatsApp, automação de atendimento, sites e apps sob medida — pra sua empresa atender melhor e vender mais, 24 horas por dia."
         path="/"
-        keywords="desenvolvimento web, aplicativos mobile, automação, chatbots, marketing digital, Belo Horizonte, tecnologia"
+        keywords="chatbot whatsapp, automação de atendimento, desenvolvimento web, aplicativos mobile, chatbots, tecnologia"
         imageAlt="Logo da CODEXY"
       />
       <HeroSection />
