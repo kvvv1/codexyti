@@ -2264,8 +2264,16 @@ function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPag
   };
 }
 
+// Nível "estado" removido em 2026-08-17: GSC reportava a maioria do site
+// como "Detectada, mas não indexada" (1770/~1850 URLs) -- orçamento de
+// rastreamento do Google não acompanhava o volume. Estado também cria
+// intenção de busca sobreposta com cidade da mesma UF ("chatbot pra padaria
+// Minas Gerais" vs "... Belo Horizonte") e foi o nível que mais precisou de
+// diversificação de conteúdo pra não ficar quase-idêntico entre UFs. Corta
+// 44 -> 17 páginas por nicho (só cidade, que é a intenção de busca real de
+// negócio local). BRAZILIAN_STATES mantido no arquivo (usado por outras
+// coisas / referência futura), só não entra mais no array publicado.
 export const landingPages: LandingPageData[] = NICHE_TEMPLATES.flatMap((template) => [
-  ...BRAZILIAN_STATES.map((state) => buildLandingPage(template, state)),
   ...BRAZILIAN_CITIES.map((city) => buildLandingPage(template, city)),
 ]);
 
