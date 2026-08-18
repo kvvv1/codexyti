@@ -10,6 +10,7 @@ import { CodexyShowcase } from "@/components/sections/CodexyShowcase";
 import { MobileShowcase } from "@/components/sections/MobileShowcase";
 import { DoctorShowcase } from "@/components/sections/DoctorShowcase";
 import { ImperialShowcase } from "@/components/sections/ImperialShowcase";
+import NicheDirectory from "@/components/NicheDirectory";
 
 const Index = () => {
   return (
@@ -33,6 +34,7 @@ const Index = () => {
         <ImperialShowcase />
       </div>
       <ServicesSection />
+      <NicheDirectory />
       <AboutSection />
       <TeamSection />
       <TestimonialsSection />
