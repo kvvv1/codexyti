@@ -9,7 +9,9 @@ const SITE_URL = "https://codexy.com.br";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, "../dist");
 
-const staticRoutes: { path: string; priority: string }[] = [
+type SitemapRoute = { path: string; priority: string; lastmod?: string };
+
+const staticRoutes: SitemapRoute[] = [
   { path: "/", priority: "1.0" },
   { path: "/politica-privacidade", priority: "0.3" },
   { path: "/termos-uso", priority: "0.3" },
@@ -19,19 +21,24 @@ const staticRoutes: { path: string; priority: string }[] = [
 
 const blogRoutes = [
   { path: "/blog/", priority: "0.6" },
-  ...blogPosts.map((post) => ({ path: `/blog/${post.slug}/`, priority: "0.6" })),
+  ...blogPosts.map((post) => ({
+    path: `/blog/${post.slug}/`,
+    priority: "0.6",
+    lastmod: post.publishedAt,
+  })),
 ];
 
 const landingRoutes = landingPages.map((page) => ({
   path: `/informacoes/${page.slug}/`,
   priority: "0.8",
+  lastmod: page.updatedAt,
 }));
 
 const urls = [...staticRoutes, ...landingRoutes, ...blogRoutes]
   .map(
-    ({ path: routePath, priority }) => `  <url>
+    ({ path: routePath, priority, lastmod }) => `  <url>
     <loc>${SITE_URL}${routePath}</loc>
-    <changefreq>monthly</changefreq>
+${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ""}    <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
   </url>`
   )

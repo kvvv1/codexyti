@@ -6,6 +6,12 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from = "/informacoes/undefined-para-:slug"
+  to = "/informacoes/chatbot-para-:slug"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/informacoes/*"
   to = "/informacoes/:splat/index.html"
   status = 200

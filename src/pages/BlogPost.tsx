@@ -30,11 +30,32 @@ import {
 } from "@/components/ui/breadcrumb";
 import InformacoesNavbar from "@/components/landing/InformacoesNavbar";
 import { getBlogPostBySlug, getOtherPosts, FALLBACK_COVER, type BlogPost as BlogPostData } from "@/data/blogPosts";
+import { landingPages, type LandingPageData } from "@/data/landingPages";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const SITE_URL = "https://codexy.com.br";
 const DEFAULT_WHATSAPP_MESSAGE = "Olá! Li um post do blog da CODEXY e quero saber mais sobre automação de atendimento.";
 const WORDS_PER_MINUTE = 200;
+const PRIORITY_NICHES = ["padarias", "clinicas-odontologicas", "imobiliarias"];
+
+function getRelatedServicePages(post: BlogPostData): LandingPageData[] {
+  const text = `${post.title} ${post.excerpt} ${post.category}`.toLowerCase();
+  const preferredNiches = text.match(/padaria|bolo|encomenda|alimento|delivery/)
+    ? ["padarias", "clinicas-odontologicas", "imobiliarias"]
+    : text.match(/odonto|dent|clínica|clinica|paciente|consulta/)
+      ? ["clinicas-odontologicas", "padarias", "imobiliarias"]
+      : text.match(/im[oó]vel|imobili|corretor|loca[cç][aã]o/)
+        ? ["imobiliarias", "padarias", "clinicas-odontologicas"]
+        : PRIORITY_NICHES;
+
+  return preferredNiches
+    .map((nicheSlug) =>
+      landingPages.find(
+        (page) => page.nicheSlug === nicheSlug && page.locationSlug === "sao-paulo-sp"
+      )
+    )
+    .filter((page): page is LandingPageData => Boolean(page));
+}
 
 function slugifyHeading(text: string): string {
   return text
@@ -76,6 +97,7 @@ const BlogPost = () => {
   }
 
   const otherPosts = getOtherPosts(post.slug);
+  const relatedServicePages = getRelatedServicePages(post);
   const headings = getHeadings(post);
   const readingMinutes = estimateReadingMinutes(post);
   const pageUrl = `${SITE_URL}/blog/${post.slug}/`;
@@ -379,6 +401,24 @@ const BlogPost = () => {
                 Falar no WhatsApp
               </Button>
             </div>
+
+            {relatedServicePages.length > 0 && (
+              <nav aria-label="Soluções relacionadas" className="rounded-xl border border-border bg-white p-5">
+                <h2 className="mb-3 text-sm font-semibold text-primary">Soluções relacionadas</h2>
+                <ul className="space-y-2.5 text-sm">
+                  {relatedServicePages.map((page) => (
+                    <li key={page.slug}>
+                      <a
+                        href={`/informacoes/${page.slug}/`}
+                        className="text-tech-gray transition-colors hover:text-primary hover:underline"
+                      >
+                        Chatbot para {page.niche.toLowerCase()} em São Paulo
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
 
             {otherPosts.length > 0 && (
               <div>

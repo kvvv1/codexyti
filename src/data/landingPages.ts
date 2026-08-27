@@ -39,6 +39,9 @@ export interface LandingPageData {
   painPoints: FeatureItem[];
   benefits: FeatureItem[];
   faq: FaqItem[];
+  /** Data de revisão substancial, usada no sitemap somente quando a página
+   * recebeu conteúdo próprio além do template programático. */
+  updatedAt?: string;
   partner?: PartnerRecommendation;
   whatsappMessage: string;
   seo: {
@@ -47,6 +50,11 @@ export interface LandingPageData {
     ogImage?: string;
   };
 }
+
+type PriorityPageOverride = Pick<
+  LandingPageData,
+  "introParagraph" | "painPoints" | "benefits" | "faq" | "updatedAt"
+>;
 
 interface StateInfo {
   label: string;
@@ -159,7 +167,9 @@ const BRAZILIAN_CITIES: StateInfo[] = (
 // (one template = 27 pages) or a new state (one entry = +N pages) cheap.
 interface NicheTemplate {
   nicheSlug: string;
-  productSlug: string;
+  /** Templates históricos são de chatbot. Novos produtos devem informar o
+   * slug explicitamente para não mudar URLs já publicadas. */
+  productSlug?: string;
   niche: string;
   eyebrow: string;
   heroImage: string;
@@ -2220,6 +2230,225 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
 /** Hash simples e estavel (mesmo input = mesmo output sempre, entre builds e
  * entre site1/site2) -- usado so pra escolher variante, nao precisa ser
  * criptografico. */
+// Primeira leva de recuperação orgânica: páginas comerciais com conteúdo
+// escrito para a combinação exata nicho+cidade. O restante continua usando
+// as variantes do template; só promover novas URLs depois de medir esta leva.
+const PRIORITY_PAGE_OVERRIDES: Record<string, PriorityPageOverride> = {
+  "padarias:sao-paulo-sp": {
+    updatedAt: "2026-08-27",
+    introParagraph:
+      "Uma padaria em São Paulo costuma receber no mesmo WhatsApp perguntas sobre encomendas, retirada, entrega, disponibilidade de produtos e horário de funcionamento. Quando essas conversas chegam durante o pico do balcão ou fora do expediente, o risco não é apenas responder tarde: o pedido pode ficar sem os dados necessários, ser duplicado ou seguir para a unidade errada. Um chatbot bem configurado organiza a primeira etapa do atendimento, coleta data, quantidade, endereço e preferência do cliente, responde dúvidas administrativas aprovadas pela equipe e encaminha exceções para uma pessoa. A automação não substitui a conferência da produção nem promete estoque que não existe. Ela cria um fluxo previsível para que a padaria responda mais rápido, registre o contexto de cada solicitação e deixe a equipe humana concentrada no preparo, na confirmação e nos casos que exigem decisão.",
+    painPoints: [
+      {
+        title: "Encomenda chega sem as informações essenciais",
+        description:
+          "Mensagens como “quero um bolo para sábado” exigem várias perguntas antes de virar pedido. Sem um roteiro, tamanho, sabor, retirada, endereço e forma de pagamento ficam espalhados na conversa.",
+      },
+      {
+        title: "Pico do balcão vira fila também no WhatsApp",
+        description:
+          "No começo da manhã, no almoço e antes de datas comemorativas, a mesma equipe precisa atender presencialmente e responder o celular. Contatos recentes acabam descendo na lista e podem ser esquecidos.",
+      },
+      {
+        title: "Cliente não sabe qual unidade atende o endereço",
+        description:
+          "Em operações com mais de uma loja ou áreas de entrega diferentes, o atendimento manual pode encaminhar o pedido para a unidade errada ou informar prazo incompatível com a região.",
+      },
+      {
+        title: "Perguntas repetidas consomem tempo de produção",
+        description:
+          "Horário, cardápio, prazo mínimo e política de retirada se repetem diariamente. Responder tudo do zero tira a equipe de tarefas que dependem de atenção dentro da padaria.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Coleta padronizada antes da confirmação",
+        description:
+          "O fluxo pode pedir os dados obrigatórios na ordem definida pela padaria e entregar um resumo para conferência humana, reduzindo o vai-e-volta antes de aceitar a encomenda.",
+      },
+      {
+        title: "Triagem por unidade, retirada ou entrega",
+        description:
+          "A conversa identifica a região e o formato do pedido antes do encaminhamento. Regras de cobertura continuam sob controle da empresa e podem ser atualizadas quando a operação mudar.",
+      },
+      {
+        title: "Respostas administrativas consistentes",
+        description:
+          "Informações aprovadas, como horário e antecedência mínima, ficam disponíveis sem depender de quem está com o aparelho naquele momento, inclusive fora do expediente.",
+      },
+      {
+        title: "Passagem clara para atendimento humano",
+        description:
+          "Personalizações, reclamações, indisponibilidade e negociações saem do automático com o histórico já organizado, para que a equipe decida sem pedir tudo novamente.",
+      },
+    ],
+    faq: [
+      {
+        question: "O chatbot confirma sozinho uma encomenda de padaria?",
+        answer:
+          "Ele pode coletar os dados e preparar o pedido, mas a confirmação final deve respeitar estoque, capacidade de produção, prazo e política de pagamento definidos pela padaria. Quando essas condições variam, o fluxo encaminha a solicitação para conferência humana.",
+      },
+      {
+        question: "É possível separar conversas por unidade em São Paulo?",
+        answer:
+          "Sim. O atendimento pode perguntar bairro, CEP, retirada ou entrega e então direcionar o contato conforme as regras de cada unidade. A cobertura precisa ser cadastrada e mantida pela própria operação para não prometer uma entrega indevida.",
+      },
+      {
+        question: "O cardápio e os preços ficam presos no chatbot?",
+        answer:
+          "Não precisam ficar. A configuração pode usar informações atualizáveis e levar o cliente para o catálogo ou para uma pessoa quando preço e disponibilidade mudam com frequência. O objetivo é não inventar informação que a equipe ainda não confirmou.",
+      },
+      {
+        question: "O número atual do WhatsApp pode continuar sendo usado?",
+        answer:
+          "A viabilidade depende da solução escolhida e da configuração do número. Antes da implantação, é necessário avaliar o WhatsApp Business atual, os acessos da equipe e as regras da Meta para definir a transição sem interromper o atendimento.",
+      },
+    ],
+  },
+  "clinicas-odontologicas:sao-paulo-sp": {
+    updatedAt: "2026-08-27",
+    introParagraph:
+      "Em uma clínica odontológica de São Paulo, o WhatsApp mistura pedidos de avaliação, dúvidas sobre convênio, confirmação de retorno, remarcação e mensagens que precisam de atenção clínica. Automatizar esse canal exige separar o que é administrativo do que depende de um profissional de saúde. O chatbot pode organizar dados de contato, unidade, preferência de horário e tipo de atendimento, além de enviar orientações operacionais aprovadas pela clínica. Sintomas, urgências e decisões clínicas devem ser encaminhados para uma pessoa, sem diagnóstico automático. Com essa divisão explícita, a recepção recebe conversas mais completas, reduz tarefas repetitivas e preserva o histórico necessário para continuar o atendimento com responsabilidade.",
+    painPoints: [
+      {
+        title: "Lead de avaliação chega sem contexto",
+        description:
+          "A recepção precisa descobrir unidade, procedimento de interesse, disponibilidade e forma de contato antes de oferecer o próximo passo, o que aumenta o tempo até o agendamento.",
+      },
+      {
+        title: "Confirmações competem com pacientes presenciais",
+        description:
+          "Lembretes e remarcações ocupam a mesma equipe responsável pelo balcão. Quando o volume cresce, faltas e horários ociosos aparecem por simples atraso na comunicação.",
+      },
+      {
+        title: "Mensagem clínica cai no fluxo administrativo",
+        description:
+          "Relatos de dor, sangramento ou reação não devem receber resposta genérica. Sem critérios de escalonamento, a automação pode atrasar o contato com um profissional habilitado.",
+      },
+      {
+        title: "Dados pessoais circulam sem regra clara",
+        description:
+          "Coletar informações demais no WhatsApp aumenta exposição desnecessária. O fluxo precisa pedir apenas o necessário e seguir as políticas de privacidade e acesso definidas pela clínica.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Pré-atendimento administrativo estruturado",
+        description:
+          "O chatbot reúne os dados necessários para a recepção continuar a conversa e evita repetir perguntas que o paciente já respondeu.",
+      },
+      {
+        title: "Confirmação e remarcação com regra definida",
+        description:
+          "A clínica escolhe horários, antecedência e condições de cancelamento. Exceções permanecem com a equipe, em vez de serem decididas pelo fluxo automático.",
+      },
+      {
+        title: "Escalonamento de mensagens sensíveis",
+        description:
+          "Palavras e situações previamente definidas podem interromper o roteiro administrativo e direcionar a conversa para atendimento humano, sem oferecer diagnóstico.",
+      },
+      {
+        title: "Histórico organizado por unidade e interesse",
+        description:
+          "Em clínicas com mais de um endereço ou especialidade, o contato chega classificado para a equipe certa, com menos transferências e perda de contexto.",
+      },
+    ],
+    faq: [
+      {
+        question: "O chatbot pode avaliar uma urgência odontológica?",
+        answer:
+          "Não deve diagnosticar nem definir conduta clínica. Ele pode reconhecer que a mensagem precisa de atenção humana, informar os canais oficiais da clínica e encaminhar o relato para a equipe responsável conforme um protocolo previamente aprovado.",
+      },
+      {
+        question: "Como proteger os dados do paciente no WhatsApp?",
+        answer:
+          "A implantação deve limitar a coleta ao necessário, definir quem acessa as conversas, estabelecer prazo de retenção e informar a finalidade do uso. Dados clínicos detalhados devem permanecer nos sistemas e processos apropriados da clínica.",
+      },
+      {
+        question: "É possível atender mais de uma unidade em São Paulo?",
+        answer:
+          "Sim. O fluxo pode identificar a unidade desejada ou a região do paciente antes de consultar as regras de agenda. Cada endereço precisa ter horários, especialidades e responsáveis atualizados para evitar encaminhamento incorreto.",
+      },
+      {
+        question: "A recepção deixa de participar do atendimento?",
+        answer:
+          "Não. A automação cuida da coleta inicial e de tarefas previsíveis. Negociação, exceções, dúvidas clínicas e situações sensíveis continuam com a equipe, que recebe o histórico da conversa para assumir sem recomeçar do zero.",
+      },
+    ],
+  },
+  "imobiliarias:sao-paulo-sp": {
+    updatedAt: "2026-08-27",
+    introParagraph:
+      "O primeiro contato com uma imobiliária em São Paulo costuma ser curto: o interessado envia o link de um imóvel, pergunta se ainda está disponível ou descreve rapidamente o que procura. Para transformar essa mensagem em atendimento útil, é preciso identificar compra ou locação, região, faixa de valor, número de quartos, prazo e condições básicas antes de encaminhar o lead. Um chatbot pode conduzir essa triagem, registrar preferências e organizar o agendamento de visita sem fingir que substitui o corretor. Disponibilidade, valores, documentação e negociação precisam vir das fontes oficiais da imobiliária e ser confirmados por uma pessoa quando houver mudança. O ganho está em responder o contato enquanto o interesse ainda está quente e entregar ao corretor um resumo claro para a continuidade.",
+    painPoints: [
+      {
+        title: "Lead chega sem identificar o imóvel",
+        description:
+          "Links são encaminhados sem código ou se perdem entre mensagens. O corretor gasta tempo procurando o anúncio antes de descobrir se a unidade continua disponível.",
+      },
+      {
+        title: "Compra e locação entram na mesma fila",
+        description:
+          "Necessidades, documentos e prazos são diferentes. Sem triagem inicial, o contato passa por pessoas erradas e demora até chegar ao especialista adequado.",
+      },
+      {
+        title: "Preferências ficam espalhadas na conversa",
+        description:
+          "Bairro, orçamento, metragem, pets e data de mudança aparecem em mensagens separadas. Quando outro corretor assume, parte do contexto precisa ser perguntada novamente.",
+      },
+      {
+        title: "Visita é combinada sem confirmação suficiente",
+        description:
+          "Agenda do corretor, autorização do imóvel e disponibilidade do interessado precisam convergir. Automatizar sem regras pode criar horários que a operação não consegue cumprir.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Qualificação sem transformar a conversa em formulário",
+        description:
+          "O fluxo coleta apenas os critérios que ajudam a selecionar imóveis e adapta as próximas perguntas às respostas já fornecidas pelo interessado.",
+      },
+      {
+        title: "Distribuição para o corretor responsável",
+        description:
+          "Tipo de negócio, região e empreendimento podem orientar o encaminhamento, reduzindo transferências e mantendo o histórico disponível para quem assume.",
+      },
+      {
+        title: "Agendamento condicionado à operação real",
+        description:
+          "O chatbot registra a preferência de visita e segue as regras da imobiliária. A confirmação definitiva pode permanecer com o corretor quando depender do proprietário ou da chave.",
+      },
+      {
+        title: "Retomada de contatos com contexto",
+        description:
+          "Quando surge um imóvel compatível, a equipe consegue entender rapidamente o que o lead procurava, sem depender da memória de quem respondeu a primeira mensagem.",
+      },
+    ],
+    faq: [
+      {
+        question: "O chatbot informa se um imóvel ainda está disponível?",
+        answer:
+          "Somente quando estiver conectado a uma fonte atualizada e confiável da imobiliária. Se a disponibilidade não puder ser confirmada automaticamente, o correto é registrar o interesse e encaminhar para o corretor validar antes de prometer a unidade.",
+      },
+      {
+        question: "Ele pode negociar aluguel ou preço de venda?",
+        answer:
+          "A automação pode coletar a proposta e os dados necessários, mas condições, contrapropostas e aprovações devem seguir a política da imobiliária e ser conduzidas por um profissional responsável.",
+      },
+      {
+        question: "Como funciona para imobiliárias com várias regiões de São Paulo?",
+        answer:
+          "Bairro, zona, proximidade de transporte e tipo de imóvel podem ser usados para direcionar o contato ao time certo. As regras precisam refletir a divisão comercial real para não criar uma distribuição artificial.",
+      },
+      {
+        question: "É necessário pedir documentos já no primeiro contato?",
+        answer:
+          "Normalmente não. A triagem inicial deve coletar apenas o necessário para entender a demanda. Documentos e dados sensíveis entram depois, em canal e etapa apropriados, conforme a finalidade e a política de privacidade da imobiliária.",
+      },
+    ],
+  },
+};
+
 function hashSeed(text: string): number {
   let h = 0;
   for (let i = 0; i < text.length; i++) {
@@ -2235,10 +2464,12 @@ function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number):
 
 function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
   const seed = hashSeed(`${template.nicheSlug}:${state.slug}`);
+  const priorityOverride = PRIORITY_PAGE_OVERRIDES[`${template.nicheSlug}:${state.slug}`];
+  const productSlug = template.productSlug ?? "chatbot";
   return {
-    slug: `${template.productSlug}-para-${template.nicheSlug}-${state.slug}`,
-    service: template.productSlug,
-    productSlug: template.productSlug,
+    slug: `${productSlug}-para-${template.nicheSlug}-${state.slug}`,
+    service: productSlug,
+    productSlug,
     niche: template.niche,
     nicheSlug: template.nicheSlug,
     locationSlug: state.slug,
@@ -2250,10 +2481,13 @@ function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPag
     subheadline: template.subheadline,
     heroImage: template.heroImage,
     heroImageAlt: template.heroImageAlt,
-    introParagraph: template.introParagraph(state),
-    painPoints: pickVariant(template.painPointsVariants, template.painPoints, seed),
-    benefits: pickVariant(template.benefitsVariants, template.benefits, seed),
-    faq: pickVariant(template.faqVariants, template.faq, seed),
+    introParagraph: priorityOverride?.introParagraph ?? template.introParagraph(state),
+    painPoints:
+      priorityOverride?.painPoints ?? pickVariant(template.painPointsVariants, template.painPoints, seed),
+    benefits:
+      priorityOverride?.benefits ?? pickVariant(template.benefitsVariants, template.benefits, seed),
+    faq: priorityOverride?.faq ?? pickVariant(template.faqVariants, template.faq, seed),
+    updatedAt: priorityOverride?.updatedAt,
     partner: template.partner,
     whatsappMessage: template.whatsappMessage(state),
     seo: {
