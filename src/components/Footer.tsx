@@ -1,4 +1,4 @@
-import { Code, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import logo from '/logo.png';
 
 const footerSections = [
@@ -7,18 +7,16 @@ const footerSections = [
     links: [
       "Desenvolvimento Web",
       "Apps Mobile",
-      "Soluções Cloud",
-      "Big Data & IA",
-      "Cibersegurança",
-      "Automação"
+      "Automação e Chatbots",
+      "Sistemas e Plataformas Personalizadas",
+      "Marketing Digital e Design",
+      "Consultoria e Suporte"
     ]
   },
   {
     title: "Empresa",
     links: [
       "Sobre Nós",
-      "Nossa Equipe",
-      "Carreiras",
       "Blog",
       "Casos de Sucesso",
       "Parcerias"
@@ -27,25 +25,29 @@ const footerSections = [
   {
     title: "Suporte",
     links: [
-      "Documentação",
-      "FAQ",
       "Suporte Técnico",
-      "Status do Sistema",
-      "Tutoriais",
       "Contato"
     ]
   }
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" }
+  { icon: Instagram, href: "https://www.instagram.com/codexy.ti/", label: "Instagram" }
 ];
 
 const footerLinkHrefs: Record<string, string> = {
+  "Desenvolvimento Web": "/#servicos",
+  "Apps Mobile": "/#servicos",
+  "Automação e Chatbots": "/#servicos",
+  "Sistemas e Plataformas Personalizadas": "/#servicos",
+  "Marketing Digital e Design": "/#servicos",
+  "Consultoria e Suporte": "/#servicos",
+  "Sobre Nós": "/#sobre",
+  "Blog": "/blog",
+  "Casos de Sucesso": "/#projetos",
   Parcerias: "/parceiros/doctorchatbot",
+  "Suporte Técnico": "https://wa.me/5531991666106",
+  "Contato": "/#contato",
 };
 
 const Footer = () => {
@@ -88,6 +90,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                   aria-label={social.label}
                 >
@@ -104,8 +108,11 @@ const Footer = () => {
               <ul className="space-y-2 sm:space-y-3">
                 {section.links.map((link) => (
                   <li key={link}>
-                    <a 
+                    <a
                       href={footerLinkHrefs[link] ?? "#"}
+                      {...(footerLinkHrefs[link]?.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="text-white/70 hover:text-accent transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base"
                     >
                       {link}
@@ -123,7 +130,7 @@ const Footer = () => {
           <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-white/60 text-xs sm:text-sm text-center sm:text-left">
-            © 2024 CODEXY. Todos os direitos reservados.
+            © {new Date().getFullYear()} CODEXY. Todos os direitos reservados.
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">

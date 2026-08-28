@@ -11,7 +11,7 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section id="sobre" className="py-16 sm:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
