@@ -22,24 +22,21 @@ const Index = () => {
         imageAlt="Logo da CODEXY"
       />
       <HeroSection />
-      <div className="h-56 bg-gradient-to-b from-background to-[hsl(var(--primary))]" />
       <div
         id="projetos"
         data-section="projects"
-        className="portfolio-showcase relative isolate overflow-hidden bg-[hsl(var(--primary))] pt-0 text-white"
+        className="portfolio-showcase relative isolate overflow-hidden bg-background pt-0"
       >
         <TrilhaDevShowcase />
         <MobileShowcase />
         <DoctorShowcase />
         <ImperialShowcase />
       </div>
-      <div className="h-56 bg-gradient-to-b from-[hsl(var(--primary))] to-secondary" />
       <ServicesSection />
       <NicheDirectory />
       <AboutSection />
       <TestimonialsSection />
       <ContactSection />
-      <div className="h-56 bg-gradient-to-b from-secondary to-[hsl(var(--primary))]" />
       <Footer />
     </div>
   );

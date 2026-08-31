@@ -90,7 +90,7 @@ export function DoctorShowcase() {
 
           <ul className="mt-8 space-y-3">
             {features.map((f) => (
-              <li key={f} className="flex items-center gap-3 text-sm text-white/80">
+              <li key={f} className="flex items-center gap-3 text-sm text-foreground">
                 <span className="h-5 w-5 rounded-full bg-gradient-primary grid place-items-center shrink-0 shadow-[0_0_12px_hsl(var(--accent)/0.45)]">
                   <Check size={11} className="text-white" />
                 </span>
@@ -101,7 +101,7 @@ export function DoctorShowcase() {
 
           <div className="mt-8 flex flex-wrap gap-2">
             {stack.map((s) => (
-              <span key={s} className="px-3 py-1.5 rounded-lg glass text-xs font-mono text-white/60">
+              <span key={s} className="px-3 py-1.5 rounded-lg tech-card text-xs font-mono text-muted-foreground">
                 {s}
               </span>
             ))}

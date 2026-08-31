@@ -100,7 +100,7 @@ export function MobileShowcase() {
           </p>
           <ul className="mt-6 space-y-2.5">
             {features.map((f) => (
-              <li key={f} className="flex items-center gap-3 text-sm text-white/80">
+              <li key={f} className="flex items-center gap-3 text-sm text-foreground">
                 <span className="h-5 w-5 rounded-full bg-gradient-primary grid place-items-center shrink-0 shadow-[0_0_12px_hsl(var(--accent)/0.45)]">
                   <Check size={11} className="text-white" />
                 </span>
@@ -117,13 +117,13 @@ export function MobileShowcase() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex flex-col gap-6"
         >
-          <div className="glass-card rounded-2xl p-5">
+          <div className="tech-card rounded-2xl p-5">
             <div className="text-xs font-mono uppercase tracking-widest text-primary mb-3">Mobile PWA</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Interface otimizada para celular. Funciona offline, instalável como app nativo. Usado diariamente pelos colaboradores em campo.
             </p>
           </div>
-          <div className="glass-card rounded-2xl p-5">
+          <div className="tech-card rounded-2xl p-5">
             <div className="text-xs font-mono uppercase tracking-widest text-primary mb-3">Admin Web</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Painel administrativo completo para gestores: visualização de diários, relatórios, controle de usuários e configurações do sistema.
@@ -131,7 +131,7 @@ export function MobileShowcase() {
           </div>
           <div className="flex flex-wrap gap-2">
             {stack.map((s) => (
-              <span key={s} className="px-3 py-1.5 rounded-lg glass text-xs font-mono text-white/60">{s}</span>
+              <span key={s} className="px-3 py-1.5 rounded-lg tech-card text-xs font-mono text-muted-foreground">{s}</span>
             ))}
           </div>
         </motion.div>

@@ -28,18 +28,18 @@ export function Section({
             className={`mb-14 md:mb-20 ${align === "center" ? "text-center max-w-3xl mx-auto" : "max-w-3xl"}`}
           >
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-5">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
                 {eyebrow}
               </div>
             )}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="mt-5 text-base md:text-lg leading-relaxed text-white/65">{description}</p>
+              <p className="mt-5 text-base md:text-lg leading-relaxed text-muted-foreground">{description}</p>
             )}
           </motion.div>
         )}

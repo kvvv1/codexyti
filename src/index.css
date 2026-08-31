@@ -186,14 +186,6 @@ All colors MUST be HSL.
     animation: teamCardEnter 0.7s ease-out forwards;
   }
 
-  .portfolio-showcase .text-muted-foreground {
-    color: rgb(255 255 255 / 0.68);
-  }
-
-  .portfolio-showcase .glass-card .text-muted-foreground {
-    color: rgb(255 255 255 / 0.62);
-  }
-
   .portfolio-showcase > section {
     position: relative;
     z-index: 1;
