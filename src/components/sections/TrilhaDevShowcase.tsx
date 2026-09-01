@@ -18,14 +18,18 @@ function PhoneMockup() {
     <motion.div
       animate={{ y: [0, -8, 0] }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      className="relative w-[200px] shrink-0"
+      className="relative w-[220px] md:w-[236px] shrink-0"
     >
+      <div className="absolute inset-[-34px] rounded-full bg-[#8be04a]/10 blur-[52px]" />
       <div className="relative rounded-[40px] bg-[#141414] p-2.5 shadow-[0_30px_60px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(255,255,255,0.08)]">
         <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-5 w-[70px] rounded-full bg-[#0a0a0a] z-10" />
         <div className="relative rounded-[30px] overflow-hidden bg-[#0b0f0c] aspect-[9/19.5] flex flex-col px-4 pt-8 pb-4">
           {/* header */}
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-[#8be04a]">TrilhaDev</span>
+            <span className="flex items-center gap-1.5 text-[11px] font-bold text-[#8be04a]">
+              <img src="/trilhadev-logo.png" alt="" className="h-4 w-4 rounded-full object-cover" />
+              TrilhaDev
+            </span>
             <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/[0.06] text-[9px] font-semibold text-[#8be04a]">
               <Zap size={9} className="fill-[#8be04a]" /> 480
             </span>
@@ -75,70 +79,100 @@ export function TrilhaDevShowcase() {
         </>
       }
     >
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="relative bg-transparent py-4 md:py-6"
+      >
+        <div className="relative grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-16">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <img
+                src="/trilhadev-logo.png"
+                alt="Logo do TrilhaDev"
+                loading="lazy"
+                decoding="async"
+                className="h-12 w-12 rounded-2xl border border-[#001b4d]/10 object-cover shadow-[0_8px_24px_rgba(0,27,77,0.12)]"
+              />
+              <div>
+                <div className="font-display text-lg font-bold text-[#001b4d]">TrilhaDev</div>
+                <div className="text-xs font-medium text-[#001b4d]/50">Aprendizado gamificado para devs</div>
+              </div>
+            </div>
 
-        {/* left: phone mockup */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center lg:justify-start"
-        >
-          <PhoneMockup />
-        </motion.div>
-
-        {/* right: info */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-        >
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-            Plataforma de ensino de programação com trilha de fases, lições práticas e comunidade — desenvolvida para acompanhar o aluno desde os primeiros conceitos até o primeiro projeto real.
-          </p>
-
-          <ul className="mt-8 space-y-3">
-            {features.map((f) => (
-              <li key={f} className="flex items-center gap-3 text-sm text-foreground">
-                <span className="h-5 w-5 rounded-full bg-gradient-primary grid place-items-center shrink-0 shadow-[0_0_12px_hsl(var(--accent)/0.45)]">
-                  <Check size={11} className="text-white" />
-                </span>
-                {f}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {stack.map((s) => (
-              <span key={s} className="px-3 py-1.5 rounded-lg tech-card text-xs font-mono text-muted-foreground">
-                {s}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="rounded-full border border-[#001b4d]/10 bg-[#001b4d]/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#001b4d]/65">
+                Case Codexy
               </span>
-            ))}
+              <span className="rounded-full border border-[#58a900]/20 bg-[#8be04a]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#397900]">
+                119 lições · 12 fases · gratuito
+              </span>
+            </div>
+
+            <h3 className="mt-6 max-w-2xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-[#001b4d] md:text-5xl">
+              Aprenda a programar<br />
+              <span className="bg-gradient-to-r from-[#0066ff] to-[#55ad00] bg-clip-text text-transparent">
+                de verdade.
+              </span>
+            </h3>
+
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#001b4d]/60 md:text-lg">
+              Uma trilha gamificada que leva quem está começando da lógica de programação aos fundamentos técnicos — com prática, progresso e ritmo próprio.
+            </p>
+
+            <ul className="mt-7 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+              {features.map((feature) => (
+                <li key={feature} className="flex items-center gap-3 text-sm text-[#001b4d]/75">
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gradient-primary shadow-[0_0_12px_hsl(var(--accent)/0.45)]">
+                    <Check size={11} className="text-white" strokeWidth={3} />
+                  </span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.trilhadev.app&hl=pt_BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Baixar o TrilhaDev no Google Play"
+                className="inline-flex rounded-xl outline-none transition duration-200 hover:-translate-y-0.5 hover:drop-shadow-[0_12px_24px_rgba(0,27,77,0.16)] focus-visible:ring-2 focus-visible:ring-[#0066ff] focus-visible:ring-offset-4 focus-visible:ring-offset-white"
+              >
+                <img
+                  src="/google-play-badge.png"
+                  alt="Disponível no Google Play"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[58px] w-auto"
+                />
+              </a>
+              <a
+                href="https://trilhadev.app.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-[#001b4d]/10 bg-[#001b4d]/[0.03] px-5 text-sm font-medium text-[#001b4d] transition hover:border-[#0066ff]/30 hover:bg-[#0066ff]/[0.06]"
+              >
+                Acessar plataforma <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2 border-t border-[#001b4d]/[0.07] pt-6">
+              {stack.map((item) => (
+                <span key={item} className="rounded-lg border border-[#001b4d]/[0.08] bg-[#001b4d]/[0.025] px-3 py-1.5 font-mono text-[11px] text-[#001b4d]/50">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.trilhadev.app"
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-primary font-semibold text-white text-sm shadow-[0_0_24px_hsl(var(--accent)/0.35)] hover:shadow-[0_0_40px_hsl(var(--accent)/0.55)] transition-all"
-            >
-              <ExternalLink size={14} /> Baixar na Play Store
-            </a>
-            <a
-              href="https://trilhadev.app.br"
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl tech-card hover:bg-secondary/40 font-medium text-sm text-foreground transition-all"
-            >
-              Acessar trilhadev.app.br
-            </a>
+          <div className="flex justify-center lg:justify-end">
+            <PhoneMockup />
           </div>
-        </motion.div>
-
-      </div>
+        </div>
+      </motion.div>
     </Section>
   );
 }
