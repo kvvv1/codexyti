@@ -2259,6 +2259,40 @@ const NICHE_TEMPLATES: NicheTemplate[] = [
     seoTitle: (state) => `Chatbot para Pet Shop com Banho e Tosa ${state.seoIn} | CODEXY`,
     seoDescription: (state) => `A CODEXY oferece um chatbot para pet shop com banho e tosa ${state.seoIn}, agilizando atendimento e serviços, fale com a CODEXY.`,
   },
+  {
+    nicheSlug: "estetica-automotiva",
+    niche: "Estética Automotiva",
+    eyebrow: "Chatbot para Estética Automotiva",
+    heroImage: "/images/landing/clinicas-estetica-hero.webp",
+    heroImageAlt: "Pessoal trabalhando no interior de um carro",
+    ogImage: "/images/og/clinicas-estetica-og.jpg",
+    subheadline: "Agilidade e eficiência nos atendimentos de beleza automotiva com nosso chatbot.",
+    painPoints: [
+      { title: "Atendimento demorado", description: "Cliente aguarda até o fim do dia pela resposta ao orçamento, e muitas vezes já fechou com outro salão." },
+      { title: "Prazo de entrega comprometido", description: "Sem atualização automática, é fácil perder o prazo combinado para devolução do veículo." },
+      { title: "Equipe sobrecarregada", description: "Mesma pessoa que atende no salão também tenta responder WhatsApp o dia todo." },
+      { title: "Desenvolvimento de pedidos demorado", description: "Processo de entrega dos serviços de beleza automotiva pode levar tempo e esforço para ser concluído." },
+    ],
+    benefits: [
+      { title: "Orçamento respondido rapidamente", description: "Cliente manda foto do dano e recebe retorno inicial rápido, sem esperar até o fim do dia." },
+      { title: "Atualização automática de status", description: "Cliente acompanha andamento do serviço sem precisar ligar pra saber." },
+      { title: "Agendamento organizado", description: "Chatbot confirma data de devolução do veículo e evita esquecimento." },
+      { title: "Menos ligações repetitivas", description: "Perguntas de status saem do telefone e vão pro chatbot." },
+      { title: "Continua usando o mesmo WhatsApp", description: "Não precisa trocar de WhatsApp nem pedir ao cliente para salvar novo contato." },
+    ],
+    faq: [
+      { question: "O que é um chatbot?", answer: "Um software que simula uma conversa com o usuário." },
+      { question: "Qual o benefício do uso de chatbot para a Estética Automotiva?", answer: "Agilidade e eficiência nos atendimentos de beleza automotiva, otimizando tempo e esforço." },
+      { question: "O que é necessário para implantar um chatbot no meu negócio de Estética Automotiva?", answer: "Contate a CODEXY. Ela vai ajudá-lo na implantação do seu chatbot personalizado." },
+      { question: "Posso usar o WhatsApp comum?", answer: "Sim, apenas instale nosso aplicativo e comece a trabalhar." },
+      { question: "O que é uma página de landing?", answer: "Uma página da internet onde você pode obter informações sobre um produto ou serviço" },
+    ],
+    headline: (state) => `Chatbot para Estética Automotiva ${state.in}`,
+    introParagraph: (state) => `A CODEXY implanta chatbot para Estética Automotiva ${state.in} que agiliza a resposta ao orçamento, mantém o cliente atualizado sobre o andamento do serviço e otimiza os atendimentos de beleza automotiva, direcionado à ${state.in}.`,
+    whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para estética automotiva ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
+    seoTitle: (state) => `Chatbot para Estética Automotiva ${state.seoIn} | CODEXY`,
+    seoDescription: (state) => `Aumente a eficiência nos atendimentos de beleza automotiva da sua empresa com um chatbot personalizado. Faça contato e saiba mais sobre como implantar o nosso chatbot na sua Estética Automotiva ${state.seoIn}. Fale com a CODEXY.`,
+  },
 ];
 
 /** Hash simples e estavel (mesmo input = mesmo output sempre, entre builds e
