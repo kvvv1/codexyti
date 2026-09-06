@@ -2459,7 +2459,41 @@ function hashSeed(text: string): number {
 
 function pickVariant<T>(variants: T[][] | undefined, fallback: T, seed: number): T {
   if (!variants || variants.length === 0) return fallback;
-  return variants[seed % variants.length];
+  return variants[seed % variants.length  {
+    nicheSlug: "pet-shop-com-banho-e-tosa",
+    niche: "Pet Shop com Banho e Tosa",
+    eyebrow: "Chatbot para Pet Shop com Banho e Tosa",
+    heroImage: "/images/landing/clinicas-estetica-hero.webp",
+    heroImageAlt: "Atendente da pet shop digitando no celular, enquanto animais estão no fundo.",
+    ogImage: "/images/og/clinicas-estetica-og.jpg",
+    subheadline: "Conheça o nosso chatbot que agiliza orçamentos, agendamento e pedidos de serviços na sua Pet Shop com Banho e Tosa.",
+    painPoints: [
+      { title: "Atendimento demorado", description: "Cliente espera por minutos até ser atendido no balcão da pet shop." },
+      { title: "Prazo de banho não cumprido", description: "Agenda de banhos é difícil de manter e muitas vezes os clientes precisam aguardar mais do que o combinado." },
+      { title: "Pedidos de serviços não solicitados", description: "Cliente pega no celular e faz perguntas desnecessárias sobre produtos/serviços da pet shop." },
+      { title: "Atendentes sobrecarregados", description: "Muitas vezes atendentes são pegos fazendo várias coisas ao mesmo tempo, como receber cliente e cuidar de animais." },
+    ],
+    benefits: [
+      { title: "Orçamento pronto na hora", description: "Cliente recebe orçamento inicial rápido através do WhatsApp." },
+      { title: "Agendamento fácil e automático", description: "Pet Shop com Banho e Tosa aproveita para confirmar data de banho e agendamentos." },
+      { title: "Atendimento eficaz em minutos", description: "Chatbot da CODEXY reduz tempo de espera dos clientes." },
+      { title: "Perguntas desnecessárias diminuem", description: "Informações sobre produtos e serviços ficam disponíveis no WhatsApp, evitando perguntas repetidas." },
+      { title: "Atendentes mais focados", description: "Equipe pode se concentrar em cuidado aos animais e atendimento eficaz a clientes." },
+    ],
+    faq: [
+      { question: "Como funciona o chatbot?", answer: "A CODEXY implantará um chatbot para Pet Shop com Banho e Tosa direto no WhatsApp, agilizando orçamentos, agendamento de serviços, etc." },
+      { question: "Quais são os benefícios do chatbot para Pet Shop com Banho e Tosa?", answer: "O chatbot da CODEXY reduz tempo de espera dos clientes, facilita agendamento de banhos, entre outros." },
+      { question: "Qual é o custo do serviço?", answer: "Custo está disponível após contato direto com a CODEXY." },
+      { question: "Como eu faço para implantar o chatbot na minha Pet Shop com Banho e Tosa?", answer: "Basta entrar em contato com a CODEXY, e elas farão todo o trabalho de configuração." },
+      { question: "O chatbot vai me tirar o emprego?", answer: "Não! O chatbot vai ajudar sua equipe a atender melhor aos clientes e liberar tempo para tarefas mais importantes." },
+    ],
+    headline: (state) => `Chatbot para Pet Shop com Banho e Tosa ${state.in}`,
+    introParagraph: (state) => `A CODEXY desenvolveu um chatbot específico para Pet Shop com Banho e Tosa que pode ser implantado direto no WhatsApp, agilizando orçamentos, agendamento de serviços, etc. na sua pet shop ${state.in}.`,
+    whatsappMessage: (state) => `Olá! Vi a página sobre chatbot para pet shop com banho e tosa ${state.in} e quero saber mais sobre como implantar no meu negócio.`,
+    seoTitle: (state) => `Chatbot para Pet Shop com Banho e Tosa ${state.seoIn} | CODEXY`,
+    seoDescription: (state) => `A CODEXY oferece um chatbot para pet shop com banho e tosa ${state.seoIn}, agilizando atendimento e serviços, fale com a CODEXY.`,
+  },
+];
 }
 
 function buildLandingPage(template: NicheTemplate, state: StateInfo): LandingPageData {
