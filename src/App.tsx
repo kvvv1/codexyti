@@ -15,6 +15,11 @@ import BlogIndex from "./pages/BlogIndex";
 import BlogPost from "./pages/BlogPost";
 import ParceiroDoctorChatbot from "./pages/ParceiroDoctorChatbot";
 import WhatsAppFloatButton from "./components/WhatsAppFloatButton";
+import Preview1Melhorada from "./pages/previews/Preview1Melhorada";
+import Preview2Console from "./pages/previews/Preview2Console";
+import Preview3Vitrine from "./pages/previews/Preview3Vitrine";
+import Preview4Despacho from "./pages/previews/Preview4Despacho";
+import Preview5Cinematic from "./pages/previews/Preview5Cinematic";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +44,11 @@ export const AppRoutes = () => (
       <Route path="/informacoes/:slug" element={<InformacoesLandingPage />} />
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
+      <Route path="/preview/melhorada" element={<Preview1Melhorada />} />
+      <Route path="/preview/console" element={<Preview2Console />} />
+      <Route path="/preview/vitrine" element={<Preview3Vitrine />} />
+      <Route path="/preview/despacho" element={<Preview4Despacho />} />
+      <Route path="/preview/cinematic" element={<Preview5Cinematic />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
