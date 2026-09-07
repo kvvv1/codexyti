@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Code, Smartphone, Globe, Database, Shield, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -63,51 +65,110 @@ const services = [
   }
 ];
 
-const ServicesSection = () => {
+function ServiceCard({ service }: { service: (typeof services)[number] }) {
   return (
-    <section id="servicos" className="py-16 sm:py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16 slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+    <Card className="group tech-card border-0 hover:tech-glow transition-shadow duration-500 h-full">
+      <CardContent className="p-6 sm:p-8">
+        <div className="mb-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
+          <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3">{service.title}</h3>
+          <p className="text-sm sm:text-base text-tech-gray leading-relaxed mb-6">{service.description}</p>
+        </div>
+        <div className="space-y-2">
+          {service.features.map((feature) => (
+            <div key={feature} className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+              <span className="text-xs sm:text-sm text-tech-gray font-medium">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function SolutionsHorizontalTrack() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [dims, setDims] = useState({ trackWidth: 0, viewportW: 0, viewportH: 0 });
+
+  useEffect(() => {
+    const measure = () => {
+      setDims({
+        trackWidth: trackRef.current?.scrollWidth ?? 0,
+        viewportW: window.innerWidth,
+        viewportH: window.innerHeight,
+      });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const scrollDistance = Math.max(dims.trackWidth - dims.viewportW, 0);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
+  const progressWidth = useTransform(scrollYProgress, (v) => `${Math.min(Math.max(v, 0), 1) * 100}%`);
+
+  const containerHeight = dims.viewportH ? dims.viewportH + scrollDistance : "220vh";
+
+  return (
+    <div ref={containerRef} style={{ height: containerHeight }} className="relative">
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center bg-secondary/50">
+        <div className="absolute top-12 sm:top-14 left-0 right-0 text-center z-10 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
             Nossas <span className="gradient-text">Soluções</span>
           </h2>
-          <p className="text-lg sm:text-xl text-tech-gray max-w-3xl mx-auto">
-            Oferecemos um conjunto completo de serviços tecnológicos para transformar 
-            sua visão em realidade digital.
+          <p className="text-base sm:text-lg text-tech-gray max-w-2xl mx-auto">
+            Um conjunto completo de serviços tecnológicos pra transformar sua visão em realidade digital.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((service, index) => (
-            <Card 
-              key={service.title}
-              className="group tech-card border-0 hover:tech-glow transition-all duration-500 slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-6 sm:p-8">
-                <div className="mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-tech-gray leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                </div>
-                
-                <div className="space-y-2">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-tech-gray font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        <motion.div ref={trackRef} style={{ x }} className="flex gap-6 pl-[6vw]">
+          {services.map((service) => (
+            <div key={service.title} className="flex-shrink-0 w-[340px] sm:w-[380px]">
+              <ServiceCard service={service} />
+            </div>
           ))}
+          <div className="flex-shrink-0 w-[6vw]" />
+        </motion.div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-40 sm:w-56 h-1 rounded-full bg-tech-gray-light overflow-hidden">
+          <motion.div style={{ width: progressWidth }} className="h-full bg-accent" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const ServicesSection = () => {
+  return (
+    <section id="servicos" className="bg-background">
+      <div className="hidden md:block">
+        <SolutionsHorizontalTrack />
+      </div>
+
+      <div className="md:hidden py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 slide-up">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Nossas <span className="gradient-text">Soluções</span>
+            </h2>
+            <p className="text-lg text-tech-gray max-w-3xl mx-auto">
+              Oferecemos um conjunto completo de serviços tecnológicos para transformar
+              sua visão em realidade digital.
+            </p>
+          </div>
+
+          <div className="grid gap-6">
+            {services.map((service, index) => (
+              <div key={service.title} className="slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ServiceCard service={service} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

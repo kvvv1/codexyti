@@ -1,94 +1,105 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Cpu, Zap, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import logo from '/logo.png';
+import logo from "/logo.png";
+
+const scrollToContact = () =>
+  document.querySelector('[data-section="contact"]')?.scrollIntoView({ behavior: "smooth" });
+
+const scrollToProjects = () =>
+  document.querySelector('[data-section="projects"]')?.scrollIntoView({ behavior: "smooth" });
 
 const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.7]);
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
   return (
-    <section className="relative min-h-screen hero-gradient overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="CODEXY Hero Background"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-primary/10" />
-      </div>
+    <div ref={containerRef} className="relative hero-gradient overflow-hidden" style={{ height: "170vh" }}>
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={heroImage} alt="CODEXY Hero Background" className="w-full h-full object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-primary/10" />
+        </div>
 
-      {/* Floating Elements */}
-      <div className="absolute inset-0 z-10">
-        <div className="floating-animation absolute top-20 left-10 w-8 h-8 md:w-16 md:h-16 bg-accent/20 rounded-full blur-xl" />
-        <div className="floating-animation absolute top-40 right-20 w-10 h-10 md:w-20 md:h-20 bg-primary/20 rounded-full blur-xl" style={{ animationDelay: '2s' }} />
-        <div className="floating-animation absolute bottom-40 left-20 w-6 h-6 md:w-12 md:h-12 bg-accent/30 rounded-full blur-lg" style={{ animationDelay: '4s' }} />
-        <div className="floating-animation absolute top-60 right-40 w-12 h-12 md:w-24 md:h-24 bg-primary/15 rounded-full blur-2xl" style={{ animationDelay: '1s' }} />
-      </div>
+        <motion.div style={{ scale: glowScale }} className="absolute inset-0 z-[1] pointer-events-none">
+          <div className="absolute top-1/4 left-1/5 w-56 h-56 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/5 w-48 h-48 sm:w-80 sm:h-80 bg-primary/20 rounded-full blur-3xl" />
+        </motion.div>
 
-      {/* Tech Grid Pattern */}
-      <div className="absolute inset-0 z-5">
-        <div className="w-full h-full opacity-10" style={{
+        <div className="absolute inset-0 z-[1] opacity-10 pointer-events-none" style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
+          backgroundSize: "50px 50px",
         }} />
-      </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 h-screen flex items-center">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="slide-up space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full tech-card text-sm font-medium">
-                <Sparkles className="w-4 h-4 text-accent" />
-                <span className="text-tech-gray">Inovação em Tecnologia</span>
-              </div>
-              
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight flex items-center gap-2">
-                <img src={logo} alt="Logo Codexy" className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto" />
-              </h1>
-              
-              <p className="text-lg sm:text-xl lg:text-2xl text-tech-gray font-light max-w-lg">
-                Transformamos ideias em 
-                <span className="text-accent font-semibold"> soluções digitais</span> que 
-                impulsionam o futuro da sua empresa.
-              </p>
-            </div>
+        <motion.div style={{ opacity: heroOpacity, scale: heroScale, y: heroY }} className="relative z-20 container mx-auto px-4 sm:px-6 w-full">
+          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full tech-card text-sm font-medium"
+            >
+              <Sparkles className="w-4 h-4 text-accent" />
+              <span className="text-tech-gray">Inovação em Tecnologia</span>
+            </motion.div>
 
-            <div className="slide-up flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.2s' }}>
-              <Button 
-                size="lg" 
-                className="group px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-glow"
-                onClick={() => {
-                  const contactSection = document.querySelector('[data-section="contact"]');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Começar Projeto
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-card border-primary/20 hover:border-accent"
-                onClick={() => {
-                  const projectsSection = document.querySelector('[data-section="projects"]');
-                  if (projectsSection) {
-                    projectsSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Ver Portfólio
-              </Button>
-            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <img src={logo} alt="Logo Codexy" className="h-14 sm:h-16 md:h-20 w-auto mx-auto" />
+            </motion.div>
 
-            {/* Stats */}
-            <div className="slide-up grid grid-cols-3 gap-4 sm:gap-8 pt-8" style={{ animationDelay: '0.4s' }}>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg sm:text-xl lg:text-2xl text-tech-gray font-light"
+            >
+              Transformamos ideias em <span className="text-accent font-semibold">soluções digitais</span> que
+              impulsionam o futuro da sua empresa.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  size="lg"
+                  className="group px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-glow w-full sm:w-auto"
+                  onClick={scrollToContact}
+                >
+                  Começar Projeto
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold tech-card border-primary/20 hover:border-accent w-full sm:w-auto"
+                  onClick={scrollToProjects}
+                >
+                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Ver Portfólio
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid grid-cols-3 gap-4 sm:gap-8 pt-4 max-w-md mx-auto"
+            >
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-primary">30+</div>
                 <div className="text-xs sm:text-sm text-tech-gray">Projetos</div>
@@ -101,46 +112,25 @@ const HeroSection = () => {
                 <div className="text-2xl sm:text-3xl font-bold text-primary">24/7</div>
                 <div className="text-xs sm:text-sm text-tech-gray">Suporte</div>
               </div>
-            </div>
+            </motion.div>
           </div>
+        </motion.div>
 
-          {/* Right Content - 3D Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative">
-              {/* Central Tech Orb */}
-              <div className="relative w-80 h-80 mx-auto">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 blur-xl animate-pulse" />
-                <div className="relative w-full h-full rounded-full tech-card flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center tech-glow">
-                    <Code className="w-16 h-16 text-white" />
-                  </div>
-                </div>
-              </div>
+        <motion.div
+          style={{ opacity: cueOpacity }}
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-tech-gray text-xs sm:text-sm"
+        >
+          <span>role pra continuar</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+            className="w-px h-6 sm:h-8 bg-tech-gray/40"
+          />
+        </motion.div>
 
-              {/* Floating Tech Icons */}
-              <div className="absolute -top-8 -left-8 w-16 h-16 tech-card rounded-xl flex items-center justify-center floating-animation">
-                <Cpu className="w-8 h-8 text-accent" />
-              </div>
-              
-              <div className="absolute -top-4 -right-12 w-20 h-20 tech-card rounded-2xl flex items-center justify-center floating-animation" style={{ animationDelay: '1s' }}>
-                <Zap className="w-10 h-10 text-primary" />
-              </div>
-              
-              <div className="absolute -bottom-8 -left-4 w-14 h-14 tech-card rounded-lg flex items-center justify-center floating-animation" style={{ animationDelay: '2s' }}>
-                <Sparkles className="w-7 h-7 text-accent" />
-              </div>
-
-              {/* Rotating Ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-accent/30 animate-rotate-slow" />
-              <div className="absolute inset-8 rounded-full border border-primary/30 animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '15s' }} />
-            </div>
-          </div>
-        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-background to-transparent z-10" />
       </div>
-
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
-    </section>
+    </div>
   );
 };
 
