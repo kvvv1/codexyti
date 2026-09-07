@@ -37,7 +37,7 @@ export default function Preview5Cinematic() {
   const { scrollYProgress } = useScroll({ target: scrollRef, offset: ["start start", "end end"] });
 
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.85]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.15], [0, -60]);
   const glowScale = useTransform(scrollYProgress, [0, 1], [1, 2.6]);
 
