@@ -47,7 +47,12 @@ export default function Preview4Despacho() {
 
   return (
     <div ref={pageRef} className="min-h-screen" style={{ background: "#f5f4f1", color: "#12151c", fontFamily: "'IBM Plex Sans', system-ui, sans-serif" }}>
-      <PageSeo title="Homepage — Proposta 4 (Despacho)" description="Proposta de homepage" noIndex />
+      <PageSeo
+        title="Homepage — Proposta 4 (Despacho) | CODEXY"
+        description="Proposta de homepage: variante editorial de boletim, com headline em máquina de escrever e log de mensagens em tempo real."
+        path="/preview/despacho"
+        noIndex
+      />
       <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
       <motion.div style={{ scaleX: scrollYProgress, transformOrigin: "0%", background: "#d94f31" }} className="fixed top-0 left-0 right-0 h-[3px] z-50" />

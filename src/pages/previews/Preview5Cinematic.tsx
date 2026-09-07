@@ -43,7 +43,12 @@ export default function Preview5Cinematic() {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSeo title="Homepage — Proposta 5 (Cinemática)" description="Proposta de homepage" noIndex />
+      <PageSeo
+        title="Homepage — Proposta 5 (Cinemática) | CODEXY"
+        description="Proposta de homepage: hero controlado pelo scroll, estilo página de produto, revelando os diferenciais em sequência."
+        path="/preview/cinematic"
+        noIndex
+      />
 
       <div ref={scrollRef} className="relative" style={{ height: "420vh" }}>
         <div className="sticky top-0 h-screen overflow-hidden hero-gradient flex items-center justify-center">

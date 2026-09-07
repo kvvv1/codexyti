@@ -48,7 +48,12 @@ export default function Preview1Melhorada() {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSeo title="Homepage — Proposta 1 (Melhorada)" description="Proposta de homepage" noIndex />
+      <PageSeo
+        title="Homepage — Proposta 1 (Melhorada) | CODEXY"
+        description="Proposta de homepage: a mesma página atual da CODEXY com animações reais de Framer Motion no lugar do CSS puro."
+        path="/preview/melhorada"
+        noIndex
+      />
 
       <section ref={heroRef} className="relative min-h-screen hero-gradient overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">

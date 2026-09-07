@@ -11,7 +11,12 @@ const services = [
 export default function Preview3Vitrine() {
   return (
     <div className="min-h-screen" style={{ background: "#f6ecdd", color: "#2c1d10", fontFamily: "'Archivo', system-ui, sans-serif" }}>
-      <PageSeo title="Homepage — Proposta 3 (Vitrine)" description="Proposta de homepage" noIndex />
+      <PageSeo
+        title="Homepage — Proposta 3 (Vitrine) | CODEXY"
+        description="Proposta de homepage: variante de vitrine de loja, com marquee de nichos atendidos e selo de credibilidade."
+        path="/preview/vitrine"
+        noIndex
+      />
       <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
       <div className="max-w-6xl mx-auto px-6">

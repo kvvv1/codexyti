@@ -31,7 +31,12 @@ export default function Preview2Console() {
 
   return (
     <div className="min-h-screen" style={{ background: "#0d1316", color: "#e9eef0", fontFamily: "'Hanken Grotesk', system-ui, sans-serif" }}>
-      <PageSeo title="Homepage — Proposta 2 (Console)" description="Proposta de homepage" noIndex />
+      <PageSeo
+        title="Homepage — Proposta 2 (Console) | CODEXY"
+        description="Proposta de homepage: variante escura de painel operacional, com atendimento automático de WhatsApp simulado ao vivo."
+        path="/preview/console"
+        noIndex
+      />
       <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet" />
 
       <div className="max-w-6xl mx-auto px-6">
