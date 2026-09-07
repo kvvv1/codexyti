@@ -9,6 +9,7 @@ import { TrilhaDevShowcase } from "@/components/sections/TrilhaDevShowcase";
 import { MobileShowcase } from "@/components/sections/MobileShowcase";
 import { DoctorShowcase } from "@/components/sections/DoctorShowcase";
 import { ImperialShowcase } from "@/components/sections/ImperialShowcase";
+import { PortfolioIntro } from "@/components/sections/PortfolioIntro";
 import NicheDirectory from "@/components/NicheDirectory";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
         imageAlt="Logo da CODEXY"
       />
       <HeroSection />
+      <PortfolioIntro />
       <div
         id="projetos"
         data-section="projects"
