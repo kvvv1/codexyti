@@ -11,7 +11,7 @@ const scrollToContact = () =>
 const scrollToProjects = () =>
   document.querySelector('[data-section="projects"]')?.scrollIntoView({ behavior: "smooth" });
 
-const trustedBy = ["Coruja Cortes", "Clínica Gabriela Nassif", "Seu Expresso", "DoctorChatBot", "TrilhaDev"];
+const trustedBy = ["Grupo Gontijo Fundações", "Clínica Gabriela Nassif", "Seu Expresso", "DoctorChatBot", "TrilhaDev", "TIP Clínica"];
 
 const beats = [
   { label: "01", title: "Sites e Apps", desc: "Uma presença digital que leva o visitante direto pra conversa." },
