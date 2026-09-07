@@ -20,6 +20,12 @@ export const prerenderRoutes = [
   "/preview/vitrine",
   "/preview/despacho",
   "/preview/cinematic",
+  "/preview/melhorada-spotlight",
+  "/preview/melhorada-bento",
+  "/preview/melhorada-split",
+  "/preview/cinematic-horizontal",
+  "/preview/cinematic-textreveal",
+  "/preview/cinematic-parallax",
   "/404",
 ];
 

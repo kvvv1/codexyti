@@ -20,6 +20,12 @@ import Preview2Console from "./pages/previews/Preview2Console";
 import Preview3Vitrine from "./pages/previews/Preview3Vitrine";
 import Preview4Despacho from "./pages/previews/Preview4Despacho";
 import Preview5Cinematic from "./pages/previews/Preview5Cinematic";
+import Preview6MelhoradaSpotlight from "./pages/previews/Preview6MelhoradaSpotlight";
+import Preview7MelhoradaBento from "./pages/previews/Preview7MelhoradaBento";
+import Preview8MelhoradaSplit from "./pages/previews/Preview8MelhoradaSplit";
+import Preview9CinematicHorizontal from "./pages/previews/Preview9CinematicHorizontal";
+import Preview10CinematicTextReveal from "./pages/previews/Preview10CinematicTextReveal";
+import Preview11CinematicParallax from "./pages/previews/Preview11CinematicParallax";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +55,12 @@ export const AppRoutes = () => (
       <Route path="/preview/vitrine" element={<Preview3Vitrine />} />
       <Route path="/preview/despacho" element={<Preview4Despacho />} />
       <Route path="/preview/cinematic" element={<Preview5Cinematic />} />
+      <Route path="/preview/melhorada-spotlight" element={<Preview6MelhoradaSpotlight />} />
+      <Route path="/preview/melhorada-bento" element={<Preview7MelhoradaBento />} />
+      <Route path="/preview/melhorada-split" element={<Preview8MelhoradaSplit />} />
+      <Route path="/preview/cinematic-horizontal" element={<Preview9CinematicHorizontal />} />
+      <Route path="/preview/cinematic-textreveal" element={<Preview10CinematicTextReveal />} />
+      <Route path="/preview/cinematic-parallax" element={<Preview11CinematicParallax />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
