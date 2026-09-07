@@ -9,7 +9,6 @@ import { TrilhaDevShowcase } from "@/components/sections/TrilhaDevShowcase";
 import { MobileShowcase } from "@/components/sections/MobileShowcase";
 import { DoctorShowcase } from "@/components/sections/DoctorShowcase";
 import { ImperialShowcase } from "@/components/sections/ImperialShowcase";
-import { PortfolioIntro } from "@/components/sections/PortfolioIntro";
 import NicheDirectory from "@/components/NicheDirectory";
 
 const Index = () => {
@@ -23,16 +22,27 @@ const Index = () => {
         imageAlt="Logo da CODEXY"
       />
       <HeroSection />
-      <PortfolioIntro />
-      <div
-        id="projetos"
-        data-section="projects"
-        className="portfolio-showcase relative isolate overflow-hidden bg-background pt-0"
-      >
-        <TrilhaDevShowcase />
-        <MobileShowcase />
-        <DoctorShowcase />
-        <ImperialShowcase />
+      <div id="projetos" data-section="projects" className="portfolio-showcase relative isolate bg-background pt-0">
+        <div className="relative pb-[45vh]">
+          <div className="sticky top-0 bg-background" style={{ zIndex: 1 }}>
+            <TrilhaDevShowcase />
+          </div>
+        </div>
+        <div className="relative pb-[45vh]">
+          <div className="sticky top-0 bg-background" style={{ zIndex: 2 }}>
+            <MobileShowcase />
+          </div>
+        </div>
+        <div className="relative pb-[45vh]">
+          <div className="sticky top-0 bg-background" style={{ zIndex: 3 }}>
+            <DoctorShowcase />
+          </div>
+        </div>
+        <div className="relative">
+          <div className="sticky top-0 bg-background" style={{ zIndex: 4 }}>
+            <ImperialShowcase />
+          </div>
+        </div>
       </div>
       <ServicesSection />
       <NicheDirectory />
