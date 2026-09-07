@@ -11,6 +11,8 @@ const scrollToContact = () =>
 const scrollToProjects = () =>
   document.querySelector('[data-section="projects"]')?.scrollIntoView({ behavior: "smooth" });
 
+const trustedBy = ["Coruja Cortes", "Clínica Gabriela Nassif", "Seu Expresso", "DoctorChatBot", "TrilhaDev"];
+
 const beats = [
   { label: "01", title: "Sites e Apps", desc: "Uma presença digital que leva o visitante direto pra conversa." },
   { label: "02", title: "Automação e Chatbots", desc: "WhatsApp, Instagram e e-mail respondendo sozinhos, 24 horas." },
@@ -103,7 +105,7 @@ const HeroSection = () => {
           style={{ opacity: heroOpacity, transform: `translateY(${heroY}px) scale(${heroScale})` }}
           className="relative z-20 container mx-auto px-4 sm:px-6 w-full"
         >
-          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+          <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
             <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}>
               <img src={logo} alt="Logo Codexy" className="h-14 sm:h-16 md:h-20 w-auto mx-auto" />
             </motion.div>
@@ -150,19 +152,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 pt-4 max-w-md mx-auto"
+              className="pt-1"
             >
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary">30+</div>
-                <div className="text-xs sm:text-sm text-tech-gray">Projetos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-accent">99%</div>
-                <div className="text-xs sm:text-sm text-tech-gray">Satisfação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary">24/7</div>
-                <div className="text-xs sm:text-sm text-tech-gray">Suporte</div>
+              <p className="text-[0.65rem] sm:text-xs uppercase tracking-widest text-tech-gray/70 mb-2">
+                Empresas que já confiam na CODEXY
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 sm:gap-x-6 max-w-xl mx-auto">
+                {trustedBy.map((name) => (
+                  <span key={name} className="text-xs sm:text-sm font-semibold text-primary/70">
+                    {name}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </div>
